@@ -2,7 +2,19 @@ import { Button } from "@/components/ui/button"
 import { ServiceCard } from "@/components/ui/service-card"
 import { SectionHeader } from "@/components/ui/section-header"
 import { ContactBanner } from "@/components/ui/contact-banner"
-import { Users, Globe, Shield, FileText, Plane, Phone, CheckCircle, Award, Clock, Building, Car } from "lucide-react"
+import {
+  Users,
+  Globe,
+  Shield,
+  FileText,
+  Plane,
+  Phone,
+  CheckCircle,
+  Award,
+  Clock,
+  Building,
+  Car,
+} from "lucide-react"
 
 export default function ServicesPage() {
   const mainServices = [
@@ -75,36 +87,60 @@ export default function ServicesPage() {
     {
       step: "01",
       title: "Application & Registration",
-      description: "Visit our office for job listings, eligibility checks, and pay the registration fee to begin.",
+      description:
+        "Visit our office for job listings, eligibility checks, and pay the registration fee to begin.",
     },
     {
       step: "02",
       title: "Document Verification",
-      description: "Submit required documents for authenticity verification and background checks.",
+      description:
+        "Submit required documents for authenticity verification and background checks.",
     },
     {
       step: "03",
       title: "Interview & Matching",
-      description: "Undergo interviews and skill assessments, then get matched with suitable international employers.",
+      description:
+        "Undergo interviews and skill assessments, then get matched with suitable international employers.",
     },
     {
       step: "04",
       title: "Deployment & Support",
-      description: "Complete visa processing, pre-departure training, travel arrangements, and ongoing support abroad.",
+      description:
+        "Complete visa processing, pre-departure training, travel arrangements, and ongoing support abroad.",
+    },
+  ]
+
+  const benefits = [
+    {
+      title: "Free Accommodation",
+      text: "Company-sponsored housing or housing allowance",
+    },
+    {
+      title: "Health Insurance",
+      text: "Comprehensive medical coverage and emergency assistance",
+    },
+    {
+      title: "Transportation",
+      text: "Free transport to and from work",
+    },
+    {
+      title: "End-of-Service Benefits",
+      text: "Gratuity payments upon contract completion",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl text-blue-100 leading-relaxed">
-              Comprehensive labor recruitment services connecting Ugandan workers with reputable international
-              employers. From application to deployment and ongoing support abroad.
+      <section className="relative fm-gradient text-primary-foreground py-20">
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.2)]" />
+        <div className="container relative z-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="mb-6 text-5xl font-bold">Our Services</h1>
+            <p className="text-xl leading-relaxed text-secondary-foreground/80">
+              Comprehensive labor recruitment services connecting Ugandan workers
+              with reputable international employers. From application to
+              deployment and ongoing support abroad.
             </p>
           </div>
         </div>
@@ -112,7 +148,7 @@ export default function ServicesPage() {
 
       {/* Main Services */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <SectionHeader
             icon={Users}
             subtitle="WHAT WE OFFER"
@@ -120,15 +156,17 @@ export default function ServicesPage() {
             description="End-to-end services ensuring safe, legal, and successful international employment for Ugandan workers."
             centered
           />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mainServices.map((service, index) => (
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {mainServices.map((service, idx) => (
               <ServiceCard
-                key={index}
+                key={idx}
                 icon={service.icon}
                 title={service.title}
                 description={service.description}
-                href={`/services/${service.title.toLowerCase().replace(/\s+/g, "-").replace("&", "and")}`}
+                href={`/services/${service.title
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/&/g, "and")}`}
               />
             ))}
           </div>
@@ -136,8 +174,8 @@ export default function ServicesPage() {
       </section>
 
       {/* Industries Served */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-muted">
+        <div className="container">
           <SectionHeader
             icon={Building}
             subtitle="INDUSTRIES WE SERVE"
@@ -145,15 +183,17 @@ export default function ServicesPage() {
             description="Diverse job opportunities across multiple industries with competitive salaries and comprehensive benefits."
             centered
           />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {industries.map((industry, index) => (
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {industries.map((industry, idx) => (
               <ServiceCard
-                key={index}
+                key={idx}
                 icon={industry.icon}
                 title={industry.title}
                 description={industry.description}
-                href={`/job-categories/${industry.title.toLowerCase().replace(/\s+/g, "-").replace("&", "and")}`}
+                href={`/job-categories/${industry.title
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/&/g, "and")}`}
               />
             ))}
           </div>
@@ -162,7 +202,7 @@ export default function ServicesPage() {
 
       {/* Process Steps */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <SectionHeader
             icon={Clock}
             subtitle="HOW IT WORKS"
@@ -170,15 +210,18 @@ export default function ServicesPage() {
             description="A structured and transparent process that has successfully placed thousands of Ugandan workers in international jobs."
             centered
           />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step, idx) => (
+              <div key={idx} className="text-center">
+                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-secondary text-secondary-foreground text-2xl font-bold">
                   {step.step}
                 </div>
-                <h3 className="text-xl font-bold mb-4">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                <h3 className="mb-4 text-xl font-bold text-foreground">
+                  {step.title}
+                </h3>
+                <p className="leading-relaxed text-muted-foreground">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>
@@ -192,8 +235,8 @@ export default function ServicesPage() {
       />
 
       {/* Salary & Benefits */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-muted">
+        <div className="container">
           <SectionHeader
             icon={Award}
             subtitle="SALARY & BENEFITS"
@@ -201,61 +244,50 @@ export default function ServicesPage() {
             description="Fair wages and comprehensive benefits ensuring a positive and productive experience for all our workers."
             centered
           />
-
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid gap-16 lg:grid-cols-2 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Salary Ranges (Monthly)</h3>
+              <h3 className="mb-6 text-2xl font-bold text-foreground">
+                Salary Ranges (Monthly)
+              </h3>
               <div className="space-y-4">
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                  <span className="font-medium">Security Guards</span>
-                  <span className="text-red-600 font-bold">UGX 1.5M - 2.5M</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                  <span className="font-medium">Hospitality Workers</span>
-                  <span className="text-red-600 font-bold">UGX 1.2M - 2.0M</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                  <span className="font-medium">Drivers & Transport</span>
-                  <span className="text-red-600 font-bold">UGX 1.8M - 2.9M</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                  <span className="font-medium">Construction Workers</span>
-                  <span className="text-red-600 font-bold">UGX 1.5M - 2.7M</span>
-                </div>
+                {[
+                  ["Security Guards", "UGX 1.5M - 2.5M"],
+                  ["Hospitality Workers", "UGX 1.2M - 2.0M"],
+                  ["Drivers & Transport", "UGX 1.8M - 2.9M"],
+                  ["Construction Workers", "UGX 1.5M - 2.7M"],
+                ].map(([role, range], i) => (
+                  <div
+                    key={i}
+                    className="flex justify-between items-center rounded-lg bg-background p-4 shadow-sm"
+                  >
+                    <span className="font-medium text-foreground">{role}</span>
+                    <span className="font-bold text-secondary">{range}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Employment Benefits</h3>
+              <h3 className="mb-6 text-2xl font-bold text-foreground">
+                Employment Benefits
+              </h3>
               <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-red-600 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900">Free Accommodation</h4>
-                    <p className="text-gray-600 text-sm">Company-sponsored housing or housing allowance</p>
+                {benefits.map((b, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start space-x-3"
+                  >
+                    <CheckCircle className="mt-1 h-5 w-5 text-secondary" />
+                    <div>
+                      <h4 className="mb-1 text-lg font-bold text-foreground">
+                        {b.title}
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        {b.text}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-red-600 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900">Health Insurance</h4>
-                    <p className="text-gray-600 text-sm">Comprehensive medical coverage and emergency assistance</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-red-600 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900">Transportation</h4>
-                    <p className="text-gray-600 text-sm">Free transport to and from work</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-red-600 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900">End-of-Service Benefits</h4>
-                    <p className="text-gray-600 text-sm">Gratuity payments upon contract completion</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -263,20 +295,23 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-red-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Start Your Application Today</h2>
-          <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of Ugandans who have secured well-paying international jobs through our ethical recruitment
-            process. Your journey to financial stability starts here.
+      <section className="py-20 bg-secondary">
+        <div className="container text-center">
+          <h2 className="mb-6 text-4xl font-bold text-secondary-foreground">
+            Start Your Application Today
+          </h2>
+          <p className="mx-auto mb-8 max-w-2xl text-xl text-secondary-foreground/90">
+            Join thousands of Ugandans who have secured well-paying international
+            jobs through our ethical recruitment process. Your journey to financial
+            stability starts here.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
+          <div className="flex flex-col gap-4 sm:flex-row justify-center">
+            <Button className="bg-background px-8 py-3 text-secondary hover:bg-muted">
               Apply for Jobs Now
             </Button>
             <Button
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-red-600 px-8 py-3 text-lg font-semibold bg-transparent"
+              className="border-background px-8 py-3 text-secondary-foreground hover:bg-background hover:text-secondary"
             >
               Download Requirements Guide
             </Button>

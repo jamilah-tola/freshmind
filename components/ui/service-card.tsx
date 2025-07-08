@@ -1,3 +1,4 @@
+// components/ui/service-card.tsx
 import { Card, CardContent } from "@/components/ui/card"
 import type { LucideIcon } from "lucide-react"
 import Link from "next/link"
@@ -7,28 +8,35 @@ interface ServiceCardProps {
   title: string
   description: string
   href?: string
-  variant?: "default" | "dark"
 }
 
-export function ServiceCard({ icon: Icon, title, description, href = "#", variant = "default" }: ServiceCardProps) {
-  const cardBg = variant === "dark" ? "bg-gray-800 border-gray-700" : "bg-white"
-  const textColor = variant === "dark" ? "text-white" : "text-gray-900"
-  const descriptionColor = variant === "dark" ? "text-gray-400" : "text-gray-600"
-
+export function ServiceCard({
+  icon: Icon,
+  title,
+  description,
+  href = "#",
+}: ServiceCardProps) {
   return (
-    <Card className={`${cardBg} shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}>
+    <Card className="shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
       <CardContent className="p-8">
-        <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
-          <Icon className="w-8 h-8 text-red-600" />
+        <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-secondary/10">
+          <Icon className="h-8 w-8 text-secondary" />
         </div>
-        <h3 className={`text-xl font-bold mb-4 ${textColor}`}>{title}</h3>
-        <p className={`${descriptionColor} mb-6 leading-relaxed`}>{description}</p>
+
+        <h3 className="mb-4 text-xl font-bold text-foreground">{title}</h3>
+
+        <p className="mb-6 leading-relaxed text-muted-foreground">
+          {description}
+        </p>
+
         <Link
           href={href}
-          className="text-red-600 font-medium hover:text-red-700 transition-colors inline-flex items-center group"
+          className="inline-flex items-center font-medium text-secondary transition-all hover:text-secondary-foreground"
         >
           Learn More
-          <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+          <span className="ml-1 transition-transform group-hover:translate-x-1">
+            →
+          </span>
         </Link>
       </CardContent>
     </Card>

@@ -1,6 +1,6 @@
+// pages/job-categories.tsx
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SectionHeader } from "@/components/ui/section-header"
 import { ContactBanner } from "@/components/ui/contact-banner"
@@ -11,12 +11,13 @@ import {
   HardHat,
   Heart,
   ShoppingBag,
-  Building,
   Users,
   DollarSign,
   MapPin,
   Clock,
+  Building,
 } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function JobCategoriesPage() {
   const jobCategories = [
@@ -92,7 +93,8 @@ export default function JobCategoriesPage() {
     {
       icon: DollarSign,
       title: "Competitive Salaries",
-      description: "Monthly salaries ranging from UGX 1.2M to 3.5M depending on role and experience",
+      description:
+        "Monthly salaries ranging from UGX 1.2M to 3.5M depending on role and experience",
     },
     {
       icon: Building,
@@ -112,14 +114,14 @@ export default function JobCategoriesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Job Categories</h1>
-            <p className="text-xl text-blue-100 leading-relaxed">
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Hero */}
+      <section className="relative fm-gradient text-primary-foreground py-20">
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.2)]" />
+        <div className="container relative z-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="mb-6 text-5xl font-bold">Job Categories</h1>
+            <p className="text-xl leading-relaxed text-secondary-foreground/80">
               Explore diverse employment opportunities across multiple industries with competitive salaries,
               comprehensive benefits, and career growth potential in top international destinations.
             </p>
@@ -127,9 +129,9 @@ export default function JobCategoriesPage() {
         </div>
       </section>
 
-      {/* Job Categories Grid */}
+      {/* Grid */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <SectionHeader
             icon={Users}
             subtitle="EMPLOYMENT OPPORTUNITIES"
@@ -139,40 +141,50 @@ export default function JobCategoriesPage() {
           />
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {jobCategories.map((category, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            {jobCategories.map((cat, i) => (
+              <Card
+                key={i}
+                className="hover:shadow-xl transition-all hover:-translate-y-1"
+              >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden">
                     <Image
-                      src={category.image || "/placeholder.svg"}
-                      alt={category.title}
+                      src={cat.image}
+                      alt={cat.title}
                       width={400}
                       height={300}
                       className="w-full h-48 object-cover"
                     />
                     <div className="absolute top-4 left-4">
-                      <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
-                        <category.icon className="w-6 h-6 text-white" />
+                      <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+                        <cat.icon className="w-6 h-6 text-secondary-foreground" />
                       </div>
                     </div>
-                    <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {category.salaryRange}
+                    <div className="absolute top-4 right-4">
+                      <span className="badge-salary">{cat.salaryRange}</span>
                     </div>
                   </div>
 
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{category.title}</h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">{category.description}</p>
+                    <h3 className="mb-3 text-2xl font-bold text-foreground">
+                      {cat.title}
+                    </h3>
+                    <p className="mb-4 leading-relaxed text-muted-foreground">
+                      {cat.description}
+                    </p>
 
-                    <div className="space-y-4 mb-6">
+                    <div className="mb-6 space-y-4">
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-                          <Users className="w-4 h-4 mr-2 text-red-600" />
+                        <h4 className="mb-2 flex items-center font-semibold text-foreground">
+                          <Users className="mr-2 w-4 h-4 text-secondary" />
                           Available Positions
                         </h4>
                         <div className="flex flex-wrap gap-2">
-                          {category.jobs.map((job, idx) => (
-                            <span key={idx} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                          {cat.jobs.map((job, idx) => (
+                            <span
+                              key={idx}
+                              className="bg-muted text-muted-foreground px-3 py-1 rounded-full text-sm"
+                            >
                               {job}
                             </span>
                           ))}
@@ -180,22 +192,27 @@ export default function JobCategoriesPage() {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-                          <MapPin className="w-4 h-4 mr-2 text-red-600" />
+                        <h4 className="mb-2 flex items-center font-semibold text-foreground">
+                          <MapPin className="mr-2 w-4 h-4 text-secondary" />
                           Destinations
                         </h4>
                         <div className="flex flex-wrap gap-2">
-                          {category.countries.map((country, idx) => (
-                            <span key={idx} className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">
-                              {country}
+                          {cat.countries.map((ct, idx) => (
+                            <span
+                              key={idx}
+                              className="bg-muted text-muted-foreground px-3 py-1 rounded-full text-sm"
+                            >
+                              {ct}
                             </span>
                           ))}
                         </div>
                       </div>
                     </div>
 
-                    <Link href={category.href}>
-                      <Button className="w-full bg-red-600 hover:bg-red-700 text-white">View Details & Apply</Button>
+                    <Link href={cat.href}>
+                      <Button className="w-full btn-primary">
+                        View Details & Apply
+                      </Button>
                     </Link>
                   </div>
                 </CardContent>
@@ -205,9 +222,9 @@ export default function JobCategoriesPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* Benefits */}
+      <section className="py-20 bg-muted">
+        <div className="container">
           <SectionHeader
             icon={Heart}
             subtitle="EMPLOYMENT BENEFITS"
@@ -217,14 +234,21 @@ export default function JobCategoriesPage() {
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+            {benefits.map((b, i) => (
+              <Card
+                key={i}
+                className="text-center hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="p-6">
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="w-8 h-8 text-red-600" />
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary/10">
+                    <b.icon className="h-8 w-8 text-secondary" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
+                  <h3 className="mb-3 text-lg font-bold text-foreground">
+                    {b.title}
+                  </h3>
+                  <p className="leading-relaxed text-muted-foreground">
+                    {b.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -232,110 +256,10 @@ export default function JobCategoriesPage() {
         </div>
       </section>
 
-      {/* Contact Banner */}
       <ContactBanner
         message="Ready to explore international job opportunities? Contact us to discuss your career goals"
         phoneNumber="+256 783 183 252"
       />
-
-      {/* Requirements Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            icon={Clock}
-            subtitle="GENERAL REQUIREMENTS"
-            title="What You Need to Get Started"
-            description="Basic requirements that apply to most job categories. Specific requirements may vary by position."
-            centered
-          />
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Basic Requirements</h3>
-                  <ul className="space-y-3 text-gray-600">
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Age: 21-45 years (varies by category)</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Valid Ugandan passport (6+ months validity)</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Clean criminal record</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Basic education (minimum O-Level)</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Good physical and mental health</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Preferred Qualifications</h3>
-                  <ul className="space-y-3 text-gray-600">
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Previous work experience in relevant field</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Basic English communication skills</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Technical certifications (for skilled roles)</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Willingness to work abroad for 2+ years</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Adaptability to different cultures</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-red-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Find Your Perfect International Career</h2>
-          <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-            With opportunities across multiple industries and countries, your ideal international career is waiting.
-            Start your application today and join thousands of successful Ugandan workers abroad.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/application-process">
-              <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
-                Start Application Process
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-red-600 px-8 py-3 text-lg font-semibold bg-transparent"
-              >
-                Schedule Consultation
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

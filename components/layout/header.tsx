@@ -1,3 +1,4 @@
+// components/layout/Header.tsx
 "use client"
 
 import { useState } from "react"
@@ -18,13 +19,13 @@ export function Header() {
   ]
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="bg-background shadow-sm sticky top-0 z-50">
+      <div className="container px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
-            <Users className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+            <Users className="w-4 h-4 text-primary-foreground" />
           </div>
-          <span className="text-2xl font-bold text-gray-900">FRESHMIND</span>
+          <span className="text-2xl font-semibold text-foreground">FRESHMIND</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -33,7 +34,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-gray-700 hover:text-red-600 font-medium transition-colors"
+              className="text-foreground hover:text-primary transition-all font-medium"
             >
               {item.label}
             </Link>
@@ -41,10 +42,13 @@ export function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Button className="bg-red-600 hover:bg-red-700 text-white px-6 hidden sm:block">Apply Now</Button>
+          <Button className="btn-primary hidden sm:inline-block">Apply Now</Button>
 
           {/* Mobile Menu Button */}
-          <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            className="lg:hidden text-foreground hover:text-primary transition-all"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -52,22 +56,22 @@ export function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-white border-t">
-          <nav className="container mx-auto px-4 py-4 space-y-4">
+        <div className="lg:hidden bg-background border-t border-border">
+          <nav className="container px-4 py-4 space-y-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block text-gray-700 hover:text-red-600 font-medium transition-colors"
+                className="block text-foreground hover:text-primary transition-all font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <Button className="bg-red-600 hover:bg-red-700 text-white w-full mt-4">Apply Now</Button>
+            <Button className="btn-primary w-full mt-4">Apply Now</Button>
           </nav>
         </div>
       )}
     </header>
-  )
+)
 }

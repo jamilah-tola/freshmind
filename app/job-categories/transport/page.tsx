@@ -1,32 +1,48 @@
+// app/job-categories/transport/page.tsx
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SectionHeader } from "@/components/ui/section-header"
 import { ContactBanner } from "@/components/ui/contact-banner"
-import { Car, Users, MapPin, CheckCircle, Award, Building, Truck, Plane } from "lucide-react"
+import { Car, Truck, Plane, CheckCircle, Building, MapPin } from "lucide-react"
 
 export default function TransportJobsPage() {
   const transportRoles = [
     {
       title: "Taxi Driver",
-      description: "Professional taxi driving in major cities with modern fleet vehicles",
-      salary: "UGX 1.8M - 2.5M",
-      requirements: ["Valid driving license", "3+ years experience", "Good navigation skills"],
+      description:
+        "Professional taxi driving in major cities with modern fleet vehicles",
+      salary: "UGX 1.8M – 2.5M",
+      requirements: [
+        "Valid driving license",
+        "3+ years experience",
+        "Good navigation skills",
+      ],
       icon: Car,
     },
     {
       title: "Bus Driver",
-      description: "Public transport and tour bus driving with established transport companies",
-      salary: "UGX 2.0M - 2.9M",
-      requirements: ["Heavy vehicle license", "5+ years experience", "Clean driving record"],
+      description:
+        "Public transport and tour bus driving with established transport companies",
+      salary: "UGX 2.0M – 2.9M",
+      requirements: [
+        "Heavy vehicle license",
+        "5+ years experience",
+        "Clean driving record",
+      ],
       icon: Truck,
     },
     {
       title: "Baggage Handler",
-      description: "Airport baggage handling and logistics support at international airports",
-      salary: "UGX 1.5M - 2.2M",
-      requirements: ["Physical fitness", "Airport security clearance", "Team work skills"],
+      description:
+        "Airport baggage handling and logistics support at international airports",
+      salary: "UGX 1.5M – 2.2M",
+      requirements: [
+        "Physical fitness",
+        "Airport security clearance",
+        "Team work skills",
+      ],
       icon: Plane,
     },
   ]
@@ -34,13 +50,15 @@ export default function TransportJobsPage() {
   const employerPartners = [
     {
       name: "Emirates Taxi",
-      description: "Leading taxi service provider in Dubai and Abu Dhabi with modern fleet",
+      description:
+        "Leading taxi service provider in Dubai and Abu Dhabi with modern fleet",
       positions: "300+ openings",
       logo: "/placeholder.svg?height=80&width=120",
     },
     {
       name: "Mowasalat Qatar",
-      description: "Qatar's national transport company operating buses and taxis",
+      description:
+        "Qatar's national transport company operating buses and taxis",
       positions: "200+ openings",
       logo: "/placeholder.svg?height=80&width=120",
     },
@@ -83,36 +101,42 @@ export default function TransportJobsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="relative fm-gradient text-primary-foreground py-20">
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.2)]" />
+        <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
-                  <Car className="w-6 h-6 text-white" />
+              <div className="mb-6 flex items-center space-x-2">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary">
+                  <Car className="h-6 w-6 text-secondary-foreground" />
                 </div>
-                <span className="text-red-400 font-medium text-lg">TRANSPORT & LOGISTICS</span>
+                <span className="text-lg font-medium text-secondary-foreground">
+                  TRANSPORT & LOGISTICS
+                </span>
               </div>
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">Transport Jobs in the Middle East</h1>
-              <p className="text-xl mb-8 text-blue-100">
-                Professional driving and logistics positions with leading transport companies. Excellent salaries,
-                company vehicles, and career advancement opportunities.
+              <h1 className="mb-6 text-4xl lg:text-5xl font-bold leading-tight">
+                Transport Jobs in the Middle East
+              </h1>
+              <p className="mb-8 leading-relaxed text-secondary-foreground/80">
+                Professional driving and logistics positions with leading transport
+                companies. Excellent salaries, company vehicles, and career advancement
+                opportunities.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/application-process">
-                  <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold">
-                    Apply for Transport Jobs
-                  </Button>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link
+                  href="/application-process"
+                  className="btn-primary px-8 py-4 text-lg"
+                >
+                  Apply for Transport Jobs
                 </Link>
-                <Button
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg font-semibold bg-transparent"
+                <Link
+                  href="/application-process"
+                  className="btn-secondary px-8 py-4 text-lg"
                 >
                   Download Requirements
-                </Button>
+                </Link>
               </div>
             </div>
             <div className="relative">
@@ -130,7 +154,7 @@ export default function TransportJobsPage() {
 
       {/* Transport Roles */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <SectionHeader
             icon={Car}
             subtitle="AVAILABLE POSITIONS"
@@ -139,37 +163,54 @@ export default function TransportJobsPage() {
             centered
           />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {transportRoles.map((role, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
-                    <role.icon className="w-8 h-8 text-red-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{role.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{role.description}</p>
-
-                  <div className="mb-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-gray-700">Monthly Salary</span>
-                      <span className="text-lg font-bold text-green-600">{role.salary}</span>
-                    </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {transportRoles.map((role, idx) => (
+              <Card
+                key={idx}
+                className="shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:-translate-y-1"
+              >
+                <CardContent className="flex flex-col p-8">
+                  {/* Icon */}
+                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-secondary/10">
+                    <role.icon className="h-8 w-8 text-secondary" />
                   </div>
 
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-2">Key Requirements</h4>
-                    <ul className="space-y-1">
-                      {role.requirements.map((req, idx) => (
-                        <li key={idx} className="text-sm text-gray-600 flex items-center">
-                          <CheckCircle className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
-                          {req}
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Title & Description */}
+                  <h3 className="mb-2 text-lg font-bold text-foreground">
+                    {role.title}
+                  </h3>
+                  <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                    {role.description}
+                  </p>
+
+                  {/* Salary */}
+                  <div className="mb-6 flex items-center justify-between">
+                    <span className="text-sm font-medium text-foreground">
+                      Salary
+                    </span>
+                    <span className="text-sm font-semibold text-secondary">
+                      {role.salary}
+                    </span>
                   </div>
 
+                  {/* Requirements */}
+                  <ul className="mb-6 flex-1 space-y-2">
+                    {role.requirements.map((req, j) => (
+                      <li
+                        key={j}
+                        className="flex items-start text-sm text-muted-foreground"
+                      >
+                        <CheckCircle className="mr-2 h-4 w-4 text-secondary flex-shrink-0" />
+                        {req}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
                   <Link href="/application-process">
-                    <Button className="w-full bg-red-600 hover:bg-red-700 text-white">Apply Now</Button>
+                    <Button className="mt-auto w-full btn-primary">
+                      Apply Now
+                    </Button>
                   </Link>
                 </CardContent>
               </Card>
@@ -178,9 +219,10 @@ export default function TransportJobsPage() {
         </div>
       </section>
 
+
       {/* Employer Partners */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-muted">
+        <div className="container">
           <SectionHeader
             icon={Building}
             subtitle="EMPLOYER PARTNERS"
@@ -189,30 +231,43 @@ export default function TransportJobsPage() {
             centered
           />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {employerPartners.map((employer, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="text-center">
-                    <div className="w-24 h-16 bg-gray-200 rounded-lg flex items-center justify-center mx-auto mb-4">
+          <div className="grid gap-8 md:grid-cols-3">
+            {employerPartners.map((emp, idx) => (
+              <Card
+                key={idx}
+                className="card hover:shadow-xl transition-all hover:-translate-y-1"
+              >
+                <CardContent className="flex flex-col items-center p-8">
+                  {/* Logo */}
+                  <div className="mb-6 w-full max-w-xs">
+                    <div className="relative aspect-w-4 aspect-h-3 rounded-lg bg-background shadow-inner">
                       <Image
-                        src={employer.logo || "/placeholder.svg"}
-                        alt={employer.name}
-                        width={120}
-                        height={80}
-                        className="max-w-full max-h-full object-contain"
+                        src={emp.logo}
+                        alt={emp.name}
+                        fill
+                        className="object-contain p-4"
                       />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{employer.name}</h3>
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">{employer.description}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-green-600 font-semibold">{employer.positions}</span>
-                      <Link href="/application-process">
-                        <Button size="sm" className="bg-red-600 hover:bg-red-700 text-white">
-                          Apply
-                        </Button>
-                      </Link>
-                    </div>
+                  </div>
+
+                  {/* Name & Description */}
+                  <h3 className="mb-2 text-xl font-bold text-foreground text-center">
+                    {emp.name}
+                  </h3>
+                  <p className="mb-6 text-center text-muted-foreground text-sm leading-relaxed">
+                    {emp.description}
+                  </p>
+
+                  {/* Positions & Action */}
+                  <div className="mt-auto flex w-full items-center justify-between">
+                    <span className="font-semibold text-secondary">
+                      {emp.positions}
+                    </span>
+                    <Link href="/application-process">
+                      <Button size="sm" className="btn-primary">
+                        Apply
+                      </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -221,69 +276,10 @@ export default function TransportJobsPage() {
         </div>
       </section>
 
-      {/* License Requirements */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            icon={Award}
-            subtitle="LICENSE REQUIREMENTS"
-            title="Driving License Categories"
-            description="Different transport roles require specific license categories and experience levels."
-            centered
-          />
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card>
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Car className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">Category B License</h3>
-                <p className="text-gray-600 mb-4">For taxi and light vehicle driving positions</p>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Minimum 3 years experience</li>
-                  <li>• Clean driving record</li>
-                  <li>• Valid for cars up to 3.5 tons</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Truck className="w-8 h-8 text-orange-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">Category C License</h3>
-                <p className="text-gray-600 mb-4">For bus and heavy vehicle driving</p>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Minimum 5 years experience</li>
-                  <li>• Heavy vehicle certification</li>
-                  <li>• Passenger transport endorsement</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Plane className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">Airport Security</h3>
-                <p className="text-gray-600 mb-4">For airport and logistics positions</p>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Security clearance required</li>
-                  <li>• Physical fitness test</li>
-                  <li>• Background verification</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Destinations */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20">
+        <div className="container">
           <SectionHeader
             icon={MapPin}
             subtitle="WORK DESTINATIONS"
@@ -291,35 +287,34 @@ export default function TransportJobsPage() {
             description="Explore transport opportunities across different Middle Eastern countries."
             centered
           />
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {destinations.map((destination, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+          <div className="grid gap-8 md:grid-cols-3">
+            {destinations.map((d, idx) => (
+              <Card
+                key={idx}
+                className="text-center hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="p-6">
-                  <div className="text-6xl mb-4">{destination.flag}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{destination.country}</h3>
-                  <div className="mb-4">
-                    <p className="text-gray-600 text-sm mb-2">Major Cities:</p>
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {destination.cities.map((city, idx) => (
-                        <span key={idx} className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">
-                          {city}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="mb-4 text-6xl">{d.flag}</div>
+                  <h3 className="mb-2 text-xl font-bold text-foreground">
+                    {d.country}
+                  </h3>
+                  <p className="mb-2 text-sm text-muted-foreground">
+                    Major Cities:
+                  </p>
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    {d.cities.map((c, j) => (
+                      <span
+                        key={j}
+                        className="bg-muted text-muted-foreground px-2 py-1 rounded text-xs"
+                      >
+                        {c}
+                      </span>
+                    ))}
                   </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <span className="text-sm text-gray-600">Demand:</span>
-                    <span
-                      className={`text-sm font-semibold ${
-                        destination.demand === "Very High"
-                          ? "text-red-600"
-                          : destination.demand === "High"
-                            ? "text-orange-600"
-                            : "text-yellow-600"
-                      }`}
-                    >
-                      {destination.demand}
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-sm text-muted-foreground">Demand:</span>
+                    <span className="font-semibold text-secondary">
+                      {d.demand}
                     </span>
                   </div>
                 </CardContent>
@@ -329,100 +324,10 @@ export default function TransportJobsPage() {
         </div>
       </section>
 
-      {/* Benefits & Requirements */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Benefits */}
-            <div>
-              <SectionHeader
-                icon={Award}
-                subtitle="EMPLOYMENT BENEFITS"
-                title="What You'll Receive"
-                description="Comprehensive benefits package for all transport positions."
-              />
-
-              <div className="space-y-3">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Requirements */}
-            <div>
-              <SectionHeader
-                icon={Users}
-                subtitle="REQUIREMENTS"
-                title="Transport Job Requirements"
-                description="Essential qualifications and skills needed for transport positions."
-              />
-
-              <Card>
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Basic Requirements</h4>
-                      <ul className="space-y-2 text-sm text-gray-600">
-                        <li>• Age: 25-45 years</li>
-                        <li>• Valid driving license (3+ years)</li>
-                        <li>• Clean driving record</li>
-                        <li>• Good physical health</li>
-                        <li>• Basic English communication</li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Preferred Qualifications</h4>
-                      <ul className="space-y-2 text-sm text-gray-600">
-                        <li>• Professional driving experience</li>
-                        <li>• GPS navigation skills</li>
-                        <li>• Customer service experience</li>
-                        <li>• Defensive driving certification</li>
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Banner */}
       <ContactBanner
         message="Ready to drive your career forward? Apply now for transport opportunities abroad"
         phoneNumber="+256 783 183 252"
       />
-
-      {/* CTA Section */}
-      <section className="py-20 bg-red-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Start Your Transport Career Today</h2>
-          <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-            Join professional drivers working with leading transport companies across the Middle East. Excellent
-            salaries, company vehicles, and career growth opportunities await you.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/application-process">
-              <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
-                Apply for Transport Jobs
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-red-600 px-8 py-3 text-lg font-semibold bg-transparent"
-              >
-                Schedule Consultation
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

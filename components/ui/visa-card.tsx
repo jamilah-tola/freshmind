@@ -1,3 +1,4 @@
+// components/ui/visa-card.tsx
 import { Card, CardContent } from "@/components/ui/card"
 import type { LucideIcon } from "lucide-react"
 import Image from "next/image"
@@ -11,9 +12,15 @@ interface VisaCardProps {
   href: string
 }
 
-export function VisaCard({ icon: Icon, title, description, image, href }: VisaCardProps) {
+export function VisaCard({
+  icon: Icon,
+  title,
+  description,
+  image,
+  href,
+}: VisaCardProps) {
   return (
-    <Card className="bg-gray-800 border-gray-700 hover:bg-gray-750 transition-all duration-300 hover:-translate-y-1 group">
+    <Card className="group border border-border shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
       <CardContent className="p-6">
         <div className="relative overflow-hidden rounded-lg mb-6">
           <Image
@@ -21,22 +28,29 @@ export function VisaCard({ icon: Icon, title, description, image, href }: VisaCa
             alt={title}
             width={300}
             height={200}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
-        <div className="flex items-center space-x-2 mb-4">
-          <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
-            <Icon className="w-4 h-4 text-white" />
+
+        <div className="mb-4 flex items-center space-x-2">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/10">
+            <Icon className="h-4 w-4 text-secondary" />
           </div>
-          <h3 className="text-xl font-bold text-white">{title}</h3>
+          <h3 className="text-xl font-bold text-foreground">{title}</h3>
         </div>
-        <p className="text-gray-400 mb-6 leading-relaxed">{description}</p>
+
+        <p className="mb-6 leading-relaxed text-muted-foreground">
+          {description}
+        </p>
+
         <Link
           href={href}
-          className="text-red-600 font-medium hover:text-red-400 transition-colors inline-flex items-center group"
+          className="inline-flex items-center font-medium text-secondary transition-all hover:text-secondary-foreground"
         >
           Read More
-          <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+          <span className="ml-1 transition-transform group-hover:translate-x-1">
+            →
+          </span>
         </Link>
       </CardContent>
     </Card>

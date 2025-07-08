@@ -9,7 +9,6 @@ const config: Config = {
     "./src/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -19,41 +18,43 @@ const config: Config = {
       },
     },
     extend: {
+      /*--------------------------------------------------------------
+      1. TYPOGRAPHY
+      --------------------------------------------------------------*/
+      fontFamily: {
+        sans: ["Montserrat", "sans-serif"],
+        script: ["Playlist Script", "cursive"],
+      },
+
+      /*--------------------------------------------------------------
+      2. COLORS (tied to your CSS variables in :root / .dark)
+      --------------------------------------------------------------*/
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
         primary: {
-          DEFAULT: "#dc2626", // red-600
-          foreground: "#ffffff",
-          50: "#fef2f2",
-          100: "#fee2e2",
-          200: "#fecaca",
-          300: "#fca5a5",
-          400: "#f87171",
-          500: "#ef4444",
-          600: "#dc2626",
-          700: "#b91c1c",
-          800: "#991b1b",
-          900: "#7f1d1d",
+          DEFAULT: "hsl(var(--primary))",               // Deep Maroon
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#f8fafc", // slate-50
-          foreground: "#0f172a", // slate-900
+          DEFAULT: "hsl(var(--secondary))",             // Vibrant Orange
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",                 // Light Gray
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",                // Vibrant Orange
+          foreground: "hsl(var(--accent-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -64,11 +65,20 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+
+      /*--------------------------------------------------------------
+      3. BORDER RADIUS
+      --------------------------------------------------------------*/
       borderRadius: {
+        DEFAULT: "var(--radius)",                 // 12px as per your CSS
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 2px)",         // 10px
+        sm: "calc(var(--radius) - 4px)",         // 8px
       },
+
+      /*--------------------------------------------------------------
+      4. ANIMATIONS (keep your existing accordion)
+      --------------------------------------------------------------*/
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -83,12 +93,18 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+
+      /*--------------------------------------------------------------
+      5. EXTRA BG COLOR (if you still need it)
+      --------------------------------------------------------------*/
       backgroundColor: {
         "gray-750": "#374151",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [
+    require("tailwindcss-animate"),
+  ],
+}
 
 export default config

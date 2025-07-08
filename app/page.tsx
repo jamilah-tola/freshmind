@@ -5,7 +5,18 @@ import { VisaCard } from "@/components/ui/visa-card"
 import { SectionHeader } from "@/components/ui/section-header"
 import { StatsBanner } from "@/components/ui/stats-banner"
 import { ContactBanner } from "@/components/ui/contact-banner"
-import { Users, Shield, Plane, Building, CheckCircle, Award, Globe, Car, Utensils, HardHat } from "lucide-react"
+import {
+  Users,
+  Shield,
+  Plane,
+  Building,
+  CheckCircle,
+  Award,
+  Globe,
+  Car,
+  Utensils,
+  HardHat,
+} from "lucide-react"
 
 export default function HomePage() {
   const serviceStats = [
@@ -15,33 +26,42 @@ export default function HomePage() {
     { icon: Shield, label: "WORKER PROTECTION & SUPPORT" },
   ]
 
+  const destinations = [
+    { country: "United Arab Emirates", city: "Dubai, Abu Dhabi", flag: "🇦🇪" },
+    { country: "Qatar", city: "Doha", flag: "🇶🇦" },
+    { country: "Saudi Arabia", city: "Riyadh, Jeddah", flag: "🇸🇦" },
+    { country: "Jordan", city: "Amman", flag: "🇯🇴" },
+    { country: "Poland", city: "Warsaw, Krakow", flag: "🇵🇱" },
+  ]
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20 lg:py-32">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="relative fm-gradient text-primary-foreground py-20 lg:py-32">
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.2)]"></div>
+        <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="bg-red-600 text-white px-4 py-2 rounded-full inline-block text-sm font-medium mb-6">
-                Licensed by MGLSD - License No. E24050019
+              <div className="inline-block mb-6 rounded-full bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground">
+                Licensed by MGLSD – License No. E24050019
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="mb-6 text-4xl lg:text-6xl font-bold leading-tight">
                 International Employment Opportunities for Ugandans
               </h1>
-              <p className="text-xl mb-8 text-blue-100">
-                Connecting skilled and unskilled Ugandan workers with reputable employers across the Middle East and
-                Europe. Ethical recruitment, fair wages, and secure employment guaranteed.
+              <p className="mb-8 text-lg text-secondary-foreground/80">
+                Connecting skilled and unskilled Ugandan workers with reputable
+                employers across the Middle East and Europe. Ethical recruitment,
+                fair wages, and secure employment guaranteed.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold">
-                  APPLY FOR JOBS
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Button className="btn-primary px-8 py-4 text-lg">
+                  Apply for Jobs
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg font-semibold bg-transparent"
+                  className="btn-secondary bg-transparent px-8 py-4 text-lg hover:bg-secondary hover:text-secondary-foreground"
                 >
-                  VIEW JOB CATEGORIES
+                  View Job Categories
                 </Button>
               </div>
             </div>
@@ -59,8 +79,8 @@ export default function HomePage() {
       </section>
 
       {/* Services Cards */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="bg-muted py-20">
+        <div className="container">
           <SectionHeader
             icon={Users}
             subtitle="OUR SERVICES"
@@ -68,8 +88,7 @@ export default function HomePage() {
             description="End-to-end recruitment services ensuring safe, legal, and well-regulated labor migration for Ugandan workers."
             centered
           />
-
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-3">
             <ServiceCard
               icon={Globe}
               title="International Job Placements"
@@ -94,15 +113,15 @@ export default function HomePage() {
 
       {/* Contact Banner */}
       <ContactBanner
-        message="FreshMind International - Your trusted partner for international employment opportunities"
+        message="FreshMind International – Your trusted partner for international employment opportunities"
         phoneNumber="+256 783 183 252"
       />
 
       {/* About Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
+        <div className="container">
+          <div className="grid gap-16 lg:grid-cols-2 items-center">
+            <div className="relative photo-overlay">
               <Image
                 src="/placeholder.svg?height=600&width=500"
                 alt="Professional recruitment consultation"
@@ -110,12 +129,11 @@ export default function HomePage() {
                 height={600}
                 className="rounded-lg shadow-xl"
               />
-              <div className="absolute -bottom-6 -right-6 bg-red-600 text-white p-6 rounded-lg shadow-lg">
+              <div className="absolute -bottom-6 -right-6 rounded-lg bg-secondary p-6 shadow-lg text-secondary-foreground">
                 <div className="text-3xl font-bold">1000+</div>
                 <div className="text-sm">Workers Placed</div>
               </div>
             </div>
-
             <div>
               <SectionHeader
                 icon={Users}
@@ -123,55 +141,54 @@ export default function HomePage() {
                 title="Licensed Labor Recruitment Agency"
                 description="FreshMind International Ltd is a fully licensed and accredited labor recruitment agency based in Uganda, specializing in connecting Ugandan workers with reputable international employers."
               />
-
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-6 h-6 text-red-600" />
+              <div className="mb-8 grid gap-6 md:grid-cols-2">
+                {[
+                  {
+                    Icon: CheckCircle,
+                    title: "MGLSD Licensed",
+                    text: "Fully accredited agency",
+                  },
+                  {
+                    Icon: Globe,
+                    title: "Global Partnerships",
+                    text: "Trusted employers worldwide",
+                  },
+                ].map(({ Icon, title, text }) => (
+                  <div key={title} className="flex items-center space-x-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10">
+                      <Icon className="h-6 w-6 text-secondary" />
+                    </div>
+                    <div>
+                      <h4 className="text-foreground font-bold">{title}</h4>
+                      <p className="text-muted-foreground text-sm">{text}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">MGLSD Licensed</h4>
-                    <p className="text-sm text-gray-600">Fully accredited agency</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                    <Globe className="w-6 h-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Global Partnerships</h4>
-                    <p className="text-sm text-gray-600">Trusted employers worldwide</p>
-                  </div>
-                </div>
+                ))}
               </div>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-red-600" />
-                  <span className="text-gray-700">Salary range: UGX 1.2M - 2.9M per month</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-red-600" />
-                  <span className="text-gray-700">Free accommodation and transportation</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-red-600" />
-                  <span className="text-gray-700">Health insurance and medical coverage</span>
-                </div>
+              <div className="mb-8 space-y-4">
+                {[
+                  "Salary range: UGX 1.2M – 2.9M per month",
+                  "Free accommodation and transportation",
+                  "Health insurance and medical coverage",
+                ].map((line) => (
+                  <div key={line} className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-secondary" />
+                    <span className="text-foreground">{line}</span>
+                  </div>
+                ))}
               </div>
-
-              <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3">LEARN MORE</Button>
+              <Button className="btn-primary px-8 py-3">Learn More</Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Banner */}
+      {/* Stats Banner */}
       <StatsBanner stats={serviceStats} />
 
       {/* Job Categories */}
-      <section className="py-20 bg-gray-900">
-        <div className="container mx-auto px-4">
+      <section className="bg-primary py-20">
+        <div className="container">
           <SectionHeader
             icon={Building}
             subtitle="JOB CATEGORIES"
@@ -180,8 +197,7 @@ export default function HomePage() {
             centered
             theme="dark"
           />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <VisaCard
               icon={Shield}
               title="Security Services"
@@ -215,8 +231,8 @@ export default function HomePage() {
       </section>
 
       {/* Destinations Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="bg-muted py-20">
+        <div className="container">
           <SectionHeader
             icon={Plane}
             subtitle="EMPLOYMENT DESTINATIONS"
@@ -224,22 +240,17 @@ export default function HomePage() {
             description="Secure employment in high-demand markets with established labor agreements and worker protection policies."
             centered
           />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-            {[
-              { country: "United Arab Emirates", city: "Dubai, Abu Dhabi", flag: "🇦🇪" },
-              { country: "Qatar", city: "Doha", flag: "🇶🇦" },
-              { country: "Saudi Arabia", city: "Riyadh, Jeddah", flag: "🇸🇦" },
-              { country: "Jordan", city: "Amman", flag: "🇯🇴" },
-              { country: "Poland", city: "Warsaw, Krakow", flag: "🇵🇱" },
-            ].map((destination, index) => (
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+            {destinations.map(({ country, city, flag }) => (
               <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow"
+                key={country}
+                className="rounded-lg bg-background p-6 shadow-lg transition-all hover:shadow-xl"
               >
-                <div className="text-4xl mb-4">{destination.flag}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{destination.country}</h3>
-                <p className="text-gray-600 text-sm">{destination.city}</p>
+                <div className="mb-4 text-4xl">{flag}</div>
+                <h3 className="mb-2 text-lg font-bold text-foreground">
+                  {country}
+                </h3>
+                <p className="text-sm text-muted-foreground">{city}</p>
               </div>
             ))}
           </div>
@@ -247,20 +258,23 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-red-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Start Your International Career?</h2>
-          <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of Ugandans who have secured well-paying jobs abroad through our ethical recruitment process.
-            Get started with your application today.
+      <section className="bg-secondary py-20">
+        <div className="container text-center">
+          <h2 className="mb-6 text-4xl font-bold text-secondary-foreground">
+            Ready to Start Your International Career?
+          </h2>
+          <p className="mx-auto mb-8 max-w-2xl text-xl text-secondary-foreground/90">
+            Join thousands of Ugandans who have secured well-paying jobs abroad
+            through our ethical recruitment process. Get started with your
+            application today.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
+          <div className="flex flex-col gap-4 sm:flex-row justify-center">
+            <Button className="bg-background px-8 py-3 text-secondary hover:bg-muted">
               Apply for Jobs Now
             </Button>
             <Button
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-red-600 px-8 py-3 text-lg font-semibold bg-transparent"
+              className="border-background px-8 py-3 text-secondary-foreground hover:bg-background hover:text-secondary"
             >
               Download Application Guide
             </Button>

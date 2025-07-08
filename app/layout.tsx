@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Licensed labor recruitment agency connecting skilled Ugandan workers with reputable employers across Middle East and Europe. Ethical recruitment, fair wages, secure employment. MGLSD Licensed.",
   keywords:
     "Uganda jobs abroad, international employment, labor recruitment, Middle East jobs, Europe jobs, MGLSD licensed, ethical recruitment",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -23,9 +23,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} bg-background text-foreground antialiased min-h-screen flex flex-col`}
+      >
         <Header />
-        <main>{children}</main>
+
+        <main className="container flex-1 py-8">
+          {children}
+        </main>
+
         <Footer />
       </body>
     </html>
