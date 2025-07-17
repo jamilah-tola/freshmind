@@ -13,6 +13,8 @@ import {
   Clock,
   Globe,
 } from "lucide-react"
+import PageHeader from "@/components/layout/pageHeader"
+import { images } from "@/constants/images"
 
 export default function AboutPage() {
   const values = [
@@ -71,21 +73,10 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative fm-gradient text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[rgba(0,0,0,0.2)]" />
-        <div className="container relative z-10">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mb-6 text-5xl font-bold leading-tight">
-              About FreshMind International
-            </h1>
-            <p className="text-xl leading-relaxed text-secondary-foreground/80">
-              Licensed and accredited labor recruitment agency committed to
-              ethical recruitment and global workforce placement for Ugandan
-              workers seeking international opportunities.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="About FreshMind International"
+        subtitle="Licensed and accredited labor recruitment agency committed to ethical recruitment and global workforce placement for Ugandan workers seeking international opportunities."
+      />
 
       {/* Company Story */}
       <section className="py-20">
@@ -121,7 +112,7 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=600&width=500"
+                src={images.about}
                 alt="FreshMind International office and team"
                 width={500}
                 height={600}

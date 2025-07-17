@@ -29,15 +29,7 @@ export function ServiceCard({
           {description}
         </p>
 
-        <Link
-          href={href}
-          className="inline-flex items-center font-medium text-secondary transition-all hover:text-secondary-foreground"
-        >
-          Learn More
-          <span className="ml-1 transition-transform group-hover:translate-x-1">
-            →
-          </span>
-        </Link>
+        
       </CardContent>
     </Card>
   )

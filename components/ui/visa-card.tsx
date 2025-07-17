@@ -8,7 +8,7 @@ interface VisaCardProps {
   icon: LucideIcon
   title: string
   description: string
-  image: string
+  image: any
   href: string
 }
 
@@ -44,7 +44,7 @@ export function VisaCard({
         </p>
 
         <Link
-          href={href}
+          href={'/application-process'}
           className="inline-flex items-center font-medium text-secondary transition-all hover:text-secondary-foreground"
         >
           Read More

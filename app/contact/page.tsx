@@ -18,6 +18,7 @@ import {
   Twitter,
   Instagram,
 } from "lucide-react"
+import PageHeader from "@/components/layout/pageHeader"
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -80,18 +81,11 @@ export default function ContactPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero */}
-      <section className="relative fm-gradient text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="container relative z-10 text-center">
-          <h1 className="mb-4 text-4xl md:text-5xl font-bold">
-            Contact FreshMind International
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg text-secondary-foreground/80">
-            Ready to start your international employment journey?  
-            Reach out for personalized guidance and placement assistance.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Contact FreshMind International"
+        subtitle="Ready to start your international employment journey? Reach out for personalized guidance and placement assistance."
+      />
+     
 
       {/* Form & Info */}
       <section className="py-20">
@@ -228,27 +222,7 @@ export default function ContactPage() {
             </div>
 
             {/* Social */}
-            <Card className="mt-8 bg-secondary/5">
-              <CardContent className="p-6 text-center">
-                <h3 className="mb-4 text-lg font-semibold text-secondary-foreground">
-                  Follow Us
-                </h3>
-                <div className="flex justify-center space-x-4">
-                  {[Facebook, Twitter, Instagram].map((Icon, i) => (
-                    <Link
-                      key={i}
-                      href="#"
-                      className="text-secondary hover:text-secondary-foreground transition"
-                    >
-                      <Icon className="h-6 w-6" />
-                    </Link>
-                  ))}
-                </div>
-                <p className="mt-2 text-sm text-secondary-foreground/80">
-                  Stay updated on job openings & announcements
-                </p>
-              </CardContent>
-            </Card>
+            
           </div>
         </div>
       </section>

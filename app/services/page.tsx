@@ -15,6 +15,7 @@ import {
   Building,
   Car,
 } from "lucide-react"
+import PageHeader from "@/components/layout/pageHeader"
 
 export default function ServicesPage() {
   const mainServices = [
@@ -132,19 +133,13 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative fm-gradient text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[rgba(0,0,0,0.2)]" />
-        <div className="container relative z-10">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mb-6 text-5xl font-bold">Our Services</h1>
-            <p className="text-xl leading-relaxed text-secondary-foreground/80">
-              Comprehensive labor recruitment services connecting Ugandan workers
+      <PageHeader
+        title="Our Services"
+        subtitle="Comprehensive labor recruitment services connecting Ugandan workers
               with reputable international employers. From application to
-              deployment and ongoing support abroad.
-            </p>
-          </div>
-        </div>
-      </section>
+              deployment and ongoing support abroad."
+      />
+      
 
       {/* Main Services */}
       <section className="py-20">
@@ -294,30 +289,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-secondary">
-        <div className="container text-center">
-          <h2 className="mb-6 text-4xl font-bold text-secondary-foreground">
-            Start Your Application Today
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-xl text-secondary-foreground/90">
-            Join thousands of Ugandans who have secured well-paying international
-            jobs through our ethical recruitment process. Your journey to financial
-            stability starts here.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row justify-center">
-            <Button className="bg-background px-8 py-3 text-secondary hover:bg-muted">
-              Apply for Jobs Now
-            </Button>
-            <Button
-              variant="outline"
-              className="border-background px-8 py-3 text-secondary-foreground hover:bg-background hover:text-secondary"
-            >
-              Download Requirements Guide
-            </Button>
-          </div>
-        </div>
-      </section>
+      
     </div>
   )
 }

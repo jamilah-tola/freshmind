@@ -9,6 +9,8 @@ import {
   Twitter,
   Instagram,
 } from "lucide-react"
+import Image from "next/image"
+import { images } from "@/constants/images"
 
 export function Footer() {
   const quickLinks = [
@@ -28,13 +30,11 @@ export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-5">
           {/* Company Info */}
           <div>
             <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-primary-foreground rounded-full flex items-center justify-center">
-                <Users className="w-4 h-4 text-primary" />
-              </div>
+              <Image src={images.logoWhite} alt="Freshmind" width={50} height={50} />
               <span className="text-2xl font-semibold">FRESHMIND</span>
             </Link>
             <p className="mb-6 leading-relaxed">
@@ -73,21 +73,7 @@ export function Footer() {
           </div>
 
           {/* Job Categories */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Job Categories</h4>
-            <ul className="space-y-3">
-              {jobCategories.map((category) => (
-                <li key={category.href}>
-                  <Link
-                    href={category.href}
-                    className="text-primary-foreground hover:text-secondary transition-all"
-                  >
-                    {category.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+       
 
           {/* Contact Info */}
           <div>

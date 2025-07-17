@@ -21,6 +21,7 @@ import {
   Phone,
   ChevronDown,
 } from "lucide-react"
+import PageHeader from "@/components/layout/pageHeader"
 
 export default function ApplicationProcessPage() {
   const [form, setForm] = useState({
@@ -106,17 +107,10 @@ export default function ApplicationProcessPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero */}
-      <section className="relative fm-gradient text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="container relative z-10">
-          <div className="mx-auto max-w-3xl text-center space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold">Application Process</h1>
-            <p className="text-lg text-secondary-foreground/80">
-              A clear 5-step journey to your international career. Submit via WhatsApp for fast tracking.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Application Process"
+        subtitle="A clear 5-step journey to your international career. Submit via WhatsApp for fast tracking."
+      />
 
       {/* Steps */}
       <section className="py-20">
@@ -318,12 +312,12 @@ export default function ApplicationProcessPage() {
           </div>
 
           {/* Download Checklist */}
-          <div className="text-center mt-12">
+          {/* <div className="text-center mt-12">
             <Button className="inline-flex items-center space-x-2 bg-red-600 hover:bg-red-700 px-6 py-3">
               <Download className="h-5 w-5" />
               <span>Download Full Checklist</span>
             </Button>
-          </div>
+          </div> */}
         </div>
       </section>
 
