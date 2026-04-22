@@ -12,9 +12,13 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1rem",
+        sm: "1.5rem",
+        lg: "2rem",
+      },
       screens: {
-        "2xl": "1400px",
+        "2xl": "1440px",
       },
     },
     extend: {
@@ -22,8 +26,9 @@ const config: Config = {
       1. TYPOGRAPHY
       --------------------------------------------------------------*/
       fontFamily: {
-        sans: ["Montserrat", "sans-serif"],
-        script: ["Playlist Script", "cursive"],
+        sans: ["var(--font-sans)", "sans-serif"],
+        display: ["var(--font-display)", "sans-serif"],
+        script: ["var(--font-display)", "sans-serif"],
       },
 
       /*--------------------------------------------------------------

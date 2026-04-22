@@ -1,70 +1,163 @@
-// components/layout/Footer.tsx
+import Image from "next/image"
 import Link from "next/link"
 import {
-  Users,
-  Phone,
+  Facebook,
+  Instagram,
+  Linkedin,
   Mail,
   MapPin,
-  Facebook,
-  Twitter,
-  Instagram,
+  Phone,
 } from "lucide-react"
-import Image from "next/image"
-import { images } from "@/constants/images"
+
+import { globalEditorialCopy } from "@/lib/freshmind/editorial-copy"
+import { siteConfig } from "@/lib/site"
+
+const companyLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Freshmind" },
+  { href: "/opportunities", label: "Opportunities" },
+  { href: "/contact", label: "Contact Us" },
+]
+
+const helpLinks = [
+  { href: "/faq", label: "FAQ" },
+  { href: "/why-freshmind", label: "Why Freshmind" },
+  { href: "/safety", label: "Safety & Anti-Scam" },
+]
+
+const socialLinks = [
+  {
+    href: siteConfig.social.facebook,
+    label: "Facebook",
+    icon: Facebook,
+  },
+  {
+    href: siteConfig.social.instagram,
+    label: "Instagram",
+    icon: Instagram,
+  },
+  {
+    href: siteConfig.social.linkedin,
+    label: "LinkedIn",
+    icon: Linkedin,
+  },
+]
 
 export function Footer() {
-  const quickLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
-  ]
-
-  const jobCategories = [
-    { href: "/job-categories/security", label: "Security Jobs" },
-    { href: "/job-categories/hospitality", label: "Hospitality Jobs" },
-    { href: "/job-categories/transport", label: "Transport Jobs" },
-    { href: "/job-categories/construction", label: "Construction Jobs" },
-  ]
+  const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container px-4 py-12">
-        <div className="grid md:grid-cols-3 gap-5">
-          {/* Company Info */}
-          <div>
-            <Link href="/" className="flex items-center space-x-2 mb-6">
-              <Image src={images.logoWhite} alt="Freshmind" width={50} height={50} />
-              <span className="text-2xl font-semibold">FRESHMIND</span>
+    <footer className="mt-16 border-t border-black/8 bg-white text-foreground sm:mt-20">
+      <div className="container py-10 sm:py-12 lg:py-14">
+        <div className="site-grid border-b border-black/8 pb-10">
+          <div className="site-span-12 space-y-5 lg:col-span-5">
+            <Link href="/" className="inline-flex items-center gap-3 text-foreground">
+              <Image
+                src={siteConfig.logoPath}
+                alt="Freshmind logo"
+                width={95}
+                height={91}
+                className="h-10 w-auto"
+              />
+              <div>
+                <div className="font-display text-xl font-semibold tracking-[-0.03em]">
+                  Freshmind
+                </div>
+                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-foreground/54">
+                  Ethical Recruitment
+                </div>
+              </div>
             </Link>
-            <p className="mb-6 leading-relaxed">
-              Licensed labor recruitment agency connecting skilled Ugandan workers
-              with reputable employers across the Middle East and Europe. Ethical
-              recruitment, fair wages, secure employment.
-            </p>
-            <div className="flex space-x-4">
-              {[Facebook, Twitter, Instagram].map((Icon, i) => (
-                <Link
-                  key={i}
-                  href="#"
-                  className="text-primary-foreground hover:text-secondary transition-all"
-                >
-                  <Icon className="w-5 h-5" />
-                </Link>
-              ))}
+
+            <div className="space-y-3">
+              <h2 className="max-w-[12ch] font-display text-[clamp(1.9rem,3.6vw,3.1rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
+                Promoting Ethical Recruitment, One Verified Step At A Time.
+              </h2>
+              <p className="max-w-[48ch] text-sm leading-7 text-muted-foreground">
+                {globalEditorialCopy.footerLead}
+              </p>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
+          <div className="site-span-12 space-y-4 lg:col-span-7 lg:pl-8">
+            <div className="text-sm font-semibold tracking-[-0.01em] text-foreground">
+              Get In Touch
+            </div>
+            <form
+              action="/contact"
+              className="flex flex-col gap-3 border border-black/10 bg-white p-2 sm:flex-row sm:items-center sm:pl-5"
+            >
+              <label htmlFor="footer-email" className="sr-only">
+                Enter your email
+              </label>
+              <input
+                id="footer-email"
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                className="h-11 flex-1 bg-transparent px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none sm:px-0"
+              />
+              <input type="hidden" name="source" value="footer" />
+              <button
+                type="submit"
+                className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                Contact Us
+              </button>
+            </form>
+            <p className="text-sm leading-7 text-muted-foreground">
+              Use your email to continue to the contact page, or call{" "}
+              <a href={`tel:${siteConfig.phone}`} className="text-foreground hover:text-primary">
+                {siteConfig.phone}
+              </a>{" "}
+              for direct help.
+            </p>
+          </div>
+        </div>
+
+        <div className="site-grid border-b border-black/8 py-10">
+          <div className="site-span-12 space-y-4 lg:col-span-4">
+            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Contact Information
+            </h3>
+            <div className="space-y-4 text-sm text-foreground/82">
+              <div className="flex items-start gap-3">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">
+                  {siteConfig.email}
+                </a>
+              </div>
+              <div className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div className="space-y-1">
+                  <a href={`tel:${siteConfig.phone}`} className="block hover:text-primary">
+                    {siteConfig.phone}
+                  </a>
+                  <a href={`tel:${siteConfig.altPhone}`} className="block hover:text-primary">
+                    {siteConfig.altPhone}
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div>
+                  <div>{siteConfig.address.street}</div>
+                  <div className="text-muted-foreground">
+                    {siteConfig.address.postal}, {siteConfig.address.city}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="site-span-12 space-y-4 md:col-span-4 lg:col-span-2">
+            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Company
+            </h3>
+            <ul className="space-y-3 text-sm text-foreground/82">
+              {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-primary-foreground hover:text-secondary transition-all"
-                  >
+                  <Link href={link.href} className="hover:text-primary">
                     {link.label}
                   </Link>
                 </li>
@@ -72,50 +165,62 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Job Categories */}
-       
+          <div className="site-span-12 space-y-4 md:col-span-4 lg:col-span-2">
+            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Help
+            </h3>
+            <ul className="space-y-3 text-sm text-foreground/82">
+              {helpLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-primary">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <div className="text-primary-foreground">
-                  <div>+256 783 183 252</div>
-                  <div>+256 704 231 665</div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-                <span className="text-primary-foreground">
-                  freshmindinternational@gmail.com
-                </span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground">
-                  Mengo, Behind Sir Apollo Kaggwa Primary School
-                  <br />
-                  P.O. Box 5633, Kampala, Uganda
-                </span>
-              </div>
+          <div className="site-span-12 space-y-4 lg:col-span-4">
+            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Follow Us
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map((item) => {
+                const Icon = item.icon
+
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={item.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:text-primary"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                )
+              })}
             </div>
+            <p className="max-w-[28ch] text-sm leading-7 text-muted-foreground">
+              Official channels stay public so candidates can verify who they are
+              speaking to before they proceed.
+            </p>
           </div>
         </div>
 
-        <div className="border-t border-secondary mt-12 pt-8 text-center">
-          <p className="text-primary-foreground">
-            © 2024 FreshMind International Ltd. All rights reserved. | Licensed by
-            MGLSD (License No. E24050019) |
-            <Link href="/privacy" className="hover:text-secondary ml-1">
-              Privacy Policy
-            </Link>{" "}
-            |
-            <Link href="/terms" className="hover:text-secondary ml-1">
-              Terms of Service
-            </Link>
+        <div className="site-grid items-center py-5 text-xs text-muted-foreground">
+          <p className="site-span-12 lg:col-span-6">
+            © {currentYear} Freshmind International Ltd. All rights reserved.
           </p>
+          <div className="site-span-12 flex flex-wrap items-center gap-5 lg:col-span-6 lg:justify-end">
+            <Link href="/privacy" className="hover:text-primary">
+              Privacy
+            </Link>
+            <Link href="/terms" className="hover:text-primary">
+              Terms & Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
