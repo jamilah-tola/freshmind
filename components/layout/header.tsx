@@ -37,19 +37,18 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 transition-all duration-300",
+        "sticky top-0 z-50 transition-[background-color,border-color,box-shadow] duration-180 ease-out",
         elevated
-          ? "border-b border-black/8 bg-white/95 backdrop-blur-xl"
+          ? "border-b border-black/8 bg-white/95 backdrop-blur-md"
           : "border-b border-black/8 bg-white"
       )}
     >
       <div
         className={cn(
-          "container flex items-center justify-between gap-4 transition-all duration-300",
-          elevated ? "h-[72px]" : "h-[84px]"
+          "container flex h-16 items-center justify-between gap-4 lg:h-[72px]"
         )}
       >
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 focus-visible:rounded-md">
           <Image
             src={siteConfig.logoPath}
             alt="Freshmind logo"
@@ -59,11 +58,11 @@ export function Header() {
             className="h-12 w-auto"
           />
           <div>
-            <div className="font-display text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
+            <div className="font-display text-[1.2rem] font-semibold tracking-[-0.01em] text-foreground sm:text-[1.35rem]">
               Freshmind
             </div>
-            <div className="text-[0.68rem] uppercase tracking-[0.18em] text-foreground/54">
-              Ethical Recruitment
+            <div className="text-[0.7rem] text-foreground/54">
+              International Limited
             </div>
           </div>
         </Link>
@@ -81,10 +80,10 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-full px-3 py-2 text-[0.92rem] font-medium transition-colors",
+                  "rounded-md px-3 py-2 text-[0.95rem] font-medium transition-colors",
                   active
-                    ? "bg-secondary/70 text-secondary-foreground"
-                    : "text-foreground/72 hover:text-foreground"
+                    ? "bg-secondary text-foreground"
+                    : "text-foreground/72 hover:bg-muted hover:text-foreground"
                 )}
               >
                 {item.label}
@@ -95,12 +94,12 @@ export function Header() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <PillButton asChild tone="dark">
-            <Link href="/opportunities">Register for Interview</Link>
+            <Link href="/opportunities">View Opportunities</Link>
           </PillButton>
         </div>
 
         <Sheet>
-          <SheetTrigger className="inline-flex h-11 items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 text-sm font-medium text-foreground shadow-sm lg:hidden">
+          <SheetTrigger className="inline-flex h-11 items-center gap-2 rounded-md border border-black/8 bg-white px-4 text-sm font-medium text-foreground shadow-sm lg:hidden">
             <Menu className="h-4 w-4" />
             Menu
           </SheetTrigger>
@@ -109,7 +108,7 @@ export function Header() {
             className="w-[90vw] max-w-[360px] border-l border-black/6 bg-background p-0"
           >
             <SheetHeader className="border-b border-black/6 px-6 py-6">
-              <SheetTitle className="font-display text-2xl tracking-[-0.03em] text-foreground">
+              <SheetTitle className="font-display text-2xl tracking-[-0.01em] text-foreground">
                 Freshmind
               </SheetTitle>
               <SheetDescription className="text-sm leading-7 text-muted-foreground">
@@ -128,10 +127,10 @@ export function Header() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "rounded-[1.25rem] px-4 py-3 text-base font-medium transition-colors",
+                        "rounded-md px-4 py-3 text-base font-medium transition-colors",
                         active
                           ? "bg-secondary text-secondary-foreground"
-                          : "hover:bg-white"
+                          : "hover:bg-muted"
                       )}
                     >
                       {item.label}
@@ -142,7 +141,7 @@ export function Header() {
             </div>
             <div className="space-y-3 border-t border-black/6 px-6 py-6">
               <PillButton asChild tone="dark" className="w-full">
-                <Link href="/opportunities">Register for Interview</Link>
+                <Link href="/opportunities">View Opportunities</Link>
               </PillButton>
             </div>
           </SheetContent>

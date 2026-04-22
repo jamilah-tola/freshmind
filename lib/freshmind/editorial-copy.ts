@@ -35,119 +35,172 @@ export const companySectors = [
 
 export const globalEditorialCopy = {
   siteDescription:
-    "Licensed ethical recruitment for Ugandan job seekers pursuing verified overseas opportunities through documented process, worker protection, and official support.",
+    "Licensed ethical recruitment connecting Ugandan job seekers and international employers through verified opportunities, documented process controls, and worker protection.",
   menuDescription:
-    "Verified opportunities, official channels, and structured interview booking through Freshmind's published process.",
+    "Two clear routes: apply for verified opportunities or partner with Freshmind for workforce sourcing.",
   footerLead:
-    "The public site repeats the same signals the recruitment process depends on: official channels, verified employers, transparent contracts, and clear next steps.",
+    "Freshmind's public platform is designed to reduce uncertainty: official channels, verified opportunities, documented process steps, and practical support before and after deployment.",
   footerSummary:
-    "Freshmind helps Ugandan job seekers pursue verified overseas work through a licensed process grounded in documentation, preparation, and worker support before departure and after placement.",
+    "Freshmind helps candidates pursue legal overseas opportunities while helping employers access screened Ugandan talent through a compliance-led recruitment model.",
   footerTrustLine:
-    "Official channels only. Verified employers. Transparent contracts. Clear interview references.",
+    "Official channels. Documented contracts. Work-visa process. Receipted fees only.",
   opengraphSupport:
-    "Licensed process. Clear next steps. Official verification links.",
+    "Licensed recruitment. Verified openings. Candidate and employer pathways.",
 } as const
 
 export const homePageCopy = {
   metadata: {
-    title: "Promoting Ethical Recruitment",
+    title: "Verified Overseas Recruitment for Candidates and Employers",
     description:
-      "Freshmind International connects Ugandan job seekers to verified overseas employers through a licensed, structured recruitment process built around compliance, worker protection, and support before departure and after placement.",
+      "Freshmind International is a licensed Ugandan recruitment agency helping candidates access verified overseas opportunities and helping employers source prepared talent through a documented, compliance-led process.",
   },
   hero: {
-    eyebrow: "Freshmind International",
-    title: "Promoting Ethical Recruitment",
+    eyebrow: "",
+    title: "Promoting Ethical Recruitment in Uganda",
     description:
-      "Freshmind International connects Ugandan job seekers to verified overseas employers through a licensed, structured recruitment process built around compliance, worker protection, and support before departure and after placement.",
+      "FreshMind International Ltd is a licensed and accredited labor recruitment agency based in Uganda. With a strong commitment to ethical recruitment and global workforce placement",
     image: "heroRecruitment",
     proofLine: `MGLSD Licensed • UAERA Aligned • License No. ${siteConfig.licenseNumber}`,
-  } satisfies HeroCopy,
-  licensedPath: {
-    eyebrow: "A Licensed Path to Overseas Work",
-    title: "Freshmind works through regulation, documentation, and verified employer relationships.",
+    candidateCta: {
+      label: "View Opportunities",
+      href: "/opportunities",
+    },
+    employerCta: {
+      label: "About Freshmind",
+      href: "/about",
+    },
+  } satisfies HeroCopy & {
+    candidateCta: { label: string; href: string }
+    employerCta: { label: string; href: string }
+  },
+  trustSection: {
+    eyebrow: "Trust Signals",
+    title: "Proof should be visible before anyone commits documents, money, or travel.",
     description:
-      "Freshmind International Ltd is a licensed Ugandan recruitment agency connecting skilled and unskilled workers to reputable employers across the Middle East and Europe. Its public process is built on employer verification, documented contracts, lawful travel preparation, and worker support that continues after placement.",
+      "Freshmind prioritizes public signals that candidates, families, and hiring partners can verify independently.",
   } satisfies SectionCopy,
-  licensedProofs: [
+  trustBadges: [
     {
-      label: "Regulatory standing",
-      value: "Licensed by MGLSD",
-      detail: "Freshmind operates under License No. E24050019.",
+      label: "Licensing",
+      value: "MGLSD licensed",
+      detail: `Operations are presented under License No. ${siteConfig.licenseNumber}.`,
     },
     {
-      label: "Industry alignment",
-      value: "UAERA guidance",
-      detail: "The company positions itself inside recognized recruitment standards.",
+      label: "Industry standards",
+      value: "UAERA aligned",
+      detail:
+        "Recruitment process language is aligned to ethical labor migration principles.",
     },
     {
-      label: "Employer checks",
-      value: "Verified employers abroad",
-      detail: "Overseas partners are reviewed before worker placement proceeds.",
+      label: "Safety model",
+      value: "Work-visa-first",
+      detail:
+        "Travel is framed around legal work documentation and pre-departure readiness.",
     },
     {
-      label: "Worker readiness",
-      value: "Contracts and training",
-      detail: "Documentation and pre-departure preparation are part of the process.",
+      label: "Fee language",
+      value: "Documented and receipted",
+      detail:
+        "Any required charge is communicated through official channels and should be formally receipted.",
     },
   ],
   process: {
-    eyebrow: "How Freshmind Works",
-    title: "The process is meant to be followed, not guessed.",
+    eyebrow: "How the Process Works",
+    title: "A professional route should feel structured at every stage.",
     description:
-      "Each step is designed to reduce uncertainty for candidates and families by making the route into overseas work more visible and more disciplined.",
+      "Each step exists to reduce guesswork for candidates and improve fit quality for employers.",
   } satisfies SectionCopy,
   processSteps: [
     {
-      title: "Eligibility and registration",
+      title: "Review role and eligibility",
       body:
-        "Candidates begin through Freshmind's official channels after reviewing the role, destination, and requirements that apply to them.",
+        "Candidates begin with a published role, destination, requirements, and interview pathway.",
     },
     {
-      title: "Document verification",
+      title: "Register and submit profile",
       body:
-        "Passports, national ID, certificates, and supporting records are checked before interviews and employer matching move forward.",
+        "Applicants choose a slot, provide details, and receive a reference for official follow-up.",
     },
     {
-      title: "Screening and interview",
+      title: "Screening and document checks",
       body:
-        "Shortlisted applicants go through screening and role-fit interviews tied to the employer's stated job requirements.",
+        "Freshmind verifies candidate readiness before shortlist decisions and employer matching.",
     },
     {
-      title: "Contract and training",
+      title: "Contract briefing and preparation",
       body:
-        "Selected workers receive formal contracts and pre-departure training covering rights, safety, workplace culture, and expectations.",
+        "Selected candidates are guided through contract terms, expectations, and pre-departure preparation.",
     },
     {
-      title: "Deployment and support",
+      title: "Deployment and welfare follow-up",
       body:
-        "Freshmind supports visa processing, travel preparation, and post-placement communication when workers need guidance.",
+        "Post-placement support channels remain available for clarification and case escalation.",
     },
   ],
-  placements: {
-    eyebrow: "Where Freshmind Places Workers",
-    title: "The company recruits across established destination markets and practical employment sectors.",
+  featuredOpenings: {
+    eyebrow: "Featured Opportunities",
+    title: "Apply through live openings with visible screening routes.",
     description:
-      "The attached company profile positions Freshmind around demand-led sectors where Ugandan workers can move through structured recruitment rather than informal speculation.",
+      "Each opening includes destination, requirements, schedule logic, and safety reminders before registration.",
   } satisfies SectionCopy,
-  protections: {
-    eyebrow: "What Freshmind Protects",
-    title: "Worker protection is described as part of the process, not added after the fact.",
+  salarySnapshot: {
+    eyebrow: "Salary and Benefits Snapshot",
+    title: "Compensation should be discussed early, with role and market context.",
     description:
-      "The company profile emphasizes legal documentation, work visas, pre-departure briefings, contract clarity, and continued welfare support as part of credible recruitment.",
-    quote:
-      "Freshmind International follows a zero-exploitation policy, ensuring that all workers receive fair treatment, transparent contracts, and secure job placements.",
+      "Ranges vary by role, destination, and employer contract. Published figures are directional, not guarantees.",
+    salaryBands: [
+      { sector: "General placements", range: "UGX 1.2M - UGX 2.9M equivalent" },
+      { sector: "Security services", range: "UGX 1.5M - UGX 2.5M equivalent" },
+      { sector: "Transport and logistics", range: "UGX 1.8M - UGX 2.9M equivalent" },
+      { sector: "Hospitality and support", range: "UGX 1.2M - UGX 2.0M equivalent" },
+    ],
+    benefits: [
+      "Work-visa processing support and documented contracts.",
+      "Accommodation and transport support based on employer terms.",
+      "Medical coverage framework aligned to host-country requirements.",
+      "Pre-departure briefings on rights, safety, and workplace expectations.",
+    ],
+    disclaimer:
+      "Final compensation and benefits depend on specific role, employer contract, and host-country labor rules.",
   },
-  protectionPoints: [
-    "Employers are verified before workers are matched and deployed.",
-    "Contracts set out job responsibilities, salary, and benefits before travel.",
-    "Workers receive pre-departure training covering rights, culture, and safety.",
-    "The company states that it remains in communication with workers after placement and offers dispute guidance where needed.",
-  ],
+  antiScam: {
+    eyebrow: "Anti-Scam Essentials",
+    title: "Verify first. Act second.",
+    description:
+      "Use official channels, check ministry verification links, and avoid rushed instructions from unofficial agents.",
+    points: [
+      "Confirm communication against Freshmind's published phone numbers and email.",
+      "Reject instructions to travel on visitor or tourist visas for work placement.",
+      "Do not hand over original documents to brokers or unverified middlemen.",
+      "Treat payment requests as valid only when documented and receipted through official process.",
+    ],
+    ctaLabel: "Open Safety Guide",
+    ctaHref: "/safety",
+  },
+  employerBlock: {
+    eyebrow: "For Employers",
+    title: "Source screened Ugandan talent through a compliance-led recruitment partner.",
+    description:
+      "Freshmind supports employers with role scoping, candidate sourcing, screening coordination, documentation pathways, and pre-departure readiness.",
+    points: [
+      "Sector-focused sourcing across security, transport, hospitality, construction, and support roles.",
+      "Structured shortlisting and candidate preparation before deployment decisions.",
+      "Documentation-aware workflow designed to reduce onboarding risk.",
+    ],
+    primaryCta: {
+      label: "Explore Employer Services",
+      href: "/employers",
+    },
+    secondaryCta: {
+      label: "Contact Employer Desk",
+      href: "/contact",
+    },
+  },
   nextStep: {
     eyebrow: "Take the Next Step",
-    title: "Start with a verified opening or speak to Freshmind directly.",
+    title: "Apply for a verified opening or contact the team through official channels.",
     description:
-      "The simplest route forward is still the clearest one: review the current openings, confirm fit, and use Freshmind's published contact channels when you need clarification.",
+      "If you are a job seeker, start with active opportunities. If you are an employer, use the employer pathway for hiring support.",
   } satisfies SectionCopy,
 } as const
 
@@ -155,98 +208,111 @@ export const aboutPageCopy = {
   metadata: {
     title: "About Freshmind",
     description:
-      "Read Freshmind International's company profile, mission, regulatory standing, destination markets, and worker-support model.",
+      "Learn about Freshmind International's company history, mission, licensing model, operating sectors, and recruitment standards.",
   },
   hero: {
     eyebrow: "About Freshmind",
-    title: "A Ugandan recruitment company built around compliance, employer verification, and worker support.",
+    title: "A Ugandan recruitment company built on documented process and worker protection.",
     description:
-      "Freshmind International Ltd presents itself as a licensed and accredited labor recruitment agency connecting Ugandan workers to reputable employers across the Middle East and Europe through a structured, documented process.",
+      "Freshmind International positions itself as a licensed labor recruitment agency connecting Ugandan candidates to verified overseas opportunities while maintaining compliance and welfare safeguards.",
     image: "trustDesk",
   } satisfies HeroCopy,
-  background: {
-    eyebrow: "Company Background",
-    title: "Freshmind was established to bridge Ugandan job seekers and reputable employers abroad.",
+  story: {
+    eyebrow: "Company Story",
+    title: "Freshmind was established to bridge local talent and international demand responsibly.",
     description:
-      "The company profile describes Freshmind as a professional recruitment agency responding to demand for skilled and unskilled labor in overseas markets while keeping the process legal, structured, and regulated.",
+      "The company profile frames Freshmind as a structured recruitment organization focused on legal migration pathways, transparent process communication, and candidate readiness.",
   } satisfies SectionCopy,
   mission:
     "To empower Ugandan job seekers with safe, reliable, and well-structured employment opportunities abroad, ensuring dignity, fair wages, and career growth in compliance with global labor standards.",
   vision:
     "To become the leading recruitment agency in Uganda and East Africa, recognized for ethical labor migration, professionalism, and strong partnerships with reputable international employers.",
-  services: {
-    eyebrow: "What Freshmind Provides",
-    title: "The company profile frames recruitment as a full process, not a single transaction.",
+  licensing: {
+    eyebrow: "Licensing and Compliance",
+    title: "Regulatory grounding is treated as an operating requirement, not marketing decoration.",
     description:
-      "Freshmind's public service model combines international placement, documentation support, training, travel preparation, and welfare follow-up rather than stopping at interview coordination.",
+      "Freshmind states that it operates under MGLSD licensing, aligns with UAERA guidance, and emphasizes lawful documentation and work-visa pathways.",
   } satisfies SectionCopy,
-  servicePoints: [
-    "International job placement with verified employers.",
-    "Visa and documentation processing support.",
-    "Pre-departure training and workplace orientation.",
-    "Travel and relocation preparation.",
-    "Worker welfare follow-up and dispute guidance.",
+  licensingPoints: [
+    `MGLSD licensing reference: ${siteConfig.licenseNumber}.`,
+    "Candidate flow emphasizes documented contracts and role clarity.",
+    "Pre-departure readiness and safety guidance are built into process communication.",
+    "Verification channels are published for public cross-checking.",
   ],
-  growth: {
-    eyebrow: "Regulatory Standing",
-    title: "Licensing, partnerships, and worker protection are presented as the company's operating foundation.",
+  partnerships: {
+    eyebrow: "Partnership Approach",
+    title: "Freshmind describes partnerships as vetted working relationships, not blanket guarantees.",
     description:
-      "The company profile ties Freshmind's credibility to MGLSD licensing, UAERA alignment, destination-market partnerships, and continued efforts to modernize worker management and fraud prevention.",
+      "The company profile highlights collaboration with international employers in target markets while maintaining compliance and worker-protection expectations.",
   } satisfies SectionCopy,
+  partnershipNote:
+    "Specific role availability, salaries, and benefits depend on active employer demand and signed contract terms at the time of recruitment.",
+  roadmap: {
+    eyebrow: "Future Roadmap",
+    title: "The growth plan focuses on better reach, better systems, and stronger worker safeguards.",
+    description:
+      "Freshmind's profile references partnership expansion, technology-enabled recruitment operations, and stronger anti-fraud communication.",
+  } satisfies SectionCopy,
+  roadmapPoints: [
+    "Expand verified employer relationships across additional markets.",
+    "Improve digital recruitment workflows for clarity and speed.",
+    "Strengthen welfare follow-up and dispute support pathways.",
+    "Increase public awareness of safe migration practices.",
+  ],
 } as const
 
 export const whyFreshmindPageCopy = {
   metadata: {
     title: "Why Freshmind",
     description:
-      "See how Freshmind positions its recruitment process around compliance, employer verification, documented contracts, and worker support.",
+      "See how Freshmind positions recruitment around licensing, verification, documented contracts, and worker support.",
   },
   hero: {
     eyebrow: "Why Freshmind",
-    title: "The difference is meant to be visible in the process, not hidden in slogans.",
+    title: "Process clarity is the main trust signal.",
     description:
-      "Freshmind's company profile makes the case through regulation, employer verification, transparent contracts, training, and worker follow-up rather than broad brand language alone.",
+      "Freshmind's strongest differentiator is a visible process framework: official channels, documented screening, and worker-protection safeguards.",
     image: "trustDesk",
   } satisfies HeroCopy,
   credibility: {
     eyebrow: "What Makes the Process Credible",
-    title: "Freshmind's strongest proof points are concrete and checkable.",
+    title: "Trust grows when candidates can check claims themselves.",
     description:
-      "The site should lead with the signals candidates and families can actually evaluate: licensing, official channels, documented requirements, and visible steps.",
+      "Freshmind's public proof points are designed to be checkable before anyone proceeds.",
   } satisfies SectionCopy,
   credibilityPoints: [
     {
-      title: "Licensed and accredited",
+      title: "Licensed operation",
       body:
-        "Freshmind states that it operates under MGLSD License No. E24050019 and follows UAERA guidance.",
+        `Freshmind cites MGLSD License No. ${siteConfig.licenseNumber} and aligns process language with recognized recruitment guidance.`,
     },
     {
-      title: "Verified employer relationships",
+      title: "Verified opportunity model",
       body:
-        "The company profile emphasizes agreements with reputable employers across the Middle East and Europe before worker placement.",
+        "Role publication, requirements, and screening flow are displayed before registration.",
     },
     {
-      title: "Work-visa-only approach",
+      title: "Work-visa-focused pathway",
       body:
-        "The regulatory section makes lawful travel documentation part of the public standard, not a back-office detail.",
+        "The public process emphasizes legal employment documentation over informal travel routes.",
     },
     {
-      title: "Training before departure",
+      title: "Preparation and follow-up",
       body:
-        "Pre-departure briefings cover labor rights, workplace culture, safety, and the expectations attached to each role.",
+        "Candidate readiness, contract briefing, and post-placement support are treated as part of core operations.",
     },
   ],
   signals: {
     eyebrow: "What Candidates Can Verify",
-    title: "Freshmind should be legible to candidates before they commit to a next step.",
+    title: "You should not need a middleman to understand a legitimate process.",
     description:
-      "The strongest trust pattern is public information: official office channels, licensing references, destination-market clarity, and role requirements that do not need a middleman to explain.",
+      "The site keeps critical signals visible: office channels, licensing references, process steps, and safety guidance.",
   } satisfies SectionCopy,
   publicSignals: [
-    "Official office lines and a physical office location in Kampala.",
-    "MGLSD licensing and government verification pathways.",
-    "Published destination markets and employment sectors.",
-    "A documented route from screening to contract to departure.",
+    "Published office phone numbers, email, and location.",
+    "Government verification links for agency and recruitment checks.",
+    "Role-level requirements and interview routes.",
+    "Safety guidance on fraud, payments, and documentation handling.",
   ],
 } as const
 
@@ -254,40 +320,57 @@ export const safetyPageCopy = {
   metadata: {
     title: "Safety and Anti-Scam Guide",
     description:
-      "Verify Freshmind's official channels, employer checks, work-visa process, and worker-protection standards before you act.",
+      "Verify channels, understand fee language, spot red flags, and follow official reporting paths before acting on any job instruction.",
   },
   hero: {
     eyebrow: "Safety and verification",
-    title: "Verify the process before you commit to it.",
+    title: "Protect your documents, money, and decisions with a verification-first approach.",
     description:
-      "Freshmind's public safety guidance should help candidates and families confirm what is official, reject what is suspicious, and understand how ethical recruitment is supposed to work.",
+      "This guide helps candidates and families confirm what is official, identify suspicious behavior, and respond through the right channels.",
     image: "trustDesk",
   } satisfies HeroCopy,
   checklist: {
-    eyebrow: "Before You Respond to Any Offer",
-    title: "A credible recruitment route should stand up to basic checks.",
+    eyebrow: "Before You Respond",
+    title: "Every opportunity should pass basic legitimacy checks.",
     description:
-      "The company profile gives enough operational detail to build a simple candidate checklist before documents are shared or travel is discussed.",
+      "Use these checks before sharing documents, sending money, or accepting travel instructions.",
   } satisfies SectionCopy,
   checklistSteps: [
-    "Confirm that the message matches Freshmind's published office numbers, email, or location.",
-    "Check that the role, destination, and employer details are consistent with Freshmind's stated sectors and markets.",
-    "Ask whether the process includes documented screening, contract signing, and pre-departure training.",
-    "Confirm that travel will happen on a valid work visa, not a visitor or tourist visa.",
+    "Verify the message source against Freshmind's published phone numbers and email.",
+    "Confirm the role and destination match the published opportunity details.",
+    "Ask for documented process steps, including screening, contracts, and visa pathway.",
+    "Confirm travel is linked to a valid work-visa process.",
   ],
   redFlags: [
-    "Messages from unofficial numbers, email addresses, or brokers claiming to act on Freshmind's behalf.",
-    "Pressure to move forward without documented screening, contract review, or role verification.",
-    "Instructions to travel on a visitor or tourist visa instead of a work visa.",
-    "Requests to surrender original documents to an unverified middleman.",
-    "Unexplained payment demands that are not part of a documented company process.",
+    "Unofficial brokers claiming they can fast-track placement outside published process.",
+    "Pressure to pay quickly without formal explanation or receipt.",
+    "Requests to hand over original documents to unverified individuals.",
+    "Promises of guaranteed placement or guaranteed income regardless of screening.",
+    "Instructions to use visitor/tourist visas for employment.",
   ],
   safeguards: [
-    "Employer verification before placement is approved.",
-    "Transparent contracts outlining job role, salary, and benefits.",
-    "Pre-departure briefings on labor rights, expectations, and workplace culture.",
-    "Ongoing communication and dispute guidance after deployment where needed.",
-    "Advice for workers to register with the Ugandan Embassy in the host country for added support.",
+    "Employer and role verification before deployment stages proceed.",
+    "Written contracts describing role, salary framework, and core benefits.",
+    "Pre-departure briefings covering rights, safety, and culture.",
+    "Ongoing communication and escalation support for worker concerns.",
+    "Encouragement to register with Ugandan embassy contacts in host countries.",
+  ],
+  officialDomains: [
+    "freshmind.ug",
+    "eemis.mglsd.go.ug",
+    "esmis.mglsd.go.ug",
+    "ilo.org",
+  ],
+  feePolicy: {
+    title: "Payment and fee policy",
+    description:
+      "Where charges apply, they should be explained clearly through official channels and supported by formal receipts. Avoid undocumented or rushed payment requests.",
+  },
+  reportingPath: [
+    "Pause immediately if an instruction feels suspicious.",
+    "Contact Freshmind through published office numbers for confirmation.",
+    "Cross-check agency details through EEMIS and related ministry channels.",
+    "Keep screenshots, receipts, and references for any follow-up review.",
   ],
 } as const
 
@@ -295,32 +378,42 @@ export const contactPageCopy = {
   metadata: {
     title: "Contact",
     description:
-      "Reach Freshmind through its published office lines, email, and address, and know what to prepare before you call or visit.",
+      "Reach Freshmind through official office channels for candidate support, employer hiring inquiries, and safety verification.",
   },
   hero: {
     eyebrow: "Contact Freshmind",
-    title: "Official channels, official office, clear next step.",
+    title: "Official channels for candidate support and employer hiring needs.",
     description:
-      "Candidates and families should be able to verify who they are speaking to, why they are calling, and what information will make the conversation useful.",
+      "Use this page to verify communication, follow up on registrations, ask process questions, or discuss employer workforce requirements.",
     image: "trustDesk",
   } satisfies HeroCopy,
   intro: {
     eyebrow: "Office Access",
-    title: "The contact page should function like a checkpoint, not a decorative footer link.",
+    title: "Contact details are part of the trust system.",
     description:
-      "Freshmind's published numbers, office address, and email are part of the trust system. They help candidates compare any message they receive against the agency's actual public information.",
+      "Candidates, families, and employers should be able to verify who they are speaking with and what next steps are valid.",
   } satisfies SectionCopy,
-  contactReasons: [
-    "Candidates confirming whether a role fits their documents or experience.",
-    "Families verifying whether a message, schedule, or instruction is official.",
-    "Registered applicants following up with a reference number after screening.",
-    "Workers or relatives needing support on documentation, placement, or next steps.",
+  candidateReasons: [
+    "Confirm role fit, document readiness, or interview logistics.",
+    "Follow up using a registration reference after submission.",
+    "Clarify process steps, safety concerns, or communication authenticity.",
+    "Request guidance on documentation, contracts, or deployment preparation.",
+  ],
+  employerReasons: [
+    "Request workforce sourcing support for active hiring needs.",
+    "Discuss role requirements, candidate profiles, and screening expectations.",
+    "Align on compliance and deployment documentation workflows.",
   ],
   preparation: [
-    "The opening title or destination you are calling about.",
-    "Your registration reference, if you already completed a booking.",
-    "Your current document status, including passport readiness.",
-    "Any specific question about screening, contracts, travel preparation, or welfare support.",
+    "Opportunity title, destination, or category you are asking about.",
+    "Your registration reference if you have already applied.",
+    "Current document status, especially passport readiness.",
+    "Any suspicious message or payment request you want verified.",
+  ],
+  officeHours: [
+    "Monday - Friday: 8:00 AM - 6:00 PM",
+    "Saturday: 9:00 AM - 3:00 PM",
+    "Sunday and Public Holidays: Closed",
   ],
 } as const
 
@@ -328,25 +421,155 @@ export const opportunitiesPageCopy = {
   metadata: {
     title: "Active Opportunities",
     description:
-      "Browse verified Freshmind openings with clear destination, requirements, and interview routes before you register.",
+      "Browse verified opportunities with destination, requirements, interview routes, and practical registration guidance.",
   },
   hero: {
     eyebrow: "Active opportunities",
-    title: "Choose a verified opening and then follow the published process.",
+    title: "Choose a verified opening, then follow the published process.",
     description:
-      "Each role should help candidates understand where the job is, what documents are expected, and how the screening route works before registration begins.",
+      "Openings are presented with role context, document expectations, and schedule logic so candidates can decide with confidence.",
     image: "travelReadiness",
   } satisfies HeroCopy,
   intro: {
     eyebrow: "How to Use This Page",
-    title: "Read the role, confirm the route, then act.",
+    title: "Read first, confirm fit, then register.",
     description:
-      "The opportunities page should stay factual: destination, job category, requirements, schedule, and next step. Candidates should not need extra marketing language to know whether a role is relevant.",
+      "Prioritize factual checks: destination, role requirements, interview route, and safety reminders before submitting your profile.",
   } satisfies SectionCopy,
   guidePoints: [
-    "Check the destination and job category first.",
-    "Review document and experience requirements before registering.",
-    "Use only the published screening route tied to the opening.",
-    "Contact Freshmind if any instruction around the role feels unclear.",
+    "Start with destination and category fit.",
+    "Check documents and experience requirements carefully.",
+    "Register only through the published route linked to each opening.",
+    "Use official contacts when any instruction feels unclear.",
   ],
+  registrationGuidance: {
+    eyebrow: "Before You Register",
+    title: "Prepare once, apply confidently.",
+    description:
+      "A complete profile and document readiness reduce delays during screening and follow-up.",
+    points: [
+      "Select a slot you can attend on time with originals where required.",
+      "Keep your phone active for official follow-up and reminders.",
+      "Store your registration reference immediately after submission.",
+      "Review the safety guide before responding to any payment request.",
+    ],
+  } satisfies SectionCopy & { points: string[] },
+} as const
+
+export const employersPageCopy = {
+  metadata: {
+    title: "For Employers",
+    description:
+      "Partner with Freshmind to source screened Ugandan talent through a documented, compliance-led recruitment process.",
+  },
+  hero: {
+    eyebrow: "For Employers",
+    title: "Build dependable workforce pipelines through a structured recruitment partner.",
+    description:
+      "Freshmind supports employers with sourcing, screening coordination, candidate preparation, and documentation-aware deployment workflows.",
+    image: "interviewSuite",
+  } satisfies HeroCopy,
+  valueSection: {
+    eyebrow: "Why Partner with Freshmind",
+    title: "Hiring support should balance speed, fit, and compliance.",
+    description:
+      "Freshmind's employer pathway is designed to help partners reduce uncertainty while improving candidate readiness.",
+  } satisfies SectionCopy,
+  valuePoints: [
+    {
+      title: "Screened candidate pipeline",
+      body:
+        "Role-specific sourcing and shortlist support across high-demand sectors.",
+    },
+    {
+      title: "Documented process controls",
+      body:
+        "Structured steps from job request to interview scheduling and deployment preparation.",
+    },
+    {
+      title: "Compliance-aware delivery",
+      body:
+        "Process design emphasizes legal migration pathways and transparent documentation.",
+    },
+    {
+      title: "Candidate readiness focus",
+      body:
+        "Briefings and pre-departure preparation support more stable onboarding outcomes.",
+    },
+  ],
+  process: {
+    eyebrow: "Vetting and Delivery Model",
+    title: "A clear framework for employer demand and candidate supply.",
+    description:
+      "Each stage is visible to reduce mismatch risk and improve hiring reliability.",
+  } satisfies SectionCopy,
+  processSteps: [
+    "Employer role scoping and requirements alignment.",
+    "Candidate sourcing and preliminary fit screening.",
+    "Interview coordination and shortlist communication.",
+    "Contract and documentation readiness workflow.",
+    "Pre-departure preparation and deployment support.",
+  ],
+  deliveryPoints: [
+    "Sector-aligned hiring support across security, logistics, hospitality, construction, and support functions.",
+    "Candidate communication and readiness standards designed to reduce no-shows and documentation delays.",
+    "Official process communication that supports safer and more accountable recruitment.",
+  ],
+  cta: {
+    eyebrow: "Start an Employer Conversation",
+    title: "Share your hiring requirements and Freshmind will guide the next step.",
+    description:
+      "Use the contact pathway to discuss demand planning, candidate profile needs, and process timelines.",
+    primaryLabel: "Contact Employer Desk",
+    primaryHref: "/contact",
+    secondaryLabel: "Browse Candidate Sectors",
+    secondaryHref: "/job-categories",
+  },
+} as const
+
+export const salaryBenefitsPageCopy = {
+  metadata: {
+    title: "Salary and Benefits",
+    description:
+      "Understand salary ranges, benefits frameworks, contract context, and worker safeguards across Freshmind recruitment pathways.",
+  },
+  hero: {
+    eyebrow: "Salary and benefits",
+    title: "Set clear expectations on compensation, benefits, and contract conditions.",
+    description:
+      "Compensation details vary by role, destination, and employer contract. This page provides directional guidance to help candidates ask informed questions.",
+    image: "travelReadiness",
+  } satisfies HeroCopy,
+  salarySection: {
+    eyebrow: "Indicative Salary Ranges",
+    title: "Ranges are directional and role-dependent.",
+    description:
+      "Published figures are approximate equivalents and should be confirmed at contract stage.",
+  } satisfies SectionCopy,
+  salaryRows: [
+    { role: "General placements", range: "UGX 1.2M - UGX 2.9M equivalent" },
+    { role: "Security guards", range: "UGX 1.5M - UGX 2.5M equivalent" },
+    { role: "Hospitality and hotel support", range: "UGX 1.2M - UGX 2.0M equivalent" },
+    { role: "Drivers and logistics", range: "UGX 1.8M - UGX 2.9M equivalent" },
+    { role: "Construction and skilled work", range: "UGX 1.5M - UGX 2.7M equivalent" },
+  ],
+  benefitsFramework: [
+    "Employment visa and legal documentation support.",
+    "Accommodation and transport support where provided under contract.",
+    "Medical coverage arrangements under host-country frameworks.",
+    "Meal or living support for eligible categories depending on terms.",
+    "End-of-service and leave considerations where contractually applicable.",
+  ],
+  contractNotes: [
+    "Salary, overtime, and allowances should be clearly documented before travel.",
+    "Candidates should review role duties, contract duration, and benefits in writing.",
+    "Any fees communicated should be documented and receipted through official channels.",
+  ],
+  safeguards: [
+    "Pre-departure rights and safety briefing before deployment.",
+    "Post-placement communication channels for welfare concerns.",
+    "Escalation support for disputes through official pathways.",
+  ],
+  disclaimer:
+    "Final compensation and benefits depend on employer contract, destination-country labor rules, and verified role conditions at the time of placement.",
 } as const

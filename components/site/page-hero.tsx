@@ -13,6 +13,8 @@ type PageHeroProps = {
   eyebrow: string
   title: string
   description: string
+  titleClassName?: string
+  contentClassName?: string
   imageKey?: ImageAssetKey
   visual?: ReactNode
   className?: string
@@ -29,6 +31,8 @@ export function PageHero({
   eyebrow,
   title,
   description,
+  titleClassName,
+  contentClassName,
   imageKey,
   visual,
   className,
@@ -45,8 +49,8 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative overflow-hidden border-b py-12 sm:py-16 lg:py-20",
-        underHeader && "-mt-[84px] pt-[116px] sm:pt-[132px] lg:pt-[148px]",
+        "relative overflow-hidden border-b py-16 sm:py-20 lg:py-24",
+        underHeader && "-mt-16 pt-28 sm:pt-32 lg:-mt-[72px] lg:pt-40",
         inverse
           ? "border-primary-foreground/12 bg-primary text-primary-foreground"
           : "border-black/8 bg-white",
@@ -54,30 +58,31 @@ export function PageHero({
       )}
     >
       <div className="container">
-        <div className="site-grid items-center">
+        <div className={cn("site-grid items-center", contentClassName)}>
           <Reveal
             className={cn(
               "site-span-12 space-y-6 lg:space-y-8",
               compact ? "lg:col-span-5" : "lg:col-span-5"
             )}
           >
-            <Eyebrow inverse={inverse}>{eyebrow}</Eyebrow>
+            {eyebrow ? <Eyebrow inverse={inverse}>{eyebrow}</Eyebrow> : null}
 
             <div className="space-y-5">
               <h1
                 className={cn(
                   compact
-                    ? "max-w-[13ch] text-[clamp(1.95rem,3.3vw,3.15rem)]"
-                    : "max-w-[12ch] text-[clamp(2.2rem,4vw,4.05rem)]",
-                  "font-display font-semibold leading-[0.97] tracking-[-0.045em]",
-                  inverse ? "text-primary-foreground" : "text-foreground"
+                    ? "max-w-[13ch] text-[clamp(2.25rem,4vw,3rem)]"
+                    : "max-w-[12ch] text-[clamp(2.5rem,5vw,4rem)]",
+                  "font-display font-bold leading-[1.08] tracking-[-0.02em]",
+                  inverse ? "text-primary-foreground" : "text-foreground",
+                  titleClassName
                 )}
               >
                 {title}
               </h1>
               <p
                 className={cn(
-                  "max-w-[46ch] text-[0.98rem] leading-7 sm:text-[1rem] sm:leading-8",
+                  "max-w-[60ch] text-base leading-7 sm:leading-8",
                   inverse ? "text-primary-foreground/76" : "text-muted-foreground"
                 )}
               >
