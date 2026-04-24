@@ -9,7 +9,7 @@ export const siteConfig = {
   logoPath: "/brand/freshmind-logo.png",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "https://www.freshmindinternational.com",
+    "https://fresmindinternational.com",
   email: "info@freshmindinternational.com",
   phone: "+256 783 183 252",
   altPhone: "+256 704 231 665",

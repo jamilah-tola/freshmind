@@ -478,7 +478,7 @@ export const safetyPageCopy = {
     "Encouragement to register with Ugandan embassy contacts in host countries.",
   ],
   officialDomains: [
-    "freshmindinternational.com",
+    "fresmindinternational.com",
     "eemis.mglsd.go.ug",
     "esmis.mglsd.go.ug",
     "ilo.org",
