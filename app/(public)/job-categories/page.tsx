@@ -7,11 +7,23 @@ import { narrativeMedia } from "@/lib/freshmind/presentation"
 import { getRepository } from "@/lib/freshmind/repository"
 import { buildMetadata } from "@/lib/site"
 
+const compensationNotes = [
+  "Security and driver roles often pay more where experience, licensing, or overtime requirements are higher.",
+  "Accommodation, transport, meals, and medical support depend on the employer contract and destination country.",
+  "Candidates should confirm salary, deductions, leave, and contract duration in writing before travel arrangements begin.",
+] as const
+
 export const metadata = buildMetadata({
   title: "Job Categories",
   description:
     "Review Freshmind's main job categories and move into the verified openings that match your skills and preferred path.",
   path: "/job-categories",
+  keywords: [
+    "job categories abroad for Ugandans",
+    "security jobs abroad Uganda",
+    "driver jobs abroad Uganda",
+    "hospitality jobs abroad Uganda",
+  ],
 })
 
 export default function JobCategoriesPage() {
@@ -72,15 +84,23 @@ export default function JobCategoriesPage() {
             </div>
             <div className="site-span-12 space-y-5 lg:col-span-7">
               <p className="section-copy">
-                Use the salary and benefits guide for directional ranges and key contract
-                questions to ask before registration.
+                Pay expectations are strongest when candidates review the role category,
+                destination market, and contract structure together instead of relying on
+                generic salary promises.
               </p>
+              <div className="space-y-4">
+                {compensationNotes.map((item) => (
+                  <div key={item} className="border-t border-black/8 pt-4">
+                    <p className="text-sm leading-7 text-foreground/82">{item}</p>
+                  </div>
+                ))}
+              </div>
               <div className="flex flex-wrap gap-3 pt-2">
                 <PillButton asChild tone="dark">
-                  <Link href="/salary-benefits">Review salary and benefits</Link>
+                  <Link href="/opportunities">Browse live opportunities</Link>
                 </PillButton>
                 <PillButton asChild tone="light">
-                  <Link href="/opportunities">Browse live opportunities</Link>
+                  <Link href="/contact">Talk to Freshmind</Link>
                 </PillButton>
               </div>
             </div>

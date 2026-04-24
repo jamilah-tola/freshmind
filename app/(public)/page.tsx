@@ -42,6 +42,45 @@ const registrationSteps = [
   },
 ] as const
 
+const opportunitySearchThemes = [
+  {
+    title: "Jobs in Dubai for Ugandans",
+    description:
+      "UAE demand commonly centers on security, hospitality, cleaning, and facilities roles supported by formal screening and documented contracts.",
+    href: "/opportunities",
+  },
+  {
+    title: "Jobs in Qatar for Ugandans",
+    description:
+      "Qatar searches often focus on drivers, logistics, airport support, and service jobs that require clear interview preparation and document readiness.",
+    href: "/opportunities",
+  },
+  {
+    title: "Jobs in Saudi Arabia for Ugandans",
+    description:
+      "Saudi Arabia remains a major route for hotel support, construction, healthcare support, and other employer-led overseas placements.",
+    href: "/opportunities",
+  },
+  {
+    title: "Security jobs abroad for Ugandans",
+    description:
+      "Security roles usually reward discipline, presentation, and shift readiness, and they remain one of the strongest candidate-intent searches.",
+    href: "/job-categories/security",
+  },
+  {
+    title: "Driver jobs abroad for Ugandans",
+    description:
+      "Driver and logistics placements depend on permit history, safety record, and destination fit before interview shortlisting begins.",
+    href: "/job-categories/transport",
+  },
+  {
+    title: "Hospitality, cleaning, and caregiver jobs abroad",
+    description:
+      "Service and care roles attract candidates looking for cleaner, caregiver, hotel, and support jobs with visible role expectations before they apply.",
+    href: "/job-categories/hospitality",
+  },
+] as const
+
 function getInitials(name: string) {
   return name
     .split(" ")
@@ -54,6 +93,15 @@ function getInitials(name: string) {
 export const metadata = buildMetadata({
   title: homePageCopy.metadata.title,
   description: homePageCopy.metadata.description,
+  keywords: [
+    "jobs abroad for Ugandans",
+    "licensed recruitment agency Uganda",
+    "verified jobs abroad Uganda",
+    "work abroad Uganda",
+    "Dubai jobs for Ugandans",
+    "Qatar jobs for Ugandans",
+    "Saudi jobs for Ugandans",
+  ],
 })
 
 export default function HomePage() {
@@ -108,7 +156,13 @@ export default function HomePage() {
 
       <section className="py-6 sm:py-8">
         <div className="container">
-          <div className="relative overflow-hidden rounded-[1.25rem] border border-black/8 bg-white px-6 py-6 text-foreground shadow-[0_20px_44px_rgba(15,23,42,0.06)] sm:px-8 sm:py-7 lg:px-10">
+          <div
+            className="relative overflow-hidden rounded-[1.25rem] border border-white/12 px-6 py-6 text-white shadow-[0_20px_44px_rgba(14,89,68,0.18)] sm:px-8 sm:py-7 lg:px-10"
+            style={{
+              background:
+                "linear-gradient(135deg, #0E5944 0%, hsl(var(--primary-hover)) 48%, hsl(var(--primary)) 100%)",
+            }}
+          >
             <svg
               viewBox="0 0 1000 220"
               preserveAspectRatio="none"
@@ -136,27 +190,27 @@ export default function HomePage() {
 
             <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_auto] lg:items-center">
               <div className="space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/78">
                   Opportunities now open
                 </p>
                 <h2 className="max-w-[20ch] text-2xl font-semibold leading-tight tracking-[-0.01em] sm:text-3xl">
                   Your next opportunity abroad could start here.
                 </h2>
-                <p className="max-w-[56ch] text-sm leading-7 text-muted-foreground">
+                <p className="max-w-[56ch] text-sm leading-7 text-white/86">
                   Browse current destinations, role requirements, interview routes, and
                   application guidance published through official Freshmind channels.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center lg:min-w-[520px]">
-                <div className="border-l border-black/8 pl-4 sm:pl-5">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                <div className="border-l border-white/18 pl-4 sm:pl-5">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/72">
                     Need help?
                   </p>
-                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                  <p className="mt-2 text-sm leading-7 text-white/88">
                     Call{" "}
                     <a
                       href={`tel:${siteConfig.phone}`}
-                      className="font-semibold text-foreground hover:text-primary"
+                      className="font-semibold text-white hover:text-white/80"
                     >
                       {siteConfig.phone}
                     </a>
@@ -164,7 +218,7 @@ export default function HomePage() {
                     Email{" "}
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="font-semibold text-foreground hover:text-primary"
+                      className="font-semibold text-white hover:text-white/80"
                     >
                       {siteConfig.email}
                     </a>
@@ -177,6 +231,42 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <div className="container">
+          <div className="max-w-[58rem] space-y-5">
+            <Eyebrow>Popular Job Routes</Eyebrow>
+            <h2 className="section-title max-w-[15ch]">
+              Explore verified jobs abroad for Ugandans by destination and role.
+            </h2>
+            <p className="section-copy">
+              Candidates usually compare opportunities by country, category, and trust
+              signals. Freshmind publishes openings and support information for the UAE,
+              Qatar, Saudi Arabia, Jordan, and Poland so applicants can decide with
+              clearer expectations.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {opportunitySearchThemes.map((theme) => (
+              <article key={theme.title} className="surface-card p-6">
+                <h2 className="text-[1.15rem] font-semibold tracking-[-0.02em] text-foreground">
+                  {theme.title}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                  {theme.description}
+                </p>
+                <Link
+                  href={theme.href}
+                  className="mt-6 inline-flex text-sm font-semibold text-primary hover:text-primary/80"
+                >
+                  Explore opportunities
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -250,37 +340,36 @@ export default function HomePage() {
 
       <section className="py-16 sm:py-20" id="how-to-register">
         <div className="container">
-          <div className="mx-auto max-w-[70rem] space-y-10">
-            <div className="max-w-[48rem] space-y-4 lg:max-w-[52rem]">
+          <div className="mx-auto grid max-w-[72rem] gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-14">
+            <div className="space-y-4 lg:sticky lg:top-24 lg:self-start">
               <Eyebrow>How to Register</Eyebrow>
-              <h2 className="section-title max-w-[20ch]">
+              <h2 className="section-title max-w-[18ch]">
                 Start your journey through a simplified process.
               </h2>
-              <p className="max-w-[44rem] text-lg leading-8 text-foreground/72 sm:text-[1.1rem]">
+              <p className="max-w-[42rem] text-lg leading-8 text-foreground/72 sm:text-[1.1rem]">
                 Working abroad is a big step. Freshmind keeps the process clear from
                 the start, so you know how to apply, what to prepare, and what happens
                 at each stage.
               </p>
             </div>
 
-            <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <ol className="relative space-y-0 pl-16 before:absolute before:left-[1.05rem] before:top-4 before:bottom-4 before:w-px before:bg-black/10 sm:pl-20 sm:before:left-[1.55rem]">
               {registrationSteps.map((step, index) => (
                 <li
                   key={step.title}
-                  className="flex h-full flex-col rounded-[1.35rem] border border-black/8 bg-white px-5 py-5 shadow-[0_14px_30px_rgba(15,23,42,0.05)] sm:px-6 sm:py-6"
+                  className="relative border-b border-black/8 py-6 last:border-b-0 sm:py-7"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="font-display text-[2rem] font-semibold leading-none tracking-[-0.05em] text-primary sm:text-[2.2rem]">
-                      {String(index + 1).padStart(2, "0")}
-                    </div>
-                    <div className="h-px flex-1 bg-black/8" />
+                  <span className="absolute left-[-4rem] top-6 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-[0_10px_24px_rgba(14,89,68,0.18)] sm:left-[-5rem] sm:h-12 sm:w-12 sm:text-sm">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="space-y-3">
+                    <h3 className="max-w-[18ch] text-[1.15rem] font-semibold tracking-[-0.02em] text-foreground sm:text-[1.32rem]">
+                      {step.title}
+                    </h3>
+                    <p className="max-w-[54ch] text-sm leading-7 text-muted-foreground">
+                      {step.body}
+                    </p>
                   </div>
-                  <h3 className="mt-5 max-w-[16ch] text-[1.15rem] font-semibold tracking-[-0.02em] text-foreground sm:text-[1.28rem]">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    {step.body}
-                  </p>
                 </li>
               ))}
             </ol>
@@ -298,20 +387,26 @@ export default function HomePage() {
 
             <div className="grid items-start gap-6 lg:grid-cols-12">
               {featuredTestimonial ? (
-                <article className="relative self-start overflow-hidden rounded-[1.75rem] border border-black/8 bg-white px-6 py-7 text-foreground shadow-[0_20px_44px_rgba(15,23,42,0.06)] sm:px-8 sm:py-8 lg:col-span-7">
-                  <MessageSquareQuote className="absolute right-6 top-6 h-16 w-16 text-black/8" />
-                  <p className="max-w-[24ch] text-[1.3rem] font-semibold leading-9 tracking-[-0.02em] text-foreground sm:text-[1.45rem] sm:leading-10">
+                <article
+                  className="relative self-start overflow-hidden rounded-[1.75rem] px-6 py-7 text-white shadow-[0_20px_44px_rgba(14,89,68,0.18)] sm:px-8 sm:py-8 lg:col-span-7"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #0E5944 0%, hsl(var(--primary-hover)) 46%, hsl(var(--primary)) 100%)",
+                  }}
+                >
+                  <MessageSquareQuote className="absolute right-6 top-6 h-16 w-16 text-white/14" />
+                  <p className="max-w-[24ch] text-[1.3rem] font-semibold leading-9 tracking-[-0.02em] text-white sm:text-[1.45rem] sm:leading-10">
                     “{featuredTestimonial.quote}”
                   </p>
-                  <div className="mt-8 flex items-center gap-4 border-t border-black/8 pt-5">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-secondary text-sm font-semibold uppercase tracking-[0.12em] text-primary">
+                  <div className="mt-8 flex items-center gap-4 border-t border-white/16 pt-5">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/14 text-sm font-semibold uppercase tracking-[0.12em] text-white">
                       {getInitials(featuredTestimonial.name)}
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-foreground">
+                      <p className="text-sm font-semibold text-white">
                         {featuredTestimonial.name}
                       </p>
-                      <p className="text-sm leading-7 text-muted-foreground">
+                      <p className="text-sm leading-7 text-white/76">
                         {featuredTestimonial.role} • {featuredTestimonial.district}
                       </p>
                     </div>

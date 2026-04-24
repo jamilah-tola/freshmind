@@ -9,22 +9,22 @@ import {
   Phone,
 } from "lucide-react"
 
-import { siteConfig } from "@/lib/site"
+import { configuredSocialLinks, siteConfig } from "@/lib/site"
 
 const companyLinks = [
   { href: "/", label: "Home" },
-  { href: "/opportunities", label: "Opportunities" },
-  { href: "/employers", label: "Employers" },
   { href: "/about", label: "About Freshmind" },
-  { href: "/salary-benefits", label: "Salary & Benefits" },
+  { href: "/opportunities", label: "Opportunities" },
+  { href: "/job-categories", label: "Job Categories" },
+  { href: "/why-freshmind", label: "Why Freshmind" },
   { href: "/contact", label: "Contact Us" },
 ]
 
 const helpLinks = [
-  { href: "/faq", label: "FAQ" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/why-freshmind", label: "Why Freshmind" },
-  { href: "/safety", label: "Safety & Anti-Scam" },
+  { href: "/opportunities/book", label: "Book Interview" },
+  { href: "/success-stories", label: "Success Stories" },
+  { href: "/terms", label: "Terms" },
+  { href: "/privacy", label: "Privacy" },
 ]
 
 const socialLinks = [
@@ -43,7 +43,7 @@ const socialLinks = [
     label: "LinkedIn",
     icon: Linkedin,
   },
-]
+].filter((item) => configuredSocialLinks.includes(item.href))
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -121,29 +121,31 @@ export function Footer() {
                 </div>
               </div>
             </div>
-            <div className="space-y-3 pt-2">
-              <p className="text-xs font-semibold tracking-[0.04em] text-white/62">
-                Follow Us
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {socialLinks.map((item) => {
-                  const Icon = item.icon
+            {socialLinks.length > 0 ? (
+              <div className="space-y-3 pt-2">
+                <p className="text-xs font-semibold tracking-[0.04em] text-white/62">
+                  Follow Us
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {socialLinks.map((item) => {
+                    const Icon = item.icon
 
-                  return (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={item.label}
-                      className="flex h-10 w-10 items-center justify-center rounded-md border border-white/14 bg-white/10 text-white transition-colors duration-150 hover:bg-white/18 hover:text-white"
-                    >
-                      <Icon className="h-4 w-4" />
-                    </a>
-                  )
-                })}
+                    return (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={item.label}
+                        className="flex h-10 w-10 items-center justify-center rounded-md border border-white/14 bg-white/10 text-white transition-colors duration-150 hover:bg-white/18 hover:text-white"
+                      >
+                        <Icon className="h-4 w-4" />
+                      </a>
+                    )
+                  })}
+                </div>
               </div>
-            </div>
+            ) : null}
           </div>
 
           <div className="site-span-12 space-y-4 md:col-span-4 lg:col-span-2">

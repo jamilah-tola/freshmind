@@ -6,10 +6,30 @@ import { PillButton } from "@/components/site/pill-button"
 import { whyFreshmindPageCopy } from "@/lib/freshmind/editorial-copy"
 import { buildMetadata, siteConfig } from "@/lib/site"
 
+const verificationChecklist = [
+  "Verify the agency name, license details, and office contacts before sharing documents.",
+  "Confirm that the role, destination, and interview route match what is published on the site.",
+  "Ask for a written explanation of the next steps, especially around contracts, visas, and employer terms.",
+  "Pause if anyone asks for rushed payment, unofficial document handover, or travel on the wrong visa type.",
+] as const
+
+const redFlags = [
+  "Personal-number pressure that cannot be matched to Freshmind's published office channels.",
+  "Promises of guaranteed placement, guaranteed salary, or guaranteed travel regardless of screening.",
+  "Requests for money without a formal explanation, receipt path, or role-specific context.",
+  "Instructions to use visitor or tourist visas for employment travel.",
+] as const
+
 export const metadata = buildMetadata({
   title: whyFreshmindPageCopy.metadata.title,
   description: whyFreshmindPageCopy.metadata.description,
   path: "/why-freshmind",
+  keywords: [
+    "verify recruitment agency Uganda",
+    "anti scam jobs abroad Uganda",
+    "ethical recruitment Uganda",
+    "licensed recruitment agency Uganda",
+  ],
 })
 
 export default function WhyFreshmindPage() {
@@ -24,7 +44,9 @@ export default function WhyFreshmindPage() {
         actions={
           <>
             <PillButton asChild tone="dark">
-              <Link href="/safety">Review safety guidance</Link>
+              <a href={siteConfig.verificationLinks.eemis} target="_blank" rel="noreferrer">
+                Verify on EEMIS
+              </a>
             </PillButton>
             <PillButton asChild tone="light">
               <Link href="/contact">Contact Freshmind</Link>
@@ -75,6 +97,52 @@ export default function WhyFreshmindPage() {
                   <p className="text-sm leading-7 text-foreground/82">{signal}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <div className="container">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+            <div className="space-y-5">
+              <Eyebrow>Trust Checks</Eyebrow>
+              <h2 className="section-title max-w-[15ch]">
+                Real opportunities should survive a verification-first review.
+              </h2>
+              <p className="section-copy">
+                The strongest trust signal is not a slogan. It is whether a candidate or
+                family member can confirm what is real before documents, money, or travel
+                are involved.
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div className="surface-card p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                  What to verify
+                </p>
+                <div className="mt-5 space-y-4">
+                  {verificationChecklist.map((item) => (
+                    <div key={item} className="border-t border-black/8 pt-4">
+                      <p className="text-sm leading-7 text-foreground/82">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="surface-card p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                  Red flags
+                </p>
+                <div className="mt-5 space-y-4">
+                  {redFlags.map((item) => (
+                    <div key={item} className="border-t border-black/8 pt-4">
+                      <p className="text-sm leading-7 text-foreground/82">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

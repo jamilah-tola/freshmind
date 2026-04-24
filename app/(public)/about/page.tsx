@@ -9,8 +9,9 @@ import {
 
 import { Eyebrow } from "@/components/site/editorial"
 import { PageHero } from "@/components/site/page-hero"
+import { StructuredData } from "@/components/site/structured-data"
 import { aboutPageCopy } from "@/lib/freshmind/editorial-copy"
-import { buildMetadata, siteConfig } from "@/lib/site"
+import { buildMetadata, createBreadcrumbJsonLd, siteConfig } from "@/lib/site"
 
 const overviewIcons = [ShieldCheck, Globe2, Users2, Handshake] as const
 
@@ -63,11 +64,36 @@ export const metadata = buildMetadata({
   title: aboutPageCopy.metadata.title,
   description: aboutPageCopy.metadata.description,
   path: "/about",
+  keywords: [
+    "about Freshmind International",
+    "licensed recruitment agency Uganda",
+    "ethical recruitment Uganda",
+    "jobs abroad for Ugandans agency",
+  ],
 })
+
+const aboutBreadcrumbJsonLd = createBreadcrumbJsonLd([
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+])
+
+const aboutFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: aboutFaqs.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+}
 
 export default function AboutPage() {
   return (
     <main className="page-shell">
+      <StructuredData data={[aboutBreadcrumbJsonLd, aboutFaqJsonLd]} />
       <PageHero
         eyebrow="Who we are"
         title="About Freshmind International"

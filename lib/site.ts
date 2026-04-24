@@ -4,12 +4,12 @@ export const siteConfig = {
   name: "Freshmind International",
   shortName: "Freshmind",
   description:
-    "Licensed ethical recruitment connecting Ugandan job seekers and international employers through verified opportunities, documented process controls, and worker protection.",
+    "Licensed recruitment agency in Uganda connecting job seekers to verified jobs abroad in the UAE, Qatar, Saudi Arabia, Jordan, and Poland through ethical, documented hiring.",
   brandColor: "#82BA33",
   logoPath: "/brand/freshmind-logo.png",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "https://freshmind.ug",
+    "https://www.freshmindinternational.com",
   email: "info@freshmindinternational.com",
   phone: "+256 783 183 252",
   altPhone: "+256 704 231 665",
@@ -44,27 +44,26 @@ export const primaryNavigation = [
 export const footerNavigation = {
   jobSeekers: [
     { href: "/opportunities", label: "Browse openings" },
-    { href: "/salary-benefits", label: "Salary and benefits" },
-    { href: "/how-it-works", label: "Interview process" },
-    { href: "/faq", label: "Questions before you apply" },
+    { href: "/opportunities/book", label: "Book interview" },
+    { href: "/job-categories", label: "Job categories" },
+    { href: "/success-stories", label: "Success stories" },
     { href: "/contact", label: "Talk to our team" },
   ],
   employers: [
-    { href: "/employers", label: "Employer services" },
+    { href: "/about", label: "About Freshmind" },
     { href: "/job-categories", label: "Sectors supplied" },
     { href: "/contact", label: "Employer inquiry" },
   ],
   trust: [
     { href: "/why-freshmind", label: "Why Freshmind" },
-    { href: "/success-stories", label: "Success stories" },
-    { href: "/safety", label: "Safety & anti-scam" },
     { href: "/privacy", label: "Privacy policy" },
     { href: "/terms", label: "Terms of service" },
+    { href: "/contact", label: "Verify a communication" },
   ],
   legacy: [
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
-    { href: "/application-process", label: "Application process" },
+    { href: "/opportunities/book", label: "Application process" },
     { href: "/job-categories", label: "Job categories" },
   ],
 }
@@ -78,6 +77,7 @@ type MetadataInput = {
   description: string
   path?: string
   image?: string
+  keywords?: string[]
 }
 
 export function buildMetadata({
@@ -85,6 +85,7 @@ export function buildMetadata({
   description,
   path = "/",
   image = "/opengraph-image",
+  keywords,
 }: MetadataInput): Metadata {
   const url = absoluteUrl(path)
   const imageUrl = absoluteUrl(image)
@@ -92,6 +93,7 @@ export function buildMetadata({
   return {
     title,
     description,
+    keywords,
     alternates: {
       canonical: url,
     },
@@ -133,3 +135,22 @@ export function createBreadcrumbJsonLd(
     })),
   }
 }
+
+export function isConfiguredSocialUrl(url: string) {
+  if (!url) {
+    return false
+  }
+
+  try {
+    const parsed = new URL(url)
+    const pathname = parsed.pathname.replace(/\/+$/, "")
+
+    return pathname.length > 0
+  } catch {
+    return false
+  }
+}
+
+export const configuredSocialLinks = Object.values(siteConfig.social).filter(
+  isConfiguredSocialUrl
+)

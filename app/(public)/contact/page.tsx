@@ -12,6 +12,12 @@ export const metadata = buildMetadata({
   title: contactPageCopy.metadata.title,
   description: contactPageCopy.metadata.description,
   path: "/contact",
+  keywords: [
+    "contact Freshmind",
+    "verify job offer Uganda",
+    "licensed recruitment agency contact Uganda",
+    "jobs abroad support Uganda",
+  ],
 })
 
 export default function ContactPage() {
@@ -81,6 +87,61 @@ export default function ContactPage() {
                     ))}
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <div className="container">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)]">
+            <div className="surface-card p-6 sm:p-7">
+              <Eyebrow>What We Help With</Eyebrow>
+              <h2 className="mt-4 section-title max-w-[15ch]">
+                Contact reasons should be clear before you reach out.
+              </h2>
+
+              <div className="mt-8 grid gap-8 md:grid-cols-2">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    Candidate support
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    {contactPageCopy.candidateReasons.map((item) => (
+                      <p key={item} className="text-sm leading-7 text-foreground/82">
+                        {item}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    Employer inquiries
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    {contactPageCopy.employerReasons.map((item) => (
+                      <p key={item} className="text-sm leading-7 text-foreground/82">
+                        {item}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="surface-card p-6 sm:p-7">
+              <Eyebrow>Before You Contact Us</Eyebrow>
+              <h2 className="mt-4 section-title max-w-[14ch]">
+                A few details help the team respond faster.
+              </h2>
+              <div className="mt-8 space-y-4">
+                {contactPageCopy.preparation.map((item) => (
+                  <div key={item} className="border-t border-black/8 pt-4">
+                    <p className="text-sm leading-7 text-foreground/82">{item}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

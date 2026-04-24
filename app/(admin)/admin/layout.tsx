@@ -18,7 +18,7 @@ export default async function AdminLayout({
   return (
     <SidebarProvider defaultOpen>
       <AdminSidebar />
-      <SidebarInset className="min-h-screen bg-[linear-gradient(180deg,#f7fafc_0%,#f2f6f1_38%,#ffffff_100%)]">
+      <SidebarInset className="min-h-screen bg-white">
         <div className="flex min-h-screen flex-col">
           <header className="sticky top-0 z-30 border-b border-border/70 bg-background/90 backdrop-blur">
             <div className="flex flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-6">
@@ -54,4 +54,3 @@ export default async function AdminLayout({
     </SidebarProvider>
   )
 }
-

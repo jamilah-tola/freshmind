@@ -135,8 +135,8 @@ export const homePromoCards: PromoCardConfig[] = [
     title: "Freshmind teaches people how to confirm what is real before they comply.",
     description:
       "Public verification links, published office channels, and anti-scam education now sit inside the experience.",
-    href: "/safety",
-    cta: "See the safety guide",
+    href: "/why-freshmind",
+    cta: "See trust checks",
     image: "trustDesk",
     theme: "accent",
   },

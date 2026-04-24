@@ -41,15 +41,15 @@ export default async function RegistrationSuccessPage({ searchParams }: Props) {
           </h2>
           <p className="mt-4 text-sm leading-7 text-muted-foreground">
             Freshmind will contact you through official channels only. If you are
-            ever unsure, confirm details through the phone numbers and verification
-            links listed on the safety page.
+            ever unsure, confirm details through the phone numbers, license
+            references, and verification links published on the Why Freshmind page.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <PillButton asChild tone="dark">
-              <Link href="/safety">Review the safety guide</Link>
+              <Link href="/why-freshmind">Review trust checks</Link>
             </PillButton>
             <PillButton asChild tone="light">
-              <Link href={opening ? `/opportunities/${opening}` : "/opportunities"}>
+              <Link href={opening ? `/opportunities/book?opening=${opening}` : "/opportunities"}>
                 Back to opportunities
               </Link>
             </PillButton>

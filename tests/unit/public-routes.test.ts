@@ -32,6 +32,53 @@ describe("public route handlers", () => {
     expect(response.status).toBe(400)
   })
 
+  it("creates a registration for a valid payload without an explicit venue id", async () => {
+    createRegistration.mockResolvedValue({ id: "registration-1", reference: "FM-26-ABCDE" })
+
+    const { POST } = await import("@/app/api/public/registrations/route")
+    const response = await POST(
+      new Request("http://localhost/api/public/registrations", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          openingId: "opening-1",
+          slotId: "slot-1",
+          fullName: "Sarah Candidate",
+          phone: "+256700000000",
+          district: "Kampala",
+          email: "candidate@example.com",
+          ageBand: "25-30",
+          education: "Diploma",
+          category: "security",
+          yearsOfExperience: "3 years",
+          passportStatus: "Valid passport",
+          preferredCountry: "United Arab Emirates",
+          notes: "",
+          document: null,
+        }),
+      })
+    )
+
+    expect(response.status).toBe(201)
+    expect(createRegistration).toHaveBeenCalledWith(
+      expect.objectContaining({
+        openingId: "opening-1",
+        slotId: "slot-1",
+        fullName: "Sarah Candidate",
+        email: "candidate@example.com",
+        notes: undefined,
+        document: null,
+      })
+    )
+    expect(createRegistration).toHaveBeenCalledWith(
+      expect.not.objectContaining({
+        venueId: expect.anything(),
+      })
+    )
+  })
+
   it("creates a contact submission for a valid payload", async () => {
     createContactSubmission.mockResolvedValue({ id: "contact-1" })
 

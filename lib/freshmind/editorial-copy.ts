@@ -50,15 +50,15 @@ export const globalEditorialCopy = {
 
 export const homePageCopy = {
   metadata: {
-    title: "Verified Overseas Recruitment for Candidates and Employers",
+    title: "Jobs Abroad for Ugandans | Licensed Recruitment Agency in Uganda",
     description:
-      "Freshmind International is a licensed Ugandan recruitment agency helping candidates access verified overseas opportunities and helping employers source prepared talent through a documented, compliance-led process.",
+      "Find verified jobs abroad for Ugandans in the UAE, Qatar, Saudi Arabia, Jordan, and Poland. Freshmind International is a licensed recruitment agency in Uganda with interview booking, candidate support, and documented recruitment steps.",
   },
   hero: {
     eyebrow: "",
-    title: "Promoting Ethical Recruitment in Uganda",
+    title: "Verified Jobs Abroad for Ugandans",
     description:
-      "FreshMind International Ltd is a licensed and accredited labor recruitment agency based in Uganda. With a strong commitment to ethical recruitment and global workforce placement",
+      "Freshmind International is a licensed recruitment agency in Uganda helping job seekers apply for verified overseas opportunities through clear screening, interview booking, and worker-first recruitment.",
     image: "heroRecruitment",
     proofLine: `MGLSD Licensed • UAERA Aligned • License No. ${siteConfig.licenseNumber}`,
     candidateCta: {
@@ -175,7 +175,7 @@ export const homePageCopy = {
       "Treat payment requests as valid only when documented and receipted through official process.",
     ],
     ctaLabel: "Open Safety Guide",
-    ctaHref: "/safety",
+    ctaHref: "/why-freshmind",
   },
   employerBlock: {
     eyebrow: "For Employers",
@@ -188,12 +188,12 @@ export const homePageCopy = {
       "Documentation-aware workflow designed to reduce onboarding risk.",
     ],
     primaryCta: {
-      label: "Explore Employer Services",
-      href: "/employers",
-    },
-    secondaryCta: {
       label: "Contact Employer Desk",
       href: "/contact",
+    },
+    secondaryCta: {
+      label: "About Freshmind",
+      href: "/about",
     },
   },
   nextStep: {
@@ -208,7 +208,7 @@ export const aboutPageCopy = {
   metadata: {
     title: "About Freshmind",
     description:
-      "Learn how Freshmind International positions its recruitment business across licensing, employer partnerships, worker preparation, and overseas placement support.",
+      "Learn how Freshmind International operates as a licensed recruitment agency in Uganda for verified jobs abroad, candidate screening, employer partnerships, and worker support.",
   },
   hero: {
     eyebrow: "About Freshmind",
@@ -387,7 +387,7 @@ export const whyFreshmindPageCopy = {
   metadata: {
     title: "Why Freshmind",
     description:
-      "See how Freshmind positions recruitment around licensing, verification, documented contracts, and worker support.",
+      "Verify Freshmind's license, office contacts, recruitment process, and anti-scam checks before applying for jobs abroad from Uganda.",
   },
   hero: {
     eyebrow: "Why Freshmind",
@@ -428,13 +428,13 @@ export const whyFreshmindPageCopy = {
     eyebrow: "What Candidates Can Verify",
     title: "You should not need a middleman to understand a legitimate process.",
     description:
-      "The site keeps critical signals visible: office channels, licensing references, process steps, and safety guidance.",
+      "The site keeps critical signals visible: office channels, licensing references, process steps, and verification guidance.",
   } satisfies SectionCopy,
   publicSignals: [
     "Published office phone numbers, email, and location.",
     "Government verification links for agency and recruitment checks.",
     "Role-level requirements and interview routes.",
-    "Safety guidance on fraud, payments, and documentation handling.",
+    "Verification guidance on fraud, payments, and documentation handling.",
   ],
 } as const
 
@@ -478,7 +478,7 @@ export const safetyPageCopy = {
     "Encouragement to register with Ugandan embassy contacts in host countries.",
   ],
   officialDomains: [
-    "freshmind.ug",
+    "freshmindinternational.com",
     "eemis.mglsd.go.ug",
     "esmis.mglsd.go.ug",
     "ilo.org",
@@ -498,9 +498,9 @@ export const safetyPageCopy = {
 
 export const contactPageCopy = {
   metadata: {
-    title: "Contact",
+    title: "Contact Freshmind",
     description:
-      "Reach Freshmind through official office channels for candidate support, employer hiring inquiries, and safety verification.",
+      "Contact Freshmind to verify job offers, follow up on interview booking, or discuss overseas hiring needs with a licensed recruitment agency in Uganda.",
   },
   hero: {
     eyebrow: "Contact Freshmind",
@@ -541,15 +541,15 @@ export const contactPageCopy = {
 
 export const opportunitiesPageCopy = {
   metadata: {
-    title: "Active Opportunities",
+    title: "Verified Jobs Abroad for Ugandans",
     description:
-      "Browse verified opportunities with destination, requirements, interview routes, and practical registration guidance.",
+      "Browse verified jobs abroad for Ugandans with destination, salary context, requirements, and interview booking details for the UAE, Qatar, Saudi Arabia, Jordan, and Poland.",
   },
   hero: {
     eyebrow: "Active opportunities",
-    title: "Choose a verified opening, then follow the published process.",
+    title: "Verified jobs abroad for Ugandans",
     description:
-      "Openings are presented with role context, document expectations, and schedule logic so candidates can decide with confidence.",
+      "Browse live openings with destination, role requirements, salary context, and interview booking guidance from a licensed recruitment agency in Uganda.",
     image: "travelReadiness",
   } satisfies HeroCopy,
   intro: {

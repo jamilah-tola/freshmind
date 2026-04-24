@@ -23,12 +23,22 @@ const ibmPlexSans = IBM_Plex_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Freshmind International | Verified Recruitment for Candidates and Employers",
+    default: "Jobs Abroad for Ugandans | Freshmind International",
     template: "%s | Freshmind International",
   },
   description: siteConfig.description,
-  keywords:
-    "Uganda jobs abroad, employer staffing Uganda, interview registration, ethical recruitment Uganda, MGLSD licensed recruitment agency, overseas jobs Uganda, Freshmind International",
+  keywords: [
+    "jobs abroad for Ugandans",
+    "licensed recruitment agency Uganda",
+    "verified jobs abroad Uganda",
+    "overseas jobs Uganda",
+    "work abroad Uganda",
+    "Dubai jobs for Ugandans",
+    "Qatar jobs for Ugandans",
+    "Saudi jobs for Ugandans",
+    "ethical recruitment Uganda",
+    "Freshmind International",
+  ],
   applicationName: siteConfig.name,
   category: "employment",
   authors: [{ name: siteConfig.name }],
@@ -38,7 +48,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Freshmind International",
+    title: "Jobs Abroad for Ugandans | Freshmind International",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -82,4 +92,3 @@ export default function RootLayout({
     </html>
   )
 }
-
