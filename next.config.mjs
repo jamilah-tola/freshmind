@@ -18,7 +18,7 @@ const nextConfig = {
       },
       {
         source: "/salary-benefits",
-        destination: "/job-categories",
+        destination: "/opportunities",
         permanent: true,
       },
       {
@@ -39,6 +39,21 @@ const nextConfig = {
       {
         source: "/application-process",
         destination: "/opportunities/book",
+        permanent: true,
+      },
+      {
+        source: "/success-stories",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/job-categories",
+        destination: "/opportunities",
+        permanent: true,
+      },
+      {
+        source: "/job-categories/:slug",
+        destination: "/opportunities",
         permanent: true,
       },
     ]

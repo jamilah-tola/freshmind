@@ -506,7 +506,7 @@ export const contactPageCopy = {
     eyebrow: "Contact Freshmind",
     title: "Official channels for candidate support and employer hiring needs.",
     description:
-      "Use this page to verify communication, follow up on registrations, ask process questions, or discuss employer workforce requirements.",
+      "Welcome to Freshmind. We are glad you are here and ready to help.",
     image: "trustDesk",
   } satisfies HeroCopy,
   intro: {
@@ -552,18 +552,6 @@ export const opportunitiesPageCopy = {
       "Browse live openings with destination, role requirements, salary context, and interview booking guidance from a licensed recruitment agency in Uganda.",
     image: "travelReadiness",
   } satisfies HeroCopy,
-  intro: {
-    eyebrow: "How to Use This Page",
-    title: "Read first, confirm fit, then register.",
-    description:
-      "Prioritize factual checks: destination, role requirements, interview route, and safety reminders before submitting your profile.",
-  } satisfies SectionCopy,
-  guidePoints: [
-    "Start with destination and category fit.",
-    "Check documents and experience requirements carefully.",
-    "Register only through the published route linked to each opening.",
-    "Use official contacts when any instruction feels unclear.",
-  ],
   registrationGuidance: {
     eyebrow: "Before You Register",
     title: "Prepare once, apply confidently.",
@@ -644,8 +632,8 @@ export const employersPageCopy = {
       "Use the contact pathway to discuss demand planning, candidate profile needs, and process timelines.",
     primaryLabel: "Contact Employer Desk",
     primaryHref: "/contact",
-    secondaryLabel: "Browse Candidate Sectors",
-    secondaryHref: "/job-categories",
+    secondaryLabel: "View Opportunities",
+    secondaryHref: "/opportunities",
   },
 } as const
 

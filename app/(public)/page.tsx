@@ -1,5 +1,5 @@
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
 import {
   MessageSquareQuote,
   Target,
@@ -39,45 +39,6 @@ const registrationSteps = [
     title: "Prepare for travel and placement",
     body:
       "Before departure, Freshmind guides selected candidates through final documentation, orientation, and the support channels available after placement.",
-  },
-] as const
-
-const opportunitySearchThemes = [
-  {
-    title: "Jobs in Dubai for Ugandans",
-    description:
-      "UAE demand commonly centers on security, hospitality, cleaning, and facilities roles supported by formal screening and documented contracts.",
-    href: "/opportunities",
-  },
-  {
-    title: "Jobs in Qatar for Ugandans",
-    description:
-      "Qatar searches often focus on drivers, logistics, airport support, and service jobs that require clear interview preparation and document readiness.",
-    href: "/opportunities",
-  },
-  {
-    title: "Jobs in Saudi Arabia for Ugandans",
-    description:
-      "Saudi Arabia remains a major route for hotel support, construction, healthcare support, and other employer-led overseas placements.",
-    href: "/opportunities",
-  },
-  {
-    title: "Security jobs abroad for Ugandans",
-    description:
-      "Security roles usually reward discipline, presentation, and shift readiness, and they remain one of the strongest candidate-intent searches.",
-    href: "/job-categories/security",
-  },
-  {
-    title: "Driver jobs abroad for Ugandans",
-    description:
-      "Driver and logistics placements depend on permit history, safety record, and destination fit before interview shortlisting begins.",
-    href: "/job-categories/transport",
-  },
-  {
-    title: "Hospitality, cleaning, and caregiver jobs abroad",
-    description:
-      "Service and care roles attract candidates looking for cleaner, caregiver, hotel, and support jobs with visible role expectations before they apply.",
-    href: "/job-categories/hospitality",
   },
 ] as const
 
@@ -231,42 +192,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 sm:py-20">
-        <div className="container">
-          <div className="max-w-[58rem] space-y-5">
-            <Eyebrow>Popular Job Routes</Eyebrow>
-            <h2 className="section-title max-w-[15ch]">
-              Explore verified jobs abroad for Ugandans by destination and role.
-            </h2>
-            <p className="section-copy">
-              Candidates usually compare opportunities by country, category, and trust
-              signals. Freshmind publishes openings and support information for the UAE,
-              Qatar, Saudi Arabia, Jordan, and Poland so applicants can decide with
-              clearer expectations.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {opportunitySearchThemes.map((theme) => (
-              <article key={theme.title} className="surface-card p-6">
-                <h2 className="text-[1.15rem] font-semibold tracking-[-0.02em] text-foreground">
-                  {theme.title}
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                  {theme.description}
-                </p>
-                <Link
-                  href={theme.href}
-                  className="mt-6 inline-flex text-sm font-semibold text-primary hover:text-primary/80"
-                >
-                  Explore opportunities
-                </Link>
-              </article>
-            ))}
           </div>
         </div>
       </section>

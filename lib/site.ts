@@ -45,13 +45,13 @@ export const footerNavigation = {
   jobSeekers: [
     { href: "/opportunities", label: "Browse openings" },
     { href: "/opportunities/book", label: "Book interview" },
-    { href: "/job-categories", label: "Job categories" },
-    { href: "/success-stories", label: "Success stories" },
+    { href: "/about", label: "About Freshmind" },
+    { href: "/why-freshmind", label: "Why Freshmind" },
     { href: "/contact", label: "Talk to our team" },
   ],
   employers: [
     { href: "/about", label: "About Freshmind" },
-    { href: "/job-categories", label: "Sectors supplied" },
+    { href: "/opportunities", label: "Current openings" },
     { href: "/contact", label: "Employer inquiry" },
   ],
   trust: [
@@ -64,7 +64,7 @@ export const footerNavigation = {
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/opportunities/book", label: "Application process" },
-    { href: "/job-categories", label: "Job categories" },
+    { href: "/opportunities", label: "Current openings" },
   ],
 }
 

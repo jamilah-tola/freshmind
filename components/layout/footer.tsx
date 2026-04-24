@@ -15,14 +15,13 @@ const companyLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Freshmind" },
   { href: "/opportunities", label: "Opportunities" },
-  { href: "/job-categories", label: "Job Categories" },
   { href: "/why-freshmind", label: "Why Freshmind" },
   { href: "/contact", label: "Contact Us" },
 ]
 
 const helpLinks = [
   { href: "/opportunities/book", label: "Book Interview" },
-  { href: "/success-stories", label: "Success Stories" },
+  { href: "/about", label: "About" },
   { href: "/terms", label: "Terms" },
   { href: "/privacy", label: "Privacy" },
 ]
