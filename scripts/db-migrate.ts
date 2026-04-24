@@ -5,7 +5,9 @@ import { migrate } from "drizzle-orm/postgres-js/migrator"
 import { createDb } from "../lib/db/client"
 
 async function main() {
-  const { db, sql } = createDb(process.env.DATABASE_URL)
+  const databaseUrl =
+    process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL
+  const { db, sql } = createDb(databaseUrl)
 
   try {
     await migrate(db, {

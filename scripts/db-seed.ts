@@ -4,7 +4,9 @@ import { createDb } from "../lib/db/client"
 import { seedDatabase } from "../lib/db/seed"
 
 async function main() {
-  const { db, sql } = createDb(process.env.DATABASE_URL)
+  const databaseUrl =
+    process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL
+  const { db, sql } = createDb(databaseUrl)
 
   try {
     await seedDatabase(db)
