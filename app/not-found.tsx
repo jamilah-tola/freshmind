@@ -7,7 +7,7 @@ export default function NotFound() {
     <main className="page-shell">
       <section className="container py-20 sm:py-24">
         <div className="mx-auto max-w-2xl hero-frame p-10 text-center">
-          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
+          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
             404
           </div>
           <h1 className="mt-4 font-display text-4xl font-semibold text-primary sm:text-5xl">

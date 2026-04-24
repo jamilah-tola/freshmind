@@ -21,7 +21,7 @@ export function OpportunityCard({ opening }: OpportunityCardProps) {
       </div>
 
       <div className="mt-5 space-y-3">
-        <h3 className="balanced-wrap text-2xl font-semibold tracking-tight text-primary">
+        <h3 className="balanced-wrap text-2xl font-semibold tracking-tight text-foreground">
           {opening.title}
         </h3>
         <p className="text-sm leading-7 text-muted-foreground">
@@ -31,7 +31,7 @@ export function OpportunityCard({ opening }: OpportunityCardProps) {
 
       <ul className="mt-6 grid gap-3 text-sm text-muted-foreground">
         <li className="flex items-start gap-3">
-          <MapPin className="mt-1 h-4 w-4 text-secondary" />
+          <MapPin className="mt-1 h-4 w-4 text-accent" />
           <div>
             <p className="font-semibold text-foreground">Destination</p>
             <p>
@@ -40,14 +40,14 @@ export function OpportunityCard({ opening }: OpportunityCardProps) {
           </div>
         </li>
         <li className="flex items-start gap-3">
-          <CalendarDays className="mt-1 h-4 w-4 text-secondary" />
+          <CalendarDays className="mt-1 h-4 w-4 text-accent" />
           <div>
             <p className="font-semibold text-foreground">Next interview</p>
             <p>{opening.nextInterviewDate || "Schedule pending"}</p>
           </div>
         </li>
         <li className="flex items-start gap-3">
-          <Users className="mt-1 h-4 w-4 text-secondary" />
+          <Users className="mt-1 h-4 w-4 text-accent" />
           <div>
             <p className="font-semibold text-foreground">Seats and roles</p>
             <p>
@@ -71,10 +71,10 @@ export function OpportunityCard({ opening }: OpportunityCardProps) {
 
       <div className="mt-auto pt-8">
         <div className="mb-4 flex items-center gap-2 text-sm font-medium text-primary">
-          <ShieldCheck className="h-4 w-4 text-secondary" />
+          <ShieldCheck className="h-4 w-4 text-accent" />
           {opening.feePolicy}
         </div>
-        <Button asChild className="w-full rounded-full bg-primary text-primary-foreground">
+        <Button asChild className="w-full">
           <Link href={`/opportunities/${opening.slug}`}>
             View opening and register
             <ArrowRight className="h-4 w-4" />

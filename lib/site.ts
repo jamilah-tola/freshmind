@@ -4,13 +4,13 @@ export const siteConfig = {
   name: "Freshmind International",
   shortName: "Freshmind",
   description:
-    "Licensed ethical recruitment for Ugandan job seekers pursuing verified overseas opportunities through documented process, worker protection, and official support.",
-  brandColor: "#F5582B",
+    "Licensed ethical recruitment connecting Ugandan job seekers and international employers through verified opportunities, documented process controls, and worker protection.",
+  brandColor: "#82BA33",
   logoPath: "/brand/freshmind-logo.png",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "https://freshmind.ug",
-  email: "careers@freshmind.ug",
+  email: "info@freshmindinternational.com",
   phone: "+256 783 183 252",
   altPhone: "+256 704 231 665",
   whatsapp: "256783183252",
@@ -36,16 +36,23 @@ export const siteConfig = {
 
 export const primaryNavigation = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Freshmind" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/opportunities", label: "Opportunities" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ]
 
 export const footerNavigation = {
   jobSeekers: [
     { href: "/opportunities", label: "Browse openings" },
+    { href: "/salary-benefits", label: "Salary and benefits" },
     { href: "/how-it-works", label: "Interview process" },
     { href: "/faq", label: "Questions before you apply" },
     { href: "/contact", label: "Talk to our team" },
+  ],
+  employers: [
+    { href: "/employers", label: "Employer services" },
+    { href: "/job-categories", label: "Sectors supplied" },
+    { href: "/contact", label: "Employer inquiry" },
   ],
   trust: [
     { href: "/why-freshmind", label: "Why Freshmind" },

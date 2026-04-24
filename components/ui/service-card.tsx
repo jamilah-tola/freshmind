@@ -17,19 +17,28 @@ export function ServiceCard({
   href = "#",
 }: ServiceCardProps) {
   return (
-    <Card className="shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-      <CardContent className="p-8">
-        <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-secondary/10">
-          <Icon className="h-8 w-8 text-secondary" />
+    <Card className="h-full rounded-xl border border-black/8 shadow-sm transition-colors duration-150 hover:bg-muted/20">
+      <CardContent className="p-6">
+        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-md bg-secondary">
+          <Icon className="h-5 w-5 text-primary" />
         </div>
 
-        <h3 className="mb-4 text-xl font-bold text-foreground">{title}</h3>
+        <h3 className="mb-3 text-xl font-semibold text-foreground">{title}</h3>
 
-        <p className="mb-6 leading-relaxed text-muted-foreground">
-          {description}
-        </p>
+        <p className="leading-7 text-muted-foreground">{description}</p>
 
-        
+        {href === "#" ? (
+          <span className="mt-5 inline-flex items-center text-sm font-semibold text-primary">
+            Learn more
+          </span>
+        ) : (
+          <Link
+            href={href}
+            className="mt-5 inline-flex items-center text-sm font-semibold text-primary hover:underline"
+          >
+            Learn more
+          </Link>
+        )}
       </CardContent>
     </Card>
   )

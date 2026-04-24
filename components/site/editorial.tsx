@@ -33,19 +33,9 @@ export function Eyebrow({
     <span
       className={cn(
         "section-eyebrow",
-        inverse &&
-          "!border-primary-foreground/12 !bg-primary-foreground/8 !text-primary-foreground/76",
+        inverse && "!text-primary-foreground/76",
         className
       )}
-      style={
-        inverse
-          ? {
-              borderColor: "rgba(43,20,15,0.12)",
-              backgroundColor: "rgba(43,20,15,0.08)",
-              color: "rgba(43,20,15,0.76)",
-            }
-          : undefined
-      }
     >
       {children}
     </span>
@@ -71,7 +61,7 @@ export function SectionShell({
         <div
           className={cn(
             inset &&
-              "rounded-[1rem] border px-6 py-8 sm:px-10 sm:py-12 lg:px-14 lg:py-16",
+              "rounded-xl border px-6 py-8 sm:px-10 sm:py-12 lg:px-14 lg:py-16",
             inset && sectionThemeClasses[theme],
             className
           )}
@@ -146,11 +136,11 @@ export function MediaCard({
         alt={alt ?? asset.alt}
         fill
         priority={priority}
-        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+        className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
       />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.02),rgba(17,17,17,0.22))]" />
       {badge ? (
-        <span className="absolute left-5 top-5 rounded-full bg-white/88 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-foreground shadow-sm">
+        <span className="absolute left-5 top-5 rounded-md bg-white/88 px-3 py-1 text-xs font-semibold text-foreground shadow-sm">
           {badge}
         </span>
       ) : null}
@@ -176,7 +166,7 @@ export function FeatureTile({
     <Reveal>
       <article
         className={cn(
-          "group rounded-[1.75rem] border p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(0,0,0,0.1)]",
+          "group rounded-xl border p-6 transition-colors duration-150",
           theme === "dark"
             ? "border-primary-foreground/12 bg-primary/90 text-primary-foreground"
             : theme === "accent"
@@ -187,11 +177,11 @@ export function FeatureTile({
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-4">
             {eyebrow ? (
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+              <p className="text-xs font-semibold tracking-[0.04em] text-muted-foreground">
                 {eyebrow}
               </p>
             ) : null}
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black/5">
+            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-black/5">
               <Icon className="h-5 w-5" />
             </div>
           </div>
@@ -232,7 +222,7 @@ export function ProofRail({
           <Reveal delay={index * 0.05}>
             <article
               className={cn(
-                "rounded-[1.5rem] border p-5",
+                "rounded-lg border p-5",
                 theme === "dark"
                   ? "border-primary-foreground/12 bg-primary-foreground/6"
                   : "border-black/6 bg-white"
@@ -273,7 +263,7 @@ export function ProofRail({
             href={item.href}
             target="_blank"
             rel="noreferrer"
-            className="block transition-transform duration-200 hover:-translate-y-1"
+            className="block transition-colors duration-150"
           >
             {content}
           </a>
@@ -306,7 +296,7 @@ export function PromoCard({
     <Reveal>
       <article
         className={cn(
-          "overflow-hidden rounded-[2rem] border",
+          "overflow-hidden rounded-xl border",
           theme === "dark"
             ? "border-white/10 bg-primary text-primary-foreground"
             : theme === "accent"
@@ -398,7 +388,7 @@ export function EditorialSplit({
               <li
                 key={point}
                 className={cn(
-                  "flex gap-4 rounded-[1.25rem] border p-4 text-sm leading-7",
+                  "flex gap-4 rounded-lg border p-4 text-sm leading-7",
                   theme === "dark"
                     ? "border-primary-foreground/12 bg-primary-foreground/6 text-primary-foreground/74"
                     : "border-black/6 bg-white text-muted-foreground"
@@ -406,7 +396,7 @@ export function EditorialSplit({
               >
                 <span
                   className={cn(
-                    "mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
+                    "mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-xs font-semibold",
                     theme === "dark"
                       ? "bg-secondary text-secondary-foreground"
                       : "bg-primary text-primary-foreground"
@@ -438,7 +428,7 @@ export function FormShell({
 }) {
   return (
     <div className="grid gap-6 xl:grid-cols-[1.04fr_0.96fr]">
-      <div className="rounded-[2rem] border border-black/6 bg-white p-6 shadow-[0_18px_50px_rgba(0,0,0,0.08)] sm:p-8">
+      <div className="rounded-xl border border-black/6 bg-white p-6 shadow-sm sm:p-8">
         <h2 className="text-[clamp(1.8rem,2.6vw,2.6rem)] font-semibold leading-[1] tracking-[-0.03em] text-foreground">
           {title}
         </h2>
@@ -466,7 +456,7 @@ export function InlineLinkCard({
   return (
     <Link
       href={href}
-      className="group flex items-center justify-between gap-5 rounded-[1.5rem] border border-black/6 bg-white p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]"
+      className="group flex items-center justify-between gap-5 rounded-lg border border-black/6 bg-white p-5 transition-colors duration-150 hover:bg-muted/40"
     >
       <div>
         <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
@@ -479,7 +469,7 @@ export function InlineLinkCard({
           {description}
         </p>
       </div>
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-secondary-foreground">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-black/8 bg-background text-secondary-foreground">
         <ArrowRight className="h-4 w-4" />
       </span>
     </Link>

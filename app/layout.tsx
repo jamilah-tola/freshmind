@@ -1,30 +1,34 @@
 import type { Metadata, Viewport } from "next"
 import type React from "react"
-import { Inter_Tight, Manrope } from "next/font/google"
+import { IBM_Plex_Sans, Inter } from "next/font/google"
+
 import "./globals.css"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
 import { absoluteUrl, siteConfig } from "@/lib/site"
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 })
 
-const interTight = Inter_Tight({
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-secondary",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Freshmind International | Verified Overseas Jobs and Interview Registration",
+    default: "Freshmind International | Verified Recruitment for Candidates and Employers",
     template: "%s | Freshmind International",
   },
   description: siteConfig.description,
   keywords:
-    "Uganda jobs abroad, interview registration, ethical recruitment Uganda, MGLSD licensed recruitment agency, overseas jobs Uganda, Freshmind International",
+    "Uganda jobs abroad, employer staffing Uganda, interview registration, ethical recruitment Uganda, MGLSD licensed recruitment agency, overseas jobs Uganda, Freshmind International",
   applicationName: siteConfig.name,
   category: "employment",
   authors: [{ name: siteConfig.name }],
@@ -65,39 +69,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const organizationJsonLd = {
-    "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness"],
-    name: siteConfig.name,
-    url: siteConfig.url,
-    telephone: siteConfig.phone,
-    email: siteConfig.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.address.street,
-      addressLocality: siteConfig.address.city,
-      postalCode: siteConfig.address.postal,
-      addressCountry: siteConfig.address.country,
-    },
-    areaServed: "Uganda",
-    sameAs: Object.values(siteConfig.social),
-  }
-
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} ${interTight.variable} min-h-screen bg-background font-sans text-foreground antialiased`}
+        className={`${inter.variable} ${ibmPlexSans.variable} min-h-screen bg-background font-sans text-foreground antialiased`}
       >
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
-          }}
-        />
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          {children}
+          <Toaster position="top-right" />
+        </ThemeProvider>
       </body>
     </html>
   )
 }
+

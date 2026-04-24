@@ -34,6 +34,15 @@
     --input: 90 18% 84%;
     --ring: 85 57% 46%;
 
+    --sidebar-background: 90 26% 97%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 85 57% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 90 30% 93%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 90 18% 86%;
+    --sidebar-ring: 85 57% 46%;
+
     --surface: 90 25% 98%;
     --surface-alt: 90 22% 96%;
     --divider: 90 18% 90%;
@@ -151,10 +160,19 @@
   }
 
   .section-eyebrow {
-    @apply inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-xs font-semibold text-muted-foreground;
-    letter-spacing: 0.02em;
-    border-color: hsl(var(--border));
-    background-color: hsl(var(--background));
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase text-primary;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
+  }
+
+  .section-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 1.75rem;
+    height: 1px;
+    flex: 0 0 auto;
+    background-color: currentColor;
+    opacity: 0.55;
   }
 
   .section-title {

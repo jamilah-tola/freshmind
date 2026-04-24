@@ -472,6 +472,30 @@ export const testimonials: Testimonial[] = [
     quote:
       "What helped most was the preparation. I understood the interview standards, the documentation checks, and how to verify any information before acting on it.",
   },
+  {
+    id: "story-4",
+    name: "Brian K.",
+    district: "Kampala",
+    role: "Warehouse assistant in Abu Dhabi",
+    quote:
+      "I liked that the instructions were simple. I knew where to go, which documents to carry, and who to call when I needed to confirm something.",
+  },
+  {
+    id: "story-5",
+    name: "Joan T.",
+    district: "Masaka",
+    role: "Care worker in Riyadh",
+    quote:
+      "Freshmind did not rush me. They explained the interview process, the contract terms, and what I needed to sort out before travel.",
+  },
+  {
+    id: "story-6",
+    name: "Hassan M.",
+    district: "Jinja",
+    role: "Driver in Doha",
+    quote:
+      "Most agencies talk too much and explain too little. Here, the follow-up was clear, the screening date was clear, and I always knew the next step.",
+  },
 ]
 
 export const successStories: SuccessStory[] = [

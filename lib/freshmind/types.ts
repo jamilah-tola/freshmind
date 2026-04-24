@@ -1,37 +1,67 @@
-export type OpportunityCategory =
-  | "security"
-  | "transport"
-  | "hospitality"
-  | "construction"
-  | "healthcare"
-  | "retail"
+export const opportunityCategories = [
+  "security",
+  "transport",
+  "hospitality",
+  "construction",
+  "healthcare",
+  "retail",
+] as const
 
-export type OpportunityStatus = "active" | "upcoming" | "closed" | "draft"
-export type SlotStatus = "open" | "full" | "closed"
-export type RegistrationStatus =
-  | "new"
-  | "confirmed"
-  | "shortlisted"
-  | "no-show"
-  | "placed"
+export type OpportunityCategory = (typeof opportunityCategories)[number]
 
-export type EducationLevel =
-  | "Primary"
-  | "O-Level"
-  | "A-Level"
-  | "Certificate"
-  | "Diploma"
-  | "Degree"
-  | "Postgraduate"
+export const opportunityStatuses = ["active", "upcoming", "closed", "draft"] as const
+export type OpportunityStatus = (typeof opportunityStatuses)[number]
 
-export type AgeBand =
-  | "18-24"
-  | "25-30"
-  | "31-35"
-  | "36-40"
-  | "41+"
+export const slotStatuses = ["open", "full", "closed"] as const
+export type SlotStatus = (typeof slotStatuses)[number]
 
-export type PassportStatus = "Valid passport" | "Passport in process" | "No passport"
+export const registrationStatuses = [
+  "new",
+  "confirmed",
+  "shortlisted",
+  "no-show",
+  "placed",
+] as const
+export type RegistrationStatus = (typeof registrationStatuses)[number]
+
+export const contactSubmissionStatuses = [
+  "new",
+  "reviewed",
+  "replied",
+  "archived",
+] as const
+export type ContactSubmissionStatus = (typeof contactSubmissionStatuses)[number]
+
+export const educationLevels = [
+  "Primary",
+  "O-Level",
+  "A-Level",
+  "Certificate",
+  "Diploma",
+  "Degree",
+  "Postgraduate",
+] as const
+export type EducationLevel = (typeof educationLevels)[number]
+
+export const ageBands = ["18-24", "25-30", "31-35", "36-40", "41+"] as const
+export type AgeBand = (typeof ageBands)[number]
+
+export const passportStatuses = [
+  "Valid passport",
+  "Passport in process",
+  "No passport",
+] as const
+export type PassportStatus = (typeof passportStatuses)[number]
+
+export const contactInquiryTypes = [
+  "Candidate support",
+  "Employer inquiry",
+  "Opportunity question",
+  "Verification request",
+] as const
+export type ContactInquiryType = (typeof contactInquiryTypes)[number]
+
+export type AdminRole = "admin"
 
 export interface CategoryContent {
   slug: OpportunityCategory
@@ -100,6 +130,14 @@ export interface InterviewSlot {
   status: SlotStatus
 }
 
+export interface DocumentAssetMetadata {
+  originalFilename: string
+  secureUrl: string
+  publicId: string
+  mimeType: string
+  uploadedAt: string
+}
+
 export interface Registration {
   id: string
   reference: string
@@ -117,10 +155,32 @@ export interface Registration {
   passportStatus: PassportStatus
   preferredCountry: string
   notes?: string
-  documentName?: string
-  documentPath?: string
+  document?: DocumentAssetMetadata | null
   status: RegistrationStatus
   createdAt: string
+  updatedAt: string
+}
+
+export interface AdminUser {
+  id: string
+  email: string
+  role: AdminRole
+  createdAt: string
+  updatedAt: string
+}
+
+export interface ContactSubmission {
+  id: string
+  fullName: string
+  phone: string
+  email?: string
+  inquiryType: ContactInquiryType
+  subject?: string
+  message: string
+  registrationReference?: string
+  status: ContactSubmissionStatus
+  createdAt: string
+  updatedAt: string
 }
 
 export interface Testimonial {
@@ -181,7 +241,16 @@ export interface RegistrationView extends Registration {
   slotLabel: string
 }
 
-export interface CreateOpeningInput {
+export interface DashboardOverview {
+  totalOpportunities: number
+  activeOpportunities: number
+  openSlots: number
+  totalRegistrations: number
+  newRegistrations: number
+  newContacts: number
+}
+
+export interface CreateOpportunityInput {
   title: string
   category: OpportunityCategory
   summary: string
@@ -196,6 +265,25 @@ export interface CreateOpeningInput {
   documents: string[]
 }
 
+export type CreateOpeningInput = CreateOpportunityInput
+
+export interface UpdateOpportunityInput {
+  title?: string
+  category?: OpportunityCategory
+  summary?: string
+  destinationCountry?: string
+  destinationCity?: string
+  employer?: string
+  salaryRange?: string
+  openingsCount?: number
+  closingDate?: string
+  benefits?: string[]
+  requirements?: string[]
+  documents?: string[]
+  status?: OpportunityStatus
+  featured?: boolean
+}
+
 export interface CreateSlotInput {
   openingId: string
   venueId: string
@@ -204,6 +292,12 @@ export interface CreateSlotInput {
   endTime: string
   capacity: number
   note: string
+  venueName?: string
+  venueCity?: string
+  venueRegion?: string
+  venueAddress?: string
+  venueMapUrl?: string
+  venueNotes?: string
 }
 
 export interface CreateRegistrationInput {
@@ -221,4 +315,23 @@ export interface CreateRegistrationInput {
   passportStatus: PassportStatus
   preferredCountry: string
   notes?: string
+  document?: DocumentAssetMetadata | null
+}
+
+export interface UpdateRegistrationInput {
+  status: RegistrationStatus
+}
+
+export interface CreateContactSubmissionInput {
+  fullName: string
+  phone: string
+  email?: string
+  inquiryType: ContactInquiryType
+  subject?: string
+  message: string
+  registrationReference?: string
+}
+
+export interface UpdateContactSubmissionInput {
+  status: ContactSubmissionStatus
 }

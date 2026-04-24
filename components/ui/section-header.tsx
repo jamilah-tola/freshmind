@@ -25,10 +25,10 @@ export function SectionHeader({
       <div
         className={`flex items-center ${
           centered ? "justify-center" : ""
-        } space-x-2 mb-4`}
+        } mb-4 space-x-2`}
       >
         <div
-          className={`w-8 h-8 rounded-full flex items-center justify-center ${
+          className={`flex h-8 w-8 items-center justify-center rounded-md ${
             isDark ? "bg-primary-foreground" : "bg-primary"
           }`}
         >
@@ -38,14 +38,14 @@ export function SectionHeader({
             }`}
           />
         </div>
-        <span className="text-secondary font-medium text-sm uppercase tracking-wide">
+        <span className="text-sm font-medium tracking-wide text-muted-foreground">
           {subtitle}
         </span>
       </div>
 
       <h2
-        className={`text-3xl md:text-4xl font-bold mb-4 ${
-          isDark ? "text-primary-foreground" : "text-primary"
+        className={`mb-4 text-3xl font-bold md:text-4xl ${
+          isDark ? "text-primary-foreground" : "text-foreground"
         }`}
       >
         {title}

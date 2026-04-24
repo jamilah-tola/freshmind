@@ -9,18 +9,20 @@ import {
   Phone,
 } from "lucide-react"
 
-import { globalEditorialCopy } from "@/lib/freshmind/editorial-copy"
 import { siteConfig } from "@/lib/site"
 
 const companyLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Freshmind" },
   { href: "/opportunities", label: "Opportunities" },
+  { href: "/employers", label: "Employers" },
+  { href: "/about", label: "About Freshmind" },
+  { href: "/salary-benefits", label: "Salary & Benefits" },
   { href: "/contact", label: "Contact Us" },
 ]
 
 const helpLinks = [
   { href: "/faq", label: "FAQ" },
+  { href: "/how-it-works", label: "How It Works" },
   { href: "/why-freshmind", label: "Why Freshmind" },
   { href: "/safety", label: "Safety & Anti-Scam" },
 ]
@@ -47,117 +49,103 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="mt-16 border-t border-black/8 bg-white text-foreground sm:mt-20">
-      <div className="container py-10 sm:py-12 lg:py-14">
-        <div className="site-grid border-b border-black/8 pb-10">
-          <div className="site-span-12 space-y-5 lg:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-3 text-foreground">
+    <footer className="border-t border-white/10 bg-[#0E5944] text-white">
+      <div className="container py-12 sm:py-14 lg:py-16">
+        <div className="site-grid border-b border-white/14 pb-10">
+          <div className="site-span-12 space-y-5 lg:col-span-4">
+            <h3 className="text-xs font-semibold tracking-[0.04em] text-white/62">
+              About Freshmind
+            </h3>
+            <Link href="/" className="inline-flex items-center gap-3 text-white">
               <Image
-                src={siteConfig.logoPath}
-                alt="Freshmind logo"
-                width={95}
-                height={91}
-                className="h-10 w-auto"
+                src="/brand/freshmind-logo-light.png"
+                alt="Freshmind light logo"
+                width={198}
+                height={180}
+                className="h-12 w-auto"
               />
               <div>
-                <div className="font-display text-xl font-semibold tracking-[-0.03em]">
+                <div className="font-display text-[1.2rem] font-semibold tracking-[-0.01em] text-white sm:text-[1.35rem]">
                   Freshmind
                 </div>
-                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-foreground/54">
-                  Ethical Recruitment
+                <div className="text-[0.7rem] text-white/62">
+                  International Limited
                 </div>
               </div>
             </Link>
-
-            <div className="space-y-3">
-              <h2 className="max-w-[12ch] font-display text-[clamp(1.9rem,3.6vw,3.1rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-foreground">
-                Promoting Ethical Recruitment, One Verified Step At A Time.
-              </h2>
-              <p className="max-w-[48ch] text-sm leading-7 text-muted-foreground">
-                {globalEditorialCopy.footerLead}
-              </p>
-            </div>
-          </div>
-
-          <div className="site-span-12 space-y-4 lg:col-span-7 lg:pl-8">
-            <div className="text-sm font-semibold tracking-[-0.01em] text-foreground">
-              Get In Touch
-            </div>
-            <form
-              action="/contact"
-              className="flex flex-col gap-3 border border-black/10 bg-white p-2 sm:flex-row sm:items-center sm:pl-5"
-            >
-              <label htmlFor="footer-email" className="sr-only">
-                Enter your email
-              </label>
-              <input
-                id="footer-email"
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-                className="h-11 flex-1 bg-transparent px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none sm:px-0"
-              />
-              <input type="hidden" name="source" value="footer" />
-              <button
-                type="submit"
-                className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                Contact Us
-              </button>
-            </form>
-            <p className="text-sm leading-7 text-muted-foreground">
-              Use your email to continue to the contact page, or call{" "}
-              <a href={`tel:${siteConfig.phone}`} className="text-foreground hover:text-primary">
-                {siteConfig.phone}
-              </a>{" "}
-              for direct help.
+            <p className="max-w-[35ch] text-sm leading-7 text-white/82">
+              {siteConfig.description}
+            </p>
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/62">
+              MGLSD Licensed • License No. {siteConfig.licenseNumber}
             </p>
           </div>
-        </div>
 
-        <div className="site-grid border-b border-black/8 py-10">
           <div className="site-span-12 space-y-4 lg:col-span-4">
-            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Contact Information
+            <h3 className="max-w-[24ch] text-base font-semibold leading-7 text-white sm:text-lg">
+              Need help choosing the right opportunity or need more information?
             </h3>
-            <div className="space-y-4 text-sm text-foreground/82">
+            <div className="space-y-4 text-sm text-white/82">
               <div className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-white/72" />
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-white">
                   {siteConfig.email}
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-white/72" />
                 <div className="space-y-1">
-                  <a href={`tel:${siteConfig.phone}`} className="block hover:text-primary">
+                  <a href={`tel:${siteConfig.phone}`} className="block hover:text-white">
                     {siteConfig.phone}
                   </a>
-                  <a href={`tel:${siteConfig.altPhone}`} className="block hover:text-primary">
+                  <a href={`tel:${siteConfig.altPhone}`} className="block hover:text-white">
                     {siteConfig.altPhone}
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/72" />
                 <div>
                   <div>{siteConfig.address.street}</div>
-                  <div className="text-muted-foreground">
+                  <div className="text-white/62">
                     {siteConfig.address.postal}, {siteConfig.address.city}
                   </div>
                 </div>
               </div>
             </div>
+            <div className="space-y-3 pt-2">
+              <p className="text-xs font-semibold tracking-[0.04em] text-white/62">
+                Follow Us
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {socialLinks.map((item) => {
+                  const Icon = item.icon
+
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={item.label}
+                      className="flex h-10 w-10 items-center justify-center rounded-md border border-white/16 bg-white/10 text-white transition-colors duration-150 hover:bg-white hover:text-[#0E5944]"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  )
+                })}
+              </div>
+            </div>
           </div>
 
           <div className="site-span-12 space-y-4 md:col-span-4 lg:col-span-2">
-            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            <h3 className="text-xs font-semibold tracking-[0.04em] text-white/62">
               Company
             </h3>
-            <ul className="space-y-3 text-sm text-foreground/82">
+            <ul className="space-y-3 text-sm text-white/82">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-primary">
+                  <Link href={link.href} className="hover:text-white">
                     {link.label}
                   </Link>
                 </li>
@@ -166,13 +154,13 @@ export function Footer() {
           </div>
 
           <div className="site-span-12 space-y-4 md:col-span-4 lg:col-span-2">
-            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            <h3 className="text-xs font-semibold tracking-[0.04em] text-white/62">
               Help
             </h3>
-            <ul className="space-y-3 text-sm text-foreground/82">
+            <ul className="space-y-3 text-sm text-white/82">
               {helpLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-primary">
+                  <Link href={link.href} className="hover:text-white">
                     {link.label}
                   </Link>
                 </li>
@@ -180,44 +168,17 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="site-span-12 space-y-4 lg:col-span-4">
-            <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Follow Us
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {socialLinks.map((item) => {
-                const Icon = item.icon
-
-                return (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={item.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:text-primary"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                )
-              })}
-            </div>
-            <p className="max-w-[28ch] text-sm leading-7 text-muted-foreground">
-              Official channels stay public so candidates can verify who they are
-              speaking to before they proceed.
-            </p>
-          </div>
         </div>
 
-        <div className="site-grid items-center py-5 text-xs text-muted-foreground">
+        <div className="site-grid items-center py-5 text-xs text-white/62">
           <p className="site-span-12 lg:col-span-6">
             © {currentYear} Freshmind International Ltd. All rights reserved.
           </p>
           <div className="site-span-12 flex flex-wrap items-center gap-5 lg:col-span-6 lg:justify-end">
-            <Link href="/privacy" className="hover:text-primary">
+            <Link href="/privacy" className="hover:text-white">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-primary">
+            <Link href="/terms" className="hover:text-white">
               Terms & Conditions
             </Link>
           </div>

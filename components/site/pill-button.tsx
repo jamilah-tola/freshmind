@@ -19,26 +19,26 @@ export function PillButton({
 }: PillButtonProps) {
   const toneClasses =
     tone === "dark"
-      ? "h-12 rounded-full bg-primary px-6 text-primary-foreground hover:bg-primary/92"
+      ? "h-11 rounded-md border border-primary bg-primary px-4 text-primary-foreground hover:bg-primary/92"
       : tone === "accent"
-        ? "h-12 rounded-full bg-secondary px-6 text-secondary-foreground hover:bg-secondary/90"
+        ? "h-11 rounded-md border border-transparent bg-accent px-4 text-accent-foreground hover:bg-accent/90"
         : tone === "light"
-          ? "h-12 rounded-full border border-black/10 bg-white px-6 text-primary hover:bg-[hsl(var(--muted))]"
-          : "h-12 rounded-full border border-current/15 bg-transparent px-6 text-current hover:bg-white/10"
+          ? "h-11 rounded-md border border-input bg-background px-4 text-foreground hover:bg-muted"
+          : "h-11 rounded-md border border-current/15 bg-transparent px-4 text-current hover:bg-background/10"
 
   const Icon = icon === "arrow-up-right" ? ArrowUpRight : ArrowRight
   const iconNode =
     icon === "none" ? null : (
       <span
         className={cn(
-          "flex h-7 w-7 items-center justify-center rounded-full transition-transform duration-200 group-hover:translate-x-0.5",
+          "flex h-6 w-6 items-center justify-center rounded-sm transition-transform duration-150 group-hover:translate-x-0.5",
           tone === "accent"
-            ? "bg-primary text-primary-foreground"
+            ? "bg-background/20 text-accent-foreground"
             : tone === "dark"
               ? "bg-secondary text-secondary-foreground"
               : tone === "ghost"
-                ? "bg-secondary text-secondary-foreground"
-                : "bg-primary text-primary-foreground"
+                ? "bg-current/10 text-current"
+                : "bg-primary/10 text-primary"
         )}
       >
         <Icon className="h-3.5 w-3.5" />
@@ -50,7 +50,7 @@ export function PillButton({
     return React.cloneElement(child, {
       ...props,
       className: cn(
-        "group inline-flex h-12 items-center gap-3 rounded-full text-sm font-semibold shadow-none transition-all duration-200 hover:-translate-y-0.5",
+        "group inline-flex items-center gap-3 text-sm font-semibold shadow-none transition-[background-color,color,border-color,box-shadow] duration-150 ease-out",
         toneClasses,
         className,
         child.props.className
@@ -68,7 +68,7 @@ export function PillButton({
     <Button
       asChild={false}
       className={cn(
-        "group inline-flex items-center gap-3 text-sm font-semibold shadow-none transition-all duration-200 hover:-translate-y-0.5",
+        "group inline-flex items-center gap-3 text-sm font-semibold shadow-none transition-[background-color,color,border-color,box-shadow] duration-150 ease-out",
         toneClasses,
         className
       )}
@@ -88,7 +88,7 @@ export function IconCircleButton({ className }: IconCircleButtonProps) {
   return (
     <span
       className={cn(
-        "flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-secondary-foreground transition-transform duration-200 group-hover:scale-[1.04]",
+        "flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background text-foreground transition-colors duration-150 group-hover:bg-secondary",
         className
       )}
     >

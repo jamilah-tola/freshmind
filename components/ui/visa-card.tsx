@@ -20,34 +20,34 @@ export function VisaCard({
   href,
 }: VisaCardProps) {
   return (
-    <Card className="group border border-border shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
+    <Card className="group rounded-xl border border-border shadow-sm transition-colors duration-150 hover:bg-muted/20">
       <CardContent className="p-6">
-        <div className="relative overflow-hidden rounded-lg mb-6">
+        <div className="relative mb-6 overflow-hidden rounded-lg">
           <Image
             src={image || "/placeholder.svg"}
             alt={title}
             width={300}
             height={200}
-            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+            className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
 
         <div className="mb-4 flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/10">
-            <Icon className="h-4 w-4 text-secondary" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-secondary">
+            <Icon className="h-4 w-4 text-primary" />
           </div>
-          <h3 className="text-xl font-bold text-foreground">{title}</h3>
+          <h3 className="text-xl font-semibold text-foreground">{title}</h3>
         </div>
 
-        <p className="mb-6 leading-relaxed text-muted-foreground">
+        <p className="mb-6 leading-7 text-muted-foreground">
           {description}
         </p>
 
         <Link
-          href={'/application-process'}
-          className="inline-flex items-center font-medium text-secondary transition-all hover:text-secondary-foreground"
+          href={href}
+          className="inline-flex items-center text-sm font-semibold text-primary transition-colors hover:underline"
         >
-          Read More
+          Read more
           <span className="ml-1 transition-transform group-hover:translate-x-1">
             →
           </span>

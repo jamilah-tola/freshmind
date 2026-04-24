@@ -208,57 +208,179 @@ export const aboutPageCopy = {
   metadata: {
     title: "About Freshmind",
     description:
-      "Learn about Freshmind International's company history, mission, licensing model, operating sectors, and recruitment standards.",
+      "Learn how Freshmind International positions its recruitment business across licensing, employer partnerships, worker preparation, and overseas placement support.",
   },
   hero: {
     eyebrow: "About Freshmind",
-    title: "A Ugandan recruitment company built on documented process and worker protection.",
+    title: "A licensed Ugandan recruitment company focused on verified overseas placement.",
     description:
-      "Freshmind International positions itself as a licensed labor recruitment agency connecting Ugandan candidates to verified overseas opportunities while maintaining compliance and welfare safeguards.",
+      "Freshmind International Ltd connects skilled and unskilled Ugandan workers to reputable employers across the Middle East and selected European markets. Its company profile centers on legal migration pathways, documented process, and worker protection from screening through deployment.",
     image: "trustDesk",
   } satisfies HeroCopy,
-  story: {
-    eyebrow: "Company Story",
-    title: "Freshmind was established to bridge local talent and international demand responsibly.",
+  heroMetrics: [
+    {
+      label: "License",
+      value: siteConfig.licenseNumber,
+      detail: "Presented as Freshmind's published MGLSD labor recruitment license.",
+    },
+    {
+      label: "Destination markets",
+      value: "5+",
+      detail: "UAE, Qatar, Saudi Arabia, Jordan, and Poland are named in the profile.",
+    },
+    {
+      label: "Employment sectors",
+      value: "7",
+      detail: "Security, transport, hospitality, cleaning, construction, retail, and healthcare.",
+    },
+  ],
+  overview: {
+    eyebrow: "Company Overview",
+    title: "Freshmind was set up to connect Ugandan talent and international demand more responsibly.",
     description:
-      "The company profile frames Freshmind as a structured recruitment organization focused on legal migration pathways, transparent process communication, and candidate readiness.",
+      "The company profile presents Freshmind as a recruitment business built around lawful documentation, verified employers, and practical preparation before travel. The model goes beyond matching a worker to a vacancy. It includes screening, contract clarity, pre-departure orientation, and post-placement support.",
   } satisfies SectionCopy,
+  overviewPoints: [
+    "Uganda-based labor recruitment agency serving overseas employers.",
+    "Focused on both skilled and unskilled workforce placement.",
+    "Recruitment routes emphasize fair wages, legal contracts, and safe working conditions.",
+    "Operations are framed around compliance, transparency, and worker welfare.",
+  ],
   mission:
     "To empower Ugandan job seekers with safe, reliable, and well-structured employment opportunities abroad, ensuring dignity, fair wages, and career growth in compliance with global labor standards.",
   vision:
     "To become the leading recruitment agency in Uganda and East Africa, recognized for ethical labor migration, professionalism, and strong partnerships with reputable international employers.",
-  licensing: {
-    eyebrow: "Licensing and Compliance",
-    title: "Regulatory grounding is treated as an operating requirement, not marketing decoration.",
+  operatingFacts: [
+    {
+      label: "Support model",
+      value: "End-to-end",
+      detail: "Freshmind describes support from document review to deployment and worker follow-up.",
+    },
+    {
+      label: "Migration stance",
+      value: "Work-visa-first",
+      detail: "Travel and placement are framed around legal work documentation rather than informal routes.",
+    },
+    {
+      label: "Candidate preparation",
+      value: "Structured screening",
+      detail: "Document checks, interviews, contract briefings, and orientation are built into the process.",
+    },
+    {
+      label: "Employer network",
+      value: "Sector based",
+      detail: "Partnerships are grouped by industry demand across security, transport, hospitality, construction, and care.",
+    },
+  ],
+  services: {
+    eyebrow: "Core Services",
+    title: "The business model combines recruitment, preparation, and worker support.",
     description:
-      "Freshmind states that it operates under MGLSD licensing, aligns with UAERA guidance, and emphasizes lawful documentation and work-visa pathways.",
+      "Freshmind's profile describes a full recruitment lifecycle for overseas employment, not just vacancy advertising.",
   } satisfies SectionCopy,
-  licensingPoints: [
-    `MGLSD licensing reference: ${siteConfig.licenseNumber}.`,
-    "Candidate flow emphasizes documented contracts and role clarity.",
-    "Pre-departure readiness and safety guidance are built into process communication.",
-    "Verification channels are published for public cross-checking.",
+  servicePillars: [
+    {
+      title: "International job placement",
+      description:
+        "Matching Ugandan candidates with verified employers across multiple overseas sectors.",
+    },
+    {
+      title: "Document review and screening",
+      description:
+        "Checking candidate readiness, supporting authenticity review, and improving fit before shortlisting.",
+    },
+    {
+      title: "Pre-departure training",
+      description:
+        "Preparing workers for workplace culture, safety expectations, and labor-rights awareness.",
+    },
+    {
+      title: "Visa and contract processing",
+      description:
+        "Supporting work visa documentation and formal contracts that clarify role, salary, and benefits.",
+    },
+    {
+      title: "Travel and relocation support",
+      description:
+        "Coordinating deployment steps such as flights, transfers, and settlement guidance where contracts require it.",
+    },
+    {
+      title: "Worker welfare support",
+      description:
+        "Maintaining communication after placement and helping address disputes or welfare concerns when needed.",
+    },
+  ],
+  process: {
+    eyebrow: "Recruitment Path",
+    title: "The company profile describes a structured route from application to deployment.",
+    description:
+      "Freshmind positions process clarity as a protection tool for both workers and employers.",
+  } satisfies SectionCopy,
+  processSteps: [
+    "Review the opening, destination, and eligibility requirements before proceeding.",
+    "Submit candidate details and supporting documents for verification.",
+    "Attend screening, interviews, or technical assessments where the role requires them.",
+    "Receive contract briefing, pre-departure training, and role expectation guidance.",
+    "Complete work-visa and travel steps before deployment and follow up through official support channels.",
+  ],
+  markets: {
+    eyebrow: "Markets and Sectors",
+    title: "Freshmind's published focus stays clear about where it recruits and what roles it supports.",
+    description:
+      "The profile names destination markets and job families so candidates and employers can understand the shape of the recruitment business early.",
+  } satisfies SectionCopy,
+  compliance: {
+    eyebrow: "Compliance and Protection",
+    title: "Regulation and worker safety are presented as operating rules, not decorative claims.",
+    description:
+      "Freshmind states that overseas placement should stay lawful, documented, and aligned to worker-protection standards at every stage.",
+  } satisfies SectionCopy,
+  compliancePoints: [
+    `Freshmind operates under MGLSD License No. ${siteConfig.licenseNumber}.`,
+    "The company profile aligns operations with UAERA expectations for responsible labor recruitment.",
+    "Employers are meant to be vetted before workers move into deployment stages.",
+    "Candidates are expected to travel on valid work visas, not visitor or tourist visas.",
+    "Contracts are used to define salary, benefits, responsibilities, and key employment terms.",
+    "Pre-departure training and worker follow-up are treated as part of the support model.",
   ],
   partnerships: {
-    eyebrow: "Partnership Approach",
-    title: "Freshmind describes partnerships as vetted working relationships, not blanket guarantees.",
+    eyebrow: "Partnership Model",
+    title: "Employer relationships are grouped by sector and destination demand.",
     description:
-      "The company profile highlights collaboration with international employers in target markets while maintaining compliance and worker-protection expectations.",
+      "The company profile lists employer and industry relationships across security, facilities, transport, hospitality, construction, retail, and healthcare. Active hiring still depends on current employer demand and signed contracts.",
   } satisfies SectionCopy,
-  partnershipNote:
-    "Specific role availability, salaries, and benefits depend on active employer demand and signed contract terms at the time of recruitment.",
-  roadmap: {
-    eyebrow: "Future Roadmap",
-    title: "The growth plan focuses on better reach, better systems, and stronger worker safeguards.",
-    description:
-      "Freshmind's profile references partnership expansion, technology-enabled recruitment operations, and stronger anti-fraud communication.",
-  } satisfies SectionCopy,
-  roadmapPoints: [
-    "Expand verified employer relationships across additional markets.",
-    "Improve digital recruitment workflows for clarity and speed.",
-    "Strengthen welfare follow-up and dispute support pathways.",
-    "Increase public awareness of safe migration practices.",
+  partnerGroups: [
+    {
+      title: "Security and facilities",
+      partners: ["G4S", "AMNCO Security", "Certis Security", "Rangers Security Services", "Ejadah Facilities Management"],
+    },
+    {
+      title: "Hospitality and cleaning",
+      partners: ["Power International Facilities Management", "Duserv Facilities Management", "Al Bilad Company for Recruitment", "Musaned"],
+    },
+    {
+      title: "Transport and logistics",
+      partners: ["Emirates Taxi", "Mowasalat Qatar", "Elitzam Group"],
+    },
+    {
+      title: "Construction, retail, and care",
+      partners: ["Infracare", "QatarGas", "Etisalat", "Trust Bridge Recruitment", "Hospitals and private clinics"],
+    },
   ],
+  nextStep: {
+    eyebrow: "Take the Next Step",
+    title: "Explore live opportunities or speak to the team through official channels.",
+    description:
+      "If you are considering overseas work, start with published openings and role requirements. If you need clarification on the company, contact Freshmind directly using the public phone lines and email.",
+    primaryCta: {
+      label: "View opportunities",
+      href: "/opportunities",
+    },
+    secondaryCta: {
+      label: "Contact Freshmind",
+      href: "/contact",
+    },
+  },
 } as const
 
 export const whyFreshmindPageCopy = {

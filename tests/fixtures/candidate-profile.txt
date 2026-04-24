@@ -1,0 +1,3 @@
+Freshmind candidate upload fixture
+Name: E2E Candidate
+Notes: This file is used by the Playwright upload flow.

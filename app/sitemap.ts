@@ -3,6 +3,8 @@ import type { MetadataRoute } from "next"
 import { getRepository } from "@/lib/freshmind/repository"
 import { absoluteUrl } from "@/lib/site"
 
+export const dynamic = "force-dynamic"
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const repository = getRepository()
   const openings = await repository.listPublicOpenings()
@@ -10,6 +12,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/",
     "/opportunities",
     "/how-it-works",
+    "/salary-benefits",
+    "/employers",
     "/why-freshmind",
     "/success-stories",
     "/safety",
