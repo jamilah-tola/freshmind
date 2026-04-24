@@ -23,7 +23,7 @@ function shouldUseSsl(databaseUrl: string) {
 
 export function createSqlClient(databaseUrl = process.env.DATABASE_URL) {
   if (!databaseUrl) {
-    throw new Error("DATABASE_URL is not configured. Please check your .env file.")
+    throw new Error("DATABASE_URL is not configured. Please check your .env file")
   }
 
   return postgres(databaseUrl, {
