@@ -60,6 +60,10 @@ function sortOpenings(openingsList: Opportunity[]) {
   })
 }
 
+function isPublishedOpportunity(opening: Opportunity) {
+  return opening.status === "active" || opening.status === "upcoming"
+}
+
 function mapOpportunity(row: OpportunityRow): Opportunity {
   return {
     id: row.id,
@@ -213,6 +217,7 @@ function buildOpportunityCard(
   opening: Opportunity
 ): OpportunityCardData {
   const slots = store.slots.filter((slot) => slot.openingId === opening.id)
+  const openSlots = slots.filter((slot) => slot.status === "open")
   const registrations = store.registrations.filter(
     (registration) => registration.openingId === opening.id
   )
@@ -220,9 +225,32 @@ function buildOpportunityCard(
     slots.reduce((sum, slot) => sum + slot.capacity, 0) - registrations.length,
     0
   )
-  const nextInterviewDate = slots
-    .filter((slot) => slot.status === "open")
-    .sort((a, b) => a.date.localeCompare(b.date))[0]?.date
+  const nextInterviewDate = openSlots.sort((a, b) => a.date.localeCompare(b.date))[0]?.date
+  const openSlotCount = openSlots.length
+  const scheduleState =
+    nextInterviewDate
+      ? "dates-published"
+      : opening.status === "active"
+        ? "ongoing"
+        : "schedule-pending"
+  const scheduleLabel =
+    nextInterviewDate
+      ? `Next interview ${nextInterviewDate}`
+      : scheduleState === "ongoing"
+        ? "Ongoing screening"
+        : "Interview dates to be announced"
+  const interviewTypeLabel =
+    openSlotCount > 0
+      ? "On-site interviews"
+      : scheduleState === "ongoing"
+        ? "Interview format shared during follow-up"
+        : "Interview format to be confirmed"
+  const availabilityLabel =
+    openSlotCount > 0
+      ? `${seatsLeft} seats across ${openSlotCount} interview ${openSlotCount === 1 ? "date" : "dates"}`
+      : scheduleState === "ongoing"
+        ? "Applications stay open while new dates are added"
+        : "Freshmind will publish new interview dates on this role"
 
   return {
     ...opening,
@@ -230,6 +258,11 @@ function buildOpportunityCard(
     seatsLeft,
     nextInterviewDate,
     slotCount: slots.length,
+    openSlotCount,
+    scheduleState,
+    scheduleLabel,
+    interviewTypeLabel,
+    availabilityLabel,
   }
 }
 
@@ -373,15 +406,8 @@ function createPostgresRepository() {
   return {
     async listPublicOpenings() {
       const store = await loadPublicStoreSnapshot()
-      return sortOpenings(
-        store.openings.filter((opening) => opening.status !== "draft")
-      ).map((opening) => buildOpportunityCard(store, opening))
-    },
-
-    async listActiveOpenings() {
-      const openings = await this.listPublicOpenings()
-      return openings.filter(
-        (opening) => opening.status === "active" || opening.status === "upcoming"
+      return sortOpenings(store.openings.filter(isPublishedOpportunity)).map((opening) =>
+        buildOpportunityCard(store, opening)
       )
     },
 
@@ -396,7 +422,7 @@ function createPostgresRepository() {
       const store = await loadPublicStoreSnapshot()
       const opening = store.openings.find((item) => item.slug === slug)
 
-      if (!opening) {
+      if (!opening || !isPublishedOpportunity(opening)) {
         return null
       }
 

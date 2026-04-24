@@ -18,6 +18,9 @@ export function PublicRegistrationForm({
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
+  const bookableSlots = opening.slots.filter(
+    (slot) => slot.status === "open" && slot.seatsLeft > 0
+  )
 
   async function uploadDocument(file: File) {
     const signResponse = await fetch("/api/uploads/cloudinary-sign", {
@@ -161,14 +164,12 @@ export function PublicRegistrationForm({
       <fieldset className="space-y-4">
         <legend className="metric-label">1. Choose your slot</legend>
         <div className="space-y-3">
-          {opening.slots.map((slot) => {
-            const disabled = slot.seatsLeft === 0 || slot.status !== "open"
-
+          {bookableSlots.map((slot) => {
             return (
               <label
                 key={slot.id}
                 className="public-choice"
-                data-disabled={disabled ? "true" : "false"}
+                data-disabled="false"
               >
                 <div className="flex items-start gap-3">
                   <input
@@ -176,7 +177,6 @@ export function PublicRegistrationForm({
                     name="slotId"
                     value={slot.id}
                     required
-                    disabled={disabled}
                     className="mt-1 h-4 w-4 accent-[hsl(var(--accent))]"
                   />
                   <div className="flex-1">

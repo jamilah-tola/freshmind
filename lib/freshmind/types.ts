@@ -12,6 +12,13 @@ export type OpportunityCategory = (typeof opportunityCategories)[number]
 export const opportunityStatuses = ["active", "upcoming", "closed", "draft"] as const
 export type OpportunityStatus = (typeof opportunityStatuses)[number]
 
+export const opportunityScheduleStates = [
+  "dates-published",
+  "ongoing",
+  "schedule-pending",
+] as const
+export type OpportunityScheduleState = (typeof opportunityScheduleStates)[number]
+
 export const slotStatuses = ["open", "full", "closed"] as const
 export type SlotStatus = (typeof slotStatuses)[number]
 
@@ -232,6 +239,11 @@ export interface OpportunityCardData extends Opportunity {
   seatsLeft: number
   nextInterviewDate?: string
   slotCount: number
+  openSlotCount: number
+  scheduleState: OpportunityScheduleState
+  scheduleLabel: string
+  interviewTypeLabel: string
+  availabilityLabel: string
 }
 
 export interface RegistrationView extends Registration {

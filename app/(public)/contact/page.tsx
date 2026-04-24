@@ -18,8 +18,8 @@ export default function ContactPage() {
   return (
     <main className="page-shell">
       <PageHero
-        eyebrow={contactPageCopy.hero.eyebrow}
-        title={contactPageCopy.hero.title}
+        eyebrow="Talk to us"
+        title="How to reach us"
         description={contactPageCopy.hero.description}
         imageKey={contactPageCopy.hero.image}
         compact

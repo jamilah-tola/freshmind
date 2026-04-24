@@ -108,7 +108,7 @@ export default function HomePage() {
 
       <section className="py-6 sm:py-8">
         <div className="container">
-          <div className="relative overflow-hidden rounded-[1.25rem] bg-[linear-gradient(135deg,#0E5944_0%,#82BA33_100%)] px-6 py-6 text-white shadow-[0_20px_44px_rgba(14,89,68,0.18)] sm:px-8 sm:py-7 lg:px-10">
+          <div className="relative overflow-hidden rounded-[1.25rem] border border-black/8 bg-white px-6 py-6 text-foreground shadow-[0_20px_44px_rgba(15,23,42,0.06)] sm:px-8 sm:py-7 lg:px-10">
             <svg
               viewBox="0 0 1000 220"
               preserveAspectRatio="none"
@@ -136,27 +136,27 @@ export default function HomePage() {
 
             <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_auto] lg:items-center">
               <div className="space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/78">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
                   Opportunities now open
                 </p>
                 <h2 className="max-w-[20ch] text-2xl font-semibold leading-tight tracking-[-0.01em] sm:text-3xl">
                   Your next opportunity abroad could start here.
                 </h2>
-                <p className="max-w-[56ch] text-sm leading-7 text-white/86">
+                <p className="max-w-[56ch] text-sm leading-7 text-muted-foreground">
                   Browse current destinations, role requirements, interview routes, and
                   application guidance published through official Freshmind channels.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center lg:min-w-[520px]">
-                <div className="border-l border-white/22 pl-4 sm:pl-5">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/72">
+                <div className="border-l border-black/8 pl-4 sm:pl-5">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                     Need help?
                   </p>
-                  <p className="mt-2 text-sm leading-7 text-white/88">
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
                     Call{" "}
                     <a
                       href={`tel:${siteConfig.phone}`}
-                      className="font-semibold text-white hover:text-white/80"
+                      className="font-semibold text-foreground hover:text-primary"
                     >
                       {siteConfig.phone}
                     </a>
@@ -164,18 +164,14 @@ export default function HomePage() {
                     Email{" "}
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="font-semibold text-white hover:text-white/80"
+                      className="font-semibold text-foreground hover:text-primary"
                     >
                       {siteConfig.email}
                     </a>
                   </p>
                 </div>
                 <div className="sm:justify-self-end">
-                  <PillButton
-                    asChild
-                    tone="ghost"
-                    className="border-white/24 bg-white text-foreground hover:bg-white/90"
-                  >
+                  <PillButton asChild tone="light">
                     <Link href="/opportunities">View Opportunities</Link>
                   </PillButton>
                 </div>
@@ -271,7 +267,7 @@ export default function HomePage() {
               {registrationSteps.map((step, index) => (
                 <li
                   key={step.title}
-                  className="flex h-full flex-col rounded-[1.35rem] border border-black/8 bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FBF4_100%)] px-5 py-5 shadow-[0_14px_30px_rgba(15,23,42,0.05)] sm:px-6 sm:py-6"
+                  className="flex h-full flex-col rounded-[1.35rem] border border-black/8 bg-white px-5 py-5 shadow-[0_14px_30px_rgba(15,23,42,0.05)] sm:px-6 sm:py-6"
                 >
                   <div className="flex items-center gap-4">
                     <div className="font-display text-[2rem] font-semibold leading-none tracking-[-0.05em] text-primary sm:text-[2.2rem]">
@@ -302,20 +298,20 @@ export default function HomePage() {
 
             <div className="grid items-start gap-6 lg:grid-cols-12">
               {featuredTestimonial ? (
-                <article className="relative self-start overflow-hidden rounded-[1.75rem] bg-[linear-gradient(135deg,#0E5944_0%,#1F6D55_46%,#82BA33_100%)] px-6 py-7 text-white shadow-[0_20px_44px_rgba(14,89,68,0.18)] sm:px-8 sm:py-8 lg:col-span-7">
-                  <MessageSquareQuote className="absolute right-6 top-6 h-16 w-16 text-white/14" />
-                  <p className="max-w-[24ch] text-[1.3rem] font-semibold leading-9 tracking-[-0.02em] text-white sm:text-[1.45rem] sm:leading-10">
+                <article className="relative self-start overflow-hidden rounded-[1.75rem] border border-black/8 bg-white px-6 py-7 text-foreground shadow-[0_20px_44px_rgba(15,23,42,0.06)] sm:px-8 sm:py-8 lg:col-span-7">
+                  <MessageSquareQuote className="absolute right-6 top-6 h-16 w-16 text-black/8" />
+                  <p className="max-w-[24ch] text-[1.3rem] font-semibold leading-9 tracking-[-0.02em] text-foreground sm:text-[1.45rem] sm:leading-10">
                     “{featuredTestimonial.quote}”
                   </p>
-                  <div className="mt-8 flex items-center gap-4 border-t border-white/16 pt-5">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/16 text-sm font-semibold uppercase tracking-[0.12em] text-white">
+                  <div className="mt-8 flex items-center gap-4 border-t border-black/8 pt-5">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-secondary text-sm font-semibold uppercase tracking-[0.12em] text-primary">
                       {getInitials(featuredTestimonial.name)}
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-white">
+                      <p className="text-sm font-semibold text-foreground">
                         {featuredTestimonial.name}
                       </p>
-                      <p className="text-sm leading-7 text-white/76">
+                      <p className="text-sm leading-7 text-muted-foreground">
                         {featuredTestimonial.role} • {featuredTestimonial.district}
                       </p>
                     </div>

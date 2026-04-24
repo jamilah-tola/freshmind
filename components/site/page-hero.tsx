@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import type { ReactNode } from "react"
 
 import { DisplayMetric, Eyebrow, MediaCard } from "@/components/site/editorial"
@@ -10,6 +9,17 @@ import type {
   SectionTheme,
 } from "@/lib/freshmind/presentation"
 import { cn } from "@/lib/utils"
+
+function clampDescription(text: string, maxLength = 140) {
+  if (text.length <= maxLength) {
+    return text
+  }
+
+  const shortened = text.slice(0, maxLength).trimEnd()
+  const lastSpace = shortened.lastIndexOf(" ")
+
+  return `${(lastSpace > 80 ? shortened.slice(0, lastSpace) : shortened).trimEnd()}...`
+}
 
 type PageHeroProps = {
   eyebrow: string
@@ -47,56 +57,47 @@ export function PageHero({
   compact = false,
 }: PageHeroProps) {
   const inverse = theme === "dark"
-  const compactTitle =
-    eyebrow && title.split(/\s+/).length > 6 ? eyebrow : title
 
   if (compact) {
+    const compactDescription = clampDescription(description)
+
     return (
       <section
         className={cn(
-          "relative overflow-hidden border-b border-black/8 bg-[#082F27] text-primary-foreground",
+          "relative overflow-hidden border-b border-black/8 text-white",
           underHeader && "-mt-16 pt-16 lg:-mt-[72px] lg:pt-[72px]",
           className
         )}
       >
-        <div className="absolute inset-0">
-          <Image
-            src="/hero-cities/doha.jpg"
-            alt="Doha skyline"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(4,30,25,0.96)_0%,rgba(7,50,40,0.9)_44%,rgba(14,89,68,0.74)_70%,rgba(130,186,51,0.54)_100%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.18),transparent_34%)]" />
-        </div>
+        <Image
+          src="/hero-cities/dubai.jpg"
+          alt="Dubai skyline"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, hsl(var(--primary-hover) / 0.8) 0%, rgb(14 89 68 / 0.84) 58%, rgb(14 89 68 / 0.92) 100%)",
+          }}
+        />
 
-        <div className="container relative py-12 sm:py-14 lg:py-16">
+        <div className="container relative py-20 sm:py-24 lg:py-28">
           <Reveal className="max-w-3xl space-y-4">
-            <nav aria-label="Breadcrumb">
-              <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/72">
-                <li>
-                  <Link href="/" className="hover:text-white">
-                    Home
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="text-white/42">
-                  /
-                </li>
-                <li aria-current="page" className="text-white">
-                  {compactTitle}
-                </li>
-              </ol>
-            </nav>
-
+            {eyebrow ? <Eyebrow inverse>{eyebrow}</Eyebrow> : null}
             <h1
               className={cn(
-                "max-w-[15ch] font-display text-[clamp(2.25rem,4vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.03em] text-white text-shadow-soft",
+                "max-w-[15ch] font-display text-[clamp(2.5rem,4vw,4.1rem)] font-bold leading-[1.02] tracking-[-0.035em] text-white",
                 titleClassName
               )}
             >
-              {compactTitle}
+              {title}
             </h1>
+            <p className="max-w-[58ch] text-base leading-7 text-white/84 sm:text-lg sm:leading-8">
+              {compactDescription}
+            </p>
           </Reveal>
         </div>
       </section>

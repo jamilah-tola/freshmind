@@ -69,8 +69,8 @@ export default function AboutPage() {
   return (
     <main className="page-shell">
       <PageHero
-        eyebrow={aboutPageCopy.hero.eyebrow}
-        title={aboutPageCopy.hero.title}
+        eyebrow="Who we are"
+        title="About Freshmind International"
         description={aboutPageCopy.hero.description}
         imageKey={aboutPageCopy.hero.image}
         compact
@@ -96,7 +96,7 @@ export default function AboutPage() {
                 return (
                   <article
                     key={point}
-                    className="rounded-[1rem] border border-black/8 bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FBF4_100%)] p-5 shadow-[0_14px_30px_rgba(15,23,42,0.05)]"
+                    className="rounded-[1rem] border border-black/8 bg-white p-5 shadow-[0_14px_30px_rgba(15,23,42,0.05)]"
                   >
                     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary">
                       <Icon className="h-4 w-4" />

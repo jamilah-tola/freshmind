@@ -52,6 +52,12 @@ type Props = {
 }
 
 const statuses: OpportunityStatus[] = ["draft", "active", "upcoming", "closed"]
+const statusLabels: Record<OpportunityStatus, string> = {
+  draft: "Draft",
+  active: "Published with dates",
+  upcoming: "Published, schedule pending",
+  closed: "Closed",
+}
 
 function toList(value: string) {
   return value
@@ -87,20 +93,21 @@ export function AdminOpportunitiesScreen({ opportunities, venues }: Props) {
             Opportunities
           </Badge>
           <h1 className="text-3xl font-semibold tracking-[-0.03em] text-foreground">
-            Manage openings and publish interview slots.
+            Manage recurring opportunity profiles and interview schedules.
           </h1>
           <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-            Create new opportunities, update visibility states, and attach location-based
-            interview slots from the admin app shell.
+            Create one opportunity record for a recurring role, then keep adding interview
+            schedules to that same role whenever dates change.
           </p>
         </div>
       </section>
 
       <Card className="border-black/6">
         <CardHeader>
-          <CardTitle>Create opportunity</CardTitle>
+          <CardTitle>Create opportunity profile</CardTitle>
           <CardDescription>
-            New opportunities are created in draft mode and can be published from the table below.
+            Build the reusable role profile first. Dates, capacity, and venue details can
+            be refreshed later as interview schedules change.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -229,7 +236,7 @@ export function AdminOpportunitiesScreen({ opportunities, venues }: Props) {
               </div>
             </div>
             <Button type="submit" className="mt-2 w-full rounded-full md:w-auto" disabled={isCreating}>
-              {isCreating ? "Saving..." : "Create opportunity"}
+              {isCreating ? "Saving..." : "Create profile"}
             </Button>
           </form>
         </CardContent>
@@ -237,9 +244,10 @@ export function AdminOpportunitiesScreen({ opportunities, venues }: Props) {
 
       <Card className="border-black/6">
         <CardHeader>
-          <CardTitle>Current opportunities</CardTitle>
+          <CardTitle>Current opportunity profiles</CardTitle>
           <CardDescription>
-            Update statuses and publish new slots into the public registration flow.
+            Keep published roles in one place and attach new interview schedules instead of
+            recreating the role every week.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -293,7 +301,7 @@ export function AdminOpportunitiesScreen({ opportunities, venues }: Props) {
                       <SelectContent>
                         {statuses.map((status) => (
                           <SelectItem key={status} value={status}>
-                            {status}
+                            {statusLabels[status]}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -318,14 +326,14 @@ export function AdminOpportunitiesScreen({ opportunities, venues }: Props) {
                           onClick={() => setSlotDialogOpportunityId(opportunity.id)}
                         >
                           <PlusCircle className="h-4 w-4" />
-                          Publish slot
+                          Add schedule
                         </Button>
                       </DialogTrigger>
                       <DialogContent>
                         <DialogHeader>
-                          <DialogTitle>Publish interview slot</DialogTitle>
+                          <DialogTitle>Add interview schedule</DialogTitle>
                           <DialogDescription>
-                            Add a new interview slot for {selectedOpportunity?.title}.
+                            Add the next interview date for {selectedOpportunity?.title}.
                           </DialogDescription>
                         </DialogHeader>
                         <form
@@ -417,7 +425,7 @@ export function AdminOpportunitiesScreen({ opportunities, venues }: Props) {
                             <Textarea id={`note-${opportunity.id}`} name="note" rows={3} required />
                           </div>
                           <Button type="submit" className="w-full rounded-full">
-                            Publish slot
+                            Add schedule
                           </Button>
                         </form>
                       </DialogContent>
